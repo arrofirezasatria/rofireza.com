@@ -12,7 +12,7 @@ export default function AppBar() {
     <Appbar position="static">
       <Toolbar variant="dense">
         <Container
-          maxWidth="sm"
+          maxWidth="md"
           sx={{
             display: "flex",
             flexDirection: "row",
