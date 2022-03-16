@@ -7,6 +7,8 @@ import Stack from "@mui/material/Stack";
 import Link from "@mui/material/Link";
 import { alpha, styled } from "@mui/material/styles";
 
+import Links from "next/link";
+
 const StyledLink = styled((props) => <Link underline="none" {...props} />)(
   ({ theme }) => ({})
 );
@@ -18,23 +20,23 @@ export default function Footer() {
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <Stack>
-            <StyledLink>Home</StyledLink>
-            <StyledLink>About</StyledLink>
-            <StyledLink>Newsletter</StyledLink>
+            <StyledLink href="/">Home</StyledLink>
+            <StyledLink href="/about">About</StyledLink>
+            <StyledLink href="/newsletter">Newsletter</StyledLink>
           </Stack>
         </Grid>
         <Grid item xs={4}>
           <Stack>
-            <StyledLink>Twitter</StyledLink>
-            <StyledLink>Youtube</StyledLink>
-            <StyledLink>Github</StyledLink>
+            <StyledLink href="https://www.twitter.com">Twitter</StyledLink>
+            <StyledLink href="https://www.youtube.com"> Youtube</StyledLink>
+            <StyledLink href="https://github.com">Github</StyledLink>
           </Stack>
         </Grid>
         <Grid item xs={4}>
           <Stack>
-            <StyledLink underline="none">Uses</StyledLink>
-            <StyledLink href="#">Guestbook</StyledLink>
-            <StyledLink>Tweets</StyledLink>
+            <StyledLink href="/uses">Uses</StyledLink>
+            <StyledLink href="/guestbook">Guestbook</StyledLink>
+            <StyledLink href="#">Tweets</StyledLink>
           </Stack>
         </Grid>
       </Grid>
