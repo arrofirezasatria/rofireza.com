@@ -6,8 +6,11 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
+import Link from "@mui/material/Link";
 
 import BlogPostCard from "../components/BlogPostCard";
+import VideoCard from "../components/VideoCard";
+import Subscribe from "../components/Subscribe";
 
 export default function Home() {
   return (
@@ -62,6 +65,23 @@ export default function Home() {
             <BlogPostCard />
           </Grid>
         </Grid>
+        <Box>
+          <Typography variant="h5" component="h3" sx={{ fontWeight: "bold" }}>
+            Learn REACT & MUI
+          </Typography>
+          <Typography>
+            Build and deploy a modern SaaS application using the most popular
+            open-source software. This course is 12 hours long and is completely
+            live streamed.
+          </Typography>
+          <VideoCard href="#" title="MUI Guide in Indonesia" index={1} />
+          <VideoCard href="#" title="Next JS Guide in Indonesia" index={2} />
+          <VideoCard href="#" title="3 Month Mastering CSS, HTML, Javascript" />
+          <Link href="#">
+            <Typography>Watch all videos</Typography>
+          </Link>
+        </Box>
+        <Subscribe />
         <Typography component="h6" variant="h6">
           rofireza.io
         </Typography>

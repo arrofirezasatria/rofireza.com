@@ -22,7 +22,10 @@ export default function BlogPostCard({ title, slug, gradient }) {
             sx={{ justifyContent: "space-between", alignItems: "flex-start" }}
           >
             <Typography>Title</Typography>
-            <Box sx={{}}>viewcount</Box>
+            <Stack direction="row">
+              <Box>Icon</Box>
+              <Box>viewcount</Box>
+            </Stack>
           </Stack>
         </Box>
       </a>
