@@ -1,16 +1,18 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import ContainerHero from "../components/ContainerHero";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Link from "@mui/material/Link";
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
+import ContainerHero from '../components/ContainerHero';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
+import Link from '@mui/material/Link';
+import ArrowRight from '@mui/icons-material/ArrowRightAlt';
+import Divider from '@mui/material/Divider';
 
-import BlogPostCard from "../components/BlogPostCard";
-import VideoCard from "../components/VideoCard";
-import Subscribe from "../components/Subscribe";
+import BlogPostCard from '../components/BlogPostCard';
+import VideoCard from '../components/VideoCard';
+import Subscribe from '../components/Subscribe';
 
 export default function Home() {
   return (
@@ -27,7 +29,7 @@ export default function Home() {
                 variant="subtitle1"
                 sx={{ fontWeight: 500, marginBottom: 2 }}
               >
-                Programmer E-Commerce at{" "}
+                Programmer E-Commerce at{' '}
               </Typography>
               <Typography>
                 Helping developers build a faster web. Teaching about web
@@ -50,7 +52,7 @@ export default function Home() {
         <Typography
           component="h3"
           variant="h4"
-          sx={{ fontWeight: "bold", marginBottom: 2 }}
+          sx={{ fontWeight: 'bold', marginBottom: 2 }}
         >
           Featured Posts
         </Typography>
@@ -66,19 +68,40 @@ export default function Home() {
           </Grid>
         </Grid>
         <Box>
-          <Typography variant="h5" component="h3" sx={{ fontWeight: "bold" }}>
+          <Typography variant="h5" component="h3" sx={{ fontWeight: 'bold' }}>
             Learn REACT & MUI
           </Typography>
-          <Typography>
+          <Typography sx={{ my: '10px' }}>
             Build and deploy a modern SaaS application using the most popular
             open-source software. This course is 12 hours long and is completely
             live streamed.
           </Typography>
-          <VideoCard href="#" title="MUI Guide in Indonesia" index={1} />
-          <VideoCard href="#" title="Next JS Guide in Indonesia" index={2} />
-          <VideoCard href="#" title="3 Month Mastering CSS, HTML, Javascript" />
+          <VideoCard
+            href="#"
+            title="MUI Guide in Indonesia"
+            index={1}
+            length={1}
+          />
+          <Divider />
+          <VideoCard
+            href="#"
+            title="Next JS Guide in Indonesia"
+            index={2}
+            length={1}
+          />
+          <Divider />
+          <VideoCard
+            href="#"
+            title="3 Month Mastering CSS, HTML, Javascript"
+            index={3}
+            length={1}
+          />
+          <Divider />
           <Link href="#">
-            <Typography>Watch all videos</Typography>
+            <Stack direction="row">
+              <Typography>Watch all videos</Typography>
+              <ArrowRight />
+            </Stack>
           </Link>
         </Box>
         <Subscribe />
