@@ -20,7 +20,7 @@ export default function VideoCard({
 }) {
   return (
     <Link href={href} underline="none">
-      <Stack direction="row" spacing={2} sx={{ alignItems: 'center' }}>
+      <Stack direction="row" spacing={2} sx={{ alignItems: 'center', py:1.5 }}>
         <Box>{index}</Box>
         <Box sx={{ flexGrow: '1' }}>
           <Typography

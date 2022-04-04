@@ -15,27 +15,28 @@ const StyledLink = styled((props) => <Link underline="none" {...props} />)(
 
 export default function Footer() {
   return (
-    <Container component="footer" maxWidth="md" sx={{ mb: 2 }}>
+    <Container component="footer" maxWidth="md" sx={{ pb: 8, pt: 2 }}>
       <Divider variant="middle" sx={{ mb: 4 }} />
       <Grid container spacing={2}>
         <Grid item xs={4}>
-          <Stack>
+          <Stack spacing={2}>
             <StyledLink href="/">Home</StyledLink>
             <StyledLink href="/about">About</StyledLink>
             <StyledLink href="/newsletter">Newsletter</StyledLink>
           </Stack>
         </Grid>
         <Grid item xs={4}>
-          <Stack>
+          <Stack spacing={2}>
             <StyledLink href="https://www.twitter.com">Twitter</StyledLink>
             <StyledLink href="https://www.youtube.com"> Youtube</StyledLink>
             <StyledLink href="https://github.com">Github</StyledLink>
           </Stack>
         </Grid>
         <Grid item xs={4}>
-          <Stack>
+          <Stack spacing={2}>
             <StyledLink href="/uses">Uses</StyledLink>
             <StyledLink href="/guestbook">Guestbook</StyledLink>
+            <StyledLink href="/guestbook">Snippets</StyledLink>
             <StyledLink href="#">Tweets</StyledLink>
           </Stack>
         </Grid>

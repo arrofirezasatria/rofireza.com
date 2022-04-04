@@ -17,7 +17,7 @@ import Subscribe from '../components/Subscribe';
 export default function Home() {
   return (
     <ContainerHero>
-      <Box sx={{}}>
+      <Box sx={{pb:8}}>
         <Grid container spacing={6}>
           <Grid item xs={6}>
             <Stack sx={{ paddingTop: 8 }}>
@@ -29,23 +29,17 @@ export default function Home() {
                 variant="subtitle1"
                 sx={{ fontWeight: 500, marginBottom: 2 }}
               >
-                Programmer E-Commerce at{' '}
+                Programmer E-Commerce at
               </Typography>
-              <Typography>
+              <Typography sx={{mb:8}}>
                 Helping developers build a faster web. Teaching about web
                 development, serverless, and React / Next.js.
               </Typography>
             </Stack>
           </Grid>
           <Grid item xs={6}>
-            <Box sx={{ marginTop: 8 }}>
-              <Image
-                alt="Lee Robinson"
-                height={176}
-                width={176}
-                src="/avatar.jpg"
-                className="rounded-full filter grayscale"
-              />
+            <Box >
+    
             </Box>
           </Grid>
         </Grid>
@@ -68,10 +62,10 @@ export default function Home() {
           </Grid>
         </Grid>
         <Box>
-          <Typography variant="h5" component="h3" sx={{ fontWeight: 'bold' }}>
+          <Typography variant="h5" component="h3" sx={{ fontWeight: 'bold', mt:'64px', mb:'16px' }}>
             Learn REACT & MUI
           </Typography>
-          <Typography sx={{ my: '10px' }}>
+          <Typography sx={{ mt: '10px', mb:2 }}>
             Build and deploy a modern SaaS application using the most popular
             open-source software. This course is 12 hours long and is completely
             live streamed.
@@ -79,35 +73,32 @@ export default function Home() {
           <VideoCard
             href="#"
             title="MUI Guide in Indonesia"
-            index={1}
+            index={01}
             length={1}
           />
           <Divider />
           <VideoCard
             href="#"
             title="Next JS Guide in Indonesia"
-            index={2}
+            index={02}
             length={1}
           />
           <Divider />
           <VideoCard
             href="#"
             title="3 Month Mastering CSS, HTML, Javascript"
-            index={3}
+            index={03}
             length={1}
           />
           <Divider />
           <Link href="#">
-            <Stack direction="row">
-              <Typography>Watch all videos</Typography>
+            <Stack direction="row" sx={{mt:'32px'}}>
+              <Typography >Watch all videos</Typography>
               <ArrowRight />
             </Stack>
           </Link>
         </Box>
         <Subscribe />
-        <Typography component="h6" variant="h6">
-          rofireza.io
-        </Typography>
       </Box>
     </ContainerHero>
   );

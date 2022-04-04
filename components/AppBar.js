@@ -6,33 +6,49 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
+import NextLink from "next/link";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+
+const NavItem = ({ name = "nav", href = "sd" }) => {
+  return (
+    <NextLink href={href}>
+      <a size="small" variant="text">
+        <Typography>{name}</Typography>
+      </a>
+    </NextLink>
+  );
+};
 
 export default function AppBar() {
   return (
-    <Appbar position="static">
-      <Toolbar variant="dense">
+    <Appbar
+      position="static"
+      sx={{
+        backgroundColor: "transparent !important",
+        boxShadow: "none",
+        color: "black",
+      }}
+    >
+      <Toolbar>
         <Container
           maxWidth="md"
           sx={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
-            alignContent: "center",
-            alignItems: "center",
+            alignItems: "baseline",
           }}
         >
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-
-          <Typography variant="h6" color="inherit" component="div">
-            Photos
-          </Typography>
+          <Stack direction="row" spacing={6} sx={{ flexGrow: 1 }}>
+            <NavItem name="Home" href="/" />
+            <NavItem name="Guestbook" href="/guestbook" />
+            <NavItem name="Dashboard" href="/dashboard" />
+            <NavItem name="Blog" href="/blog" />
+            <NavItem name="Snippets" href="snippets" />
+          </Stack>
+          <Button>a</Button>
         </Container>
       </Toolbar>
     </Appbar>
