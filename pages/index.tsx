@@ -73,21 +73,21 @@ export default function Home() {
           <VideoCard
             href="#"
             title="MUI Guide in Indonesia"
-            index={01}
+            index={1}
             length={1}
           />
           <Divider />
           <VideoCard
             href="#"
             title="Next JS Guide in Indonesia"
-            index={02}
+            index={2}
             length={1}
           />
           <Divider />
           <VideoCard
             href="#"
             title="3 Month Mastering CSS, HTML, Javascript"
-            index={03}
+            index={3}
             length={1}
           />
           <Divider />
