@@ -4,7 +4,7 @@ import ContainerHero from '../components/ContainerHero';
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
 
-export default function Guestbook({fallbackData}) {
+export default function Guestbook({ fallbackData }) {
     return (
         <ContainerHero>
             <Box>
@@ -28,8 +28,8 @@ export async function getStaticProps() {
 
     return {
         props: {
-          fallbackData
+            fallbackData
         },
         revalidate: 60
-      };
+    };
 }

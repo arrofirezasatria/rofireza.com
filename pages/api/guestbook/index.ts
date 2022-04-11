@@ -2,11 +2,8 @@ import { PrismaClient } from "@prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { json } from "stream/consumers";
 
-const prisma = new PrismaClient();
-/* 
-
-
-import prisma from 'lib/prisma'; */
+//const prisma = new PrismaClient();
+import prisma from "../../../lib/prisma";
 
 export default async function handler(
     req: NextApiRequest,
@@ -21,30 +18,35 @@ export default async function handler(
     }
 }
 
-async function addGuestBook(req: NextApiRequest, res: NextApiResponse) {
+async function addGuestBook(req, res) {
     const body = req.body;
+    console.log(body);
     try {
         const newEntry = await prisma.guestbook.create({
             data: {
-                email: body.email,
-                body: body.body,
-                created_by: body.created_by
-            }
-        })
-        return res.status(200).json({ newEntry, success: 'true' })
+                email: "aaa",
+                body: "bbb",
+                created_by: "ccc",
+            },
+        });
+        return res.status(200).json({ req });
     } catch (error) {
-        return res.status(500).json({ error, success: false })
+        return res.status(500).json({ error, success: false });
     }
 }
 
-async function readGuestBook(req: NextApiRequest,
-    res: NextApiResponse) {
-    const body = req.body
+async function readGuestBook(req: NextApiRequest, res: NextApiResponse) {
     try {
-        const allGuestBook = await prisma.guestbook.findMany();
-        return res.status(200).json({ allGuestBook, success: true })
+        const entries = await prisma.guestbook.findMany();
+        return res.json(
+            entries.map((entry) => ({
+                id: entry.id.toString(),
+                body: entry.body,
+                created_by: entry.created_by,
+                updated_at: entry.updated_at,
+            }))
+        );
     } catch (error) {
-        console.log(error)
-        return res.status(500).json({ error: 'error reading database', success: false })
+        return res.status(500).json({ error, success: false });
     }
 }
