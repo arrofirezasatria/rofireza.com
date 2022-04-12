@@ -31,7 +31,7 @@ export default function AppBar() {
         color: "black",
       }}
     >
-      <Toolbar>
+      <Toolbar sx={{ height: "88px" }}>
         <Container
           maxWidth="md"
           sx={{

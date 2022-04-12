@@ -1,26 +1,26 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import ContainerHero from '../components/ContainerHero';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Link from '@mui/material/Link';
-import ArrowRight from '@mui/icons-material/ArrowRightAlt';
-import Divider from '@mui/material/Divider';
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import ContainerHero from "../components/ContainerHero";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import Stack from "@mui/material/Stack";
+import Link from "@mui/material/Link";
+import ArrowRight from "@mui/icons-material/ArrowRightAlt";
+import Divider from "@mui/material/Divider";
 
-import BlogPostCard from '../components/BlogPostCard';
-import VideoCard from '../components/VideoCard';
-import Subscribe from '../components/Subscribe';
+import BlogPostCard from "../components/BlogPostCard";
+import VideoCard from "../components/VideoCard";
+import Subscribe from "../components/Subscribe";
 
 export default function Home() {
   return (
     <ContainerHero>
-      <Box sx={{pb:8}}>
+      <Box sx={{ pb: 8 }}>
         <Grid container spacing={6}>
           <Grid item xs={6}>
-            <Stack sx={{ paddingTop: 8 }}>
+            <Stack sx={{ paddingTop: 2 }}>
               <Typography component="h1" variant="h3" sx={{ fontWeight: 600 }}>
                 Arrofi Reza S
               </Typography>
@@ -31,22 +31,20 @@ export default function Home() {
               >
                 Programmer E-Commerce at
               </Typography>
-              <Typography sx={{mb:8}}>
+              <Typography sx={{ mb: 8 }}>
                 Helping developers build a faster web. Teaching about web
                 development, serverless, and React / Next.js.
               </Typography>
             </Stack>
           </Grid>
           <Grid item xs={6}>
-            <Box >
-    
-            </Box>
+            <Box></Box>
           </Grid>
         </Grid>
         <Typography
           component="h3"
           variant="h4"
-          sx={{ fontWeight: 'bold', marginBottom: 2 }}
+          sx={{ fontWeight: "bold", marginBottom: 2 }}
         >
           Featured Posts
         </Typography>
@@ -62,10 +60,14 @@ export default function Home() {
           </Grid>
         </Grid>
         <Box>
-          <Typography variant="h5" component="h3" sx={{ fontWeight: 'bold', mt:'64px', mb:'16px' }}>
+          <Typography
+            variant="h5"
+            component="h3"
+            sx={{ fontWeight: "bold", mt: "64px", mb: "16px" }}
+          >
             Learn REACT & MUI
           </Typography>
-          <Typography sx={{ mt: '10px', mb:2 }}>
+          <Typography sx={{ mt: "10px", mb: 2 }}>
             Build and deploy a modern SaaS application using the most popular
             open-source software. This course is 12 hours long and is completely
             live streamed.
@@ -92,8 +94,8 @@ export default function Home() {
           />
           <Divider />
           <Link href="#">
-            <Stack direction="row" sx={{mt:'32px'}}>
-              <Typography >Watch all videos</Typography>
+            <Stack direction="row" sx={{ mt: "32px" }}>
+              <Typography>Watch all videos</Typography>
               <ArrowRight />
             </Stack>
           </Link>

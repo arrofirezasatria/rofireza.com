@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
+import Divider from "@mui/material/Divider";
 import { Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import useSWR, { useSWRConfig } from "swr";
@@ -23,12 +24,17 @@ function GuestbookEntry({ entry }) {
   };
 
   return (
-    <Stack sx={{ mt: 3 }}>
+    <Stack sx={{ mt: 4 }}>
       <div>{entry.body}</div>
-      <Stack direction="row" sx={{ alignItems: "center" }} spacing={2}>
-        <p>{entry.created_by}</p>
-        <span>/</span>
-        <p>{format(new Date(entry.updated_at), "d MMM yyyy 'at' h:mm bb")}</p>
+      <Stack direction="row" sx={{ alignItems: "center", mt: 1 }} spacing={1}>
+        <Typography sx={{ fontSize: "14px", color: "gray" }}>
+          {entry.created_by}
+        </Typography>
+        <Divider orientation="vertical" flexItem variant="middle" />
+        <Typography sx={{ fontSize: "14px", color: "gray" }}>
+          {format(new Date(entry.updated_at), "d MMM yyyy 'at' h:mm bb")}
+        </Typography>
+
         {/*         <>
           <span className="text-gray-200 dark:text-gray-800">/</span>
           <button
@@ -59,10 +65,15 @@ export default function GuestBook({ fallbackData }) {
         }}
       >
         <Stack sx={{ width: "100%" }}>
-          <Typography variant="h6" component="h3" sx={{ fontWeight: "bold" }}>
+          <Typography
+            variant="h6"
+            component="h3"
+            sx={{ fontWeight: "bold", marginBottom: 2 }}
+          >
             Sign In the Guestbook
           </Typography>
           <Typography>Share Message for future visitor of my site.</Typography>
+
           <Box
             component="form"
             sx={{

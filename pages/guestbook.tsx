@@ -10,10 +10,14 @@ export default function Guestbook({ fallbackData }) {
   return (
     <ContainerHero>
       <Box>
-        <Typography component="h1" variant="h4" sx={{ fontWeight: "bold" }}>
+        <Typography
+          component="h1"
+          variant="h4"
+          sx={{ fontWeight: "bold", mb: 1 }}
+        >
           GuestBook
         </Typography>
-        <Typography>
+        <Typography sx={{ mb: 3 }}>
           Leave a comment below. It could be anything – appreciation,
           information, wisdom, or even humor. Surprise me!
         </Typography>

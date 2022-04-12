@@ -26,7 +26,7 @@ export default function ContainerHero({ children }) {
         <meta name="twitter:image" content={meta.image} /> */}
       </Head>
       <AppBarHero />
-      <Container component="main" maxWidth="md">
+      <Container component="main" maxWidth="md" sx={{ paddingTop: 8 }}>
         {children}
       </Container>
       <Footer />
