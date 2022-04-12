@@ -1,35 +1,50 @@
-import React from 'react'
+import React from "react";
+import prisma from "../lib/prisma";
+import ContainerHero from "../components/ContainerHero";
+import Box from "@mui/material/Box";
+import GuestBook from "../components/GuestBook";
 
-import ContainerHero from '../components/ContainerHero';
-import Box from '@mui/material/Box';
-import { Typography } from '@mui/material';
+import { Typography } from "@mui/material";
 
 export default function Guestbook({ fallbackData }) {
     return (
         <ContainerHero>
             <Box>
-                <Typography component='h1' variant='h4' sx={{ fontWeight: 'bold' }}>
+                <Typography
+                    component="h1"
+                    variant="h4"
+                    sx={{ fontWeight: "bold" }}
+                >
                     GuestBook
                 </Typography>
                 <Typography>
                     Leave a comment below. It could be anything – appreciation,
                     information, wisdom, or even humor. Surprise me!
                 </Typography>
-                {fallbackData}
+                <GuestBook fallbackData={fallbackData} />
             </Box>
         </ContainerHero>
-    )
+    );
 }
 
 export async function getStaticProps() {
-    //tunggu
-    const fallbackData = 'asdasd'
+    const entries = await prisma.guestbook.findMany({
+        orderBy: {
+            updated_at: "desc",
+        },
+    });
 
+    const fallbackData = entries.map((entry) => ({
+        id: entry.id.toString(),
+        body: entry.body,
+        created_by: entry.created_by.toString(),
+        updated_at: entry.updated_at.toString(),
+    }));
 
     return {
         props: {
-            fallbackData
+            fallbackData,
         },
-        revalidate: 60
+        revalidate: 60,
     };
 }
