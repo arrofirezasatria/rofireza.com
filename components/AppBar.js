@@ -11,6 +11,8 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
+import { signIn, signOut, useSession } from "next-auth/react";
+
 const NavItem = ({ name = "nav", href = "sd" }) => {
   return (
     <NextLink href={href}>
@@ -48,7 +50,13 @@ export default function AppBar() {
             <NavItem name="Blog" href="/blog" />
             <NavItem name="Snippets" href="snippets" />
           </Stack>
-          <Button>a</Button>
+          <Button
+            onClick={() => {
+              signOut();
+            }}
+          >
+            a
+          </Button>
         </Container>
       </Toolbar>
     </Appbar>
