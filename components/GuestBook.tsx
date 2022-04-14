@@ -11,92 +11,92 @@ import TextField from "@mui/material/TextField";
 import { Form, FormState } from "../lib/types";
 
 export default function GuestBook({ fallbackData }) {
-  const [form, setForm] = useState<FormState>({ state: Form.Initial });
-  const { mutate } = useSWRConfig();
-  const inputEl = useRef(null);
-  const inputEmail = useRef(null);
-  const inputCreatedBy = useRef(null);
+    const [form, setForm] = useState<FormState>({ state: Form.Initial });
+    const { mutate } = useSWRConfig();
+    const inputEl = useRef(null);
 
-  const leaveEntry = async (e) => {
-    e.preventDefault();
-    setForm({ state: Form.Loading });
+    const leaveEntry = async (e) => {
+        e.preventDefault();
+        setForm({ state: Form.Loading });
 
-    const res = await fetch("/api/guestbook", {
-      body: JSON.stringify({
-        email: "asdasd",
-        body: inputEl.current.value,
-        created_by: "adasd",
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-    });
+        const res = await fetch("/api/guestbook", {
+            body: JSON.stringify({
+                body: inputEl.current.value,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+            method: "POST",
+        });
 
-    const { error } = await res.json();
-    if (error) {
-      setForm({
-        state: Form.Error,
-        message: error,
-      });
-      return;
-    }
+        const { error } = await res.json();
+        if (error) {
+            setForm({
+                state: Form.Error,
+                message: error,
+            });
+            return;
+        }
 
-    inputEl.current.value = "";
-    mutate("/api/guestbook");
-    setForm({
-      state: Form.Success,
-      message: `Hooray! Thanks for signing my Guestbook.`,
-    });
-  };
+        inputEl.current.value = "";
+        mutate("/api/guestbook");
+        setForm({
+            state: Form.Success,
+            message: `Hooray! Thanks for signing my Guestbook.`,
+        });
+    };
 
-  return (
-    <>
-      <Paper
-        sx={{
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          padding: "24px",
-          my: 2,
-        }}
-      >
-        <Stack sx={{ width: "100%" }}>
-          <Typography variant="h6" component="h3" sx={{ fontWeight: "bold" }}>
-            Sign In the Guestbook
-          </Typography>
-          <Typography>Share Message for future visitor of my site.</Typography>
-          <Box
-            component="form"
-            sx={{
-              width: "100%",
-              border: "2px solid red",
-              borderRadius: 1,
-              my: 2,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-            onSubmit={leaveEntry}
-          >
-            <TextField size="small" ref={inputEmail} required>
-              asd
-            </TextField>
-            <TextField size="small" ref={inputEl}>
-              asd
-            </TextField>
-            <TextField size="small" ref={inputCreatedBy}>
-              asd
-            </TextField>
-            <Button type="submit">Sign In</Button>
-          </Box>
-          <Typography sx={{ fontSize: "14px" }}>
-            Your information is only used to display your name and reply by
-            email.
-          </Typography>
-        </Stack>
-      </Paper>
-      <Box>{}</Box>
-    </>
-  );
+    return (
+        <>
+            <Paper
+                sx={{
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    padding: "24px",
+                    my: 2,
+                }}
+            >
+                <Stack sx={{ width: "100%" }}>
+                    <Typography
+                        variant="h6"
+                        component="h3"
+                        sx={{ fontWeight: "bold" }}
+                    >
+                        Sign In the Guestbook
+                    </Typography>
+                    <Typography>
+                        Share Message for future visitor of my site.
+                    </Typography>
+                    <Box
+                        component="form"
+                        sx={{
+                            width: "100%",
+                            border: "2px solid red",
+                            borderRadius: 1,
+                            my: 2,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                        }}
+                        onSubmit={leaveEntry}
+                    >
+                        <TextField inputRef={inputEl} size="small" />
+
+                        {/*                         
+                        <TextField size="small" ref={inputEl} required>
+                            asd
+                        </TextField>
+                        <TextField size="small">asd</TextField> */}
+                        <Button type="submit">Sign In</Button>
+                    </Box>
+                    <Typography sx={{ fontSize: "14px" }}>
+                        Your information is only used to display your name and
+                        reply by email.
+                    </Typography>
+                </Stack>
+            </Paper>
+            <Box>{}</Box>
+        </>
+    );
 }
