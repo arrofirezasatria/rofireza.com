@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useRef } from "react";
 import useSWR, { useSWRConfig } from "swr";
-import { signIn, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -13,7 +13,18 @@ import { Form, FormState } from "../lib/types";
 import fetcher from "../lib/fetcher";
 import { format } from "date-fns";
 
-function GuestbookEntry({ entry }) {
+function GuestbookEntry({ entry, user }) {
+    const { mutate } = useSWRConfig();
+    const deleteEntry = async (e) => {
+        e.preventDefault();
+
+        await fetch(`/api/guestbook/${entry.id}`, {
+            method: "DELETE",
+        });
+
+        mutate("/api/guestbook");
+    };
+
     return (
         <Stack>
             <Typography>{entry.body}</Typography>
@@ -30,6 +41,19 @@ function GuestbookEntry({ entry }) {
                         "d MMM yyyy 'at' h:mm bb"
                     )}
                 </Typography>
+                {user && entry.created_by === user.name && (
+                    <>
+                        <span className="text-gray-200 dark:text-gray-800">
+                            /
+                        </span>
+                        <button
+                            className="text-sm text-red-600 dark:text-red-400"
+                            onClick={deleteEntry}
+                        >
+                            Delete
+                        </button>
+                    </>
+                )}
             </Stack>
         </Stack>
     );
@@ -86,6 +110,7 @@ export default function GuestBook({ fallbackData }) {
                     my: 2,
                 }}
             >
+                {/*  <Button onClick={() => signOut()}>signout</Button> */}
                 <Stack sx={{ width: "100%" }}>
                     <Typography
                         variant="h6"
@@ -97,40 +122,55 @@ export default function GuestBook({ fallbackData }) {
                     <Typography>
                         Share Message for future visitor of my site.
                     </Typography>
-                    <Box
-                        component="form"
-                        sx={{
-                            width: "100%",
-                            border: "2px solid red",
-                            borderRadius: 1,
-                            my: 2,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                        }}
-                        onSubmit={leaveEntry}
-                    >
-                        <TextField inputRef={inputEl} size="small" />
+                    {!session && (
+                        <Button
+                            onClick={(e) => {
+                                e.preventDefault();
+                                signIn("github");
+                            }}
+                        >
+                            adasd
+                        </Button>
+                    )}
+                    {session?.user && (
+                        <Box
+                            component="form"
+                            sx={{
+                                width: "100%",
+                                border: "2px solid red",
+                                borderRadius: 1,
+                                my: 2,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "space-between",
+                            }}
+                            onSubmit={leaveEntry}
+                        >
+                            <TextField inputRef={inputEl} size="small" />
 
-                        {/*                         
-                        <TextField size="small" ref={inputEl} required>
-                            asd
-                        </TextField>
-                        <TextField size="small">asd</TextField> */}
-                        {session?.user && <Button type="submit">Sign</Button>}
+                            {/*                         
+                                            <TextField size="small" ref={inputEl} required>
+                                                asd
+                                            </TextField>
+                                            <TextField size="small">asd</TextField> */}
+                            {session?.user && (
+                                <Button type="submit">Sign</Button>
+                            )}
 
-                        {!session && (
-                            <Button
-                                href="/api/auth/signin/github"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    signIn("github");
-                                }}
-                            >
-                                log
-                            </Button>
-                        )}
-                    </Box>
+                            {!session && (
+                                <Button
+                                    href="/api/auth/signin/github"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        signIn("github");
+                                    }}
+                                >
+                                    log
+                                </Button>
+                            )}
+                        </Box>
+                    )}
+
                     <Typography sx={{ fontSize: "14px" }}>
                         Your information is only used to display your name and
                         reply by email.
@@ -139,7 +179,11 @@ export default function GuestBook({ fallbackData }) {
             </Paper>
             <Stack spacing={2}>
                 {entries?.map((entry) => (
-                    <GuestbookEntry key={entry.id} entry={entry} />
+                    <GuestbookEntry
+                        key={entry.id}
+                        entry={entry}
+                        user={session?.user}
+                    />
                 ))}
             </Stack>
         </>
