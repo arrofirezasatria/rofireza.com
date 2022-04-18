@@ -12,6 +12,8 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { signIn, signOut, useSession } from "next-auth/react";
 
+import { signIn, signOut, useSession } from "next-auth/react";
+
 const NavItem = ({ name = "nav", href = "sd" }) => {
     return (
         <NextLink href={href}>
@@ -32,26 +34,22 @@ export default function AppBar() {
                 color: "black",
             }}
         >
-            <Toolbar sx={{ height: "88px" }}>
-                <Container
-                    maxWidth="md"
-                    sx={{
-                        display: "flex",
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                        alignItems: "baseline",
-                    }}
-                >
-                    <Stack direction="row" spacing={6} sx={{ flexGrow: 1 }}>
-                        <NavItem name="Home" href="/" />
-                        <NavItem name="Guestbook" href="/guestbook" />
-                        <NavItem name="Dashboard" href="/dashboard" />
-                        <NavItem name="Blog" href="/blog" />
-                        <NavItem name="Snippets" href="snippets" />
-                    </Stack>
-                    <Button onClick={() => signOut()}>a</Button>
-                </Container>
-            </Toolbar>
-        </Appbar>
-    );
+          <Stack direction="row" spacing={6} sx={{ flexGrow: 1 }}>
+            <NavItem name="Home" href="/" />
+            <NavItem name="Guestbook" href="/guestbook" />
+            <NavItem name="Dashboard" href="/dashboard" />
+            <NavItem name="Blog" href="/blog" />
+            <NavItem name="Snippets" href="snippets" />
+          </Stack>
+          <Button
+            onClick={() => {
+              signOut();
+            }}
+          >
+            a
+          </Button>
+        </Container>
+      </Toolbar>
+    </Appbar>
+  );
 }

@@ -148,6 +148,7 @@ export default function GuestBook({ fallbackData }) {
                         >
                             <TextField inputRef={inputEl} size="small" />
 
+<<<<<<< HEAD
                             {/*                         
                                             <TextField size="small" ref={inputEl} required>
                                                 asd
@@ -170,6 +171,20 @@ export default function GuestBook({ fallbackData }) {
                             )}
                         </Box>
                     )}
+=======
+                        {/*                         
+                        <TextField size="small" ref={inputEl} required>
+                            asd
+                        </TextField>
+<<<<<<< HEAD
+                        <TextField size="small">asd</TextField> 
+            */}
+            {session?.user && <Button type="submit">Sign</Button>}
+=======
+                        <TextField size="small">asd</TextField> */}
+                        {session?.user && <Button type="submit">Sign</Button>}
+>>>>>>> d1ec6dc2ab1b8db6d697671196b6422d87efcef5
+>>>>>>> dbd5e84c2536f3d4fcd07f6ddce5837252fcaa6c
 
                     <Typography sx={{ fontSize: "14px" }}>
                         Your information is only used to display your name and
