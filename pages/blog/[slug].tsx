@@ -19,12 +19,36 @@ import Box from "@mui/material/Box";
 import ContainerHero from "components/ContainerHero";
 import { Typography, Stack, Avatar } from "@mui/material";
 
-const components = {
+/* const components = {
   // It also works with dynamically-imported components, which is especially
   // useful for conditionally loading components for certain routes.
   // See the notes in README.md for more details.
   TestComponent: dynamic(() => import("components/TestComponent")),
   Head,
+  h2: () => <Typography variant="h2" sx={{ color: "red" }} />,
+  h3: () => <Typography variant="h3" sx={{ color: "red" }} />,
+}; */
+
+const components = {
+  h1: (props) => <Typography variant="h2" {...props} />,
+  h2: (props) => <Typography variant="h2" {...props} />,
+  p: (props) => <Typography variant="p" {...props} />,
+  blockquote: (props) => (
+    <Typography
+      component="blockquote"
+      {...props}
+      sx={{
+        fontWeight: 500,
+        fontStyle: "italic",
+        borderLeftWidth: "0.25rem",
+        borderLeftColor: "red !important",
+        color: "#999",
+        marginTop: "1.6em",
+        marginBottom: "1.6em",
+        paddingLeft: "1em",
+      }}
+    />
+  ),
 };
 
 export default function PostPage({ source, frontMatter }) {
@@ -39,6 +63,7 @@ export default function PostPage({ source, frontMatter }) {
         <Typography component="h1" sx={{ fontSize: "42px", fontWeight: "800" }}>
           {frontMatter.title}
         </Typography>
+        <Box component="blockquote">ads</Box>
         <Stack
           direction="row"
           sx={{
