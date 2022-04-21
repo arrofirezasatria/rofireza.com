@@ -5,12 +5,18 @@ import Footer from "../components/Footer";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 
+import { useRouter } from "next/Router";
+
 export default function ContainerHero({ children }) {
-  return (
-    <div>
-      <Head>
-        {/* <title>{meta.title}</title> */}
-        {/* <meta name="robots" content="follow, index" />
+    const router = useRouter();
+    console.log(router);
+
+    console.log("asdasdad");
+    return (
+        <div>
+            <Head>
+                {/* <title>{meta.title}</title> */}
+                {/* <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
         <meta property="og:url" content={`https://leerob.io${router.asPath}`} />
         <link rel="canonical" href={`https://leerob.io${router.asPath}`} />
@@ -24,12 +30,12 @@ export default function ContainerHero({ children }) {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} /> */}
-      </Head>
-      <AppBarHero />
-      <Container component="main" maxWidth="md" sx={{ paddingTop: 8 }}>
-        {children}
-      </Container>
-      <Footer />
-    </div>
-  );
+            </Head>
+            <AppBarHero />
+            <Container component="main" maxWidth="md" sx={{ paddingTop: 8 }}>
+                {children}
+            </Container>
+            <Footer />
+        </div>
+    );
 }
