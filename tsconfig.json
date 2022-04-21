@@ -19,7 +19,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx",
+    "**/*.tsx", "components/ContainerHero.tsx",
 
   ],
   "exclude": ["node_modules"]
