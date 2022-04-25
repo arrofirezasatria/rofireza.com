@@ -14,6 +14,8 @@ import BlogPostCard from "../components/BlogPostCard";
 import VideoCard from "../components/VideoCard";
 import Subscribe from "../components/Subscribe";
 
+import { allPosts, Post } from "contentlayer/generated";
+
 export default function Home() {
     return (
         <ContainerHero>

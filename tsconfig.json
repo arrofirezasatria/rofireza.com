@@ -15,11 +15,15 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": ".",
+    "paths": {
+      "contentlayer/generated": ["./.contentlayer/generated"]
+    }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx", "components/ContainerHero.tsx",
+    ".contentlayer/generated" 
 
   ],
   "exclude": ["node_modules"]
