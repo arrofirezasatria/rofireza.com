@@ -1,9 +1,15 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
+import readingTime from "reading-time";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeCodeTitles from "rehype-code-titles";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrism from "rehype-prism-plus";
+
 const Post = defineDocumentType(() => ({
     name: "Post",
-    filePathPattern: `**/*.md`,
-
+    filePathPattern: `**/*.mdx`,
     fields: {
         title: {
             type: "string",
@@ -19,33 +25,28 @@ const Post = defineDocumentType(() => ({
     computedFields: {
         url: {
             type: "string",
-            resolve: (doc) => `/contents/posts/${doc._raw.flattenedPath}`,
-        },
-    },
-}));
-
-const Blog = defineDocumentType(() => ({
-    name: "Blog",
-    filePathPattern: "blog/*.mdx",
-    fields: {
-        title: { type: "string", required: true },
-        publishedAt: { type: "string", required: true },
-        summary: { type: "string", required: true },
-        description: { type: "string", required: true },
-        seoDescription: { type: "string", required: true },
-    },
-    computedFields: {
-        slug: {
-            type: "string",
-            resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ""),
+            resolve: (doc) => `/posts/${doc._raw.flattenedPath}`,
         },
     },
 }));
 
 export default makeSource({
-    // contentDirPath: "posts",
-    // documentTypes: [Post],
-
-    contentDirPath: "contents",
-    documentTypes: [Blog],
+    contentDirPath: "posts",
+    documentTypes: [Post],
+    mdx: {
+        remarkPlugins: [remarkGfm],
+        rehypePlugins: [
+            rehypeSlug,
+            rehypeCodeTitles,
+            rehypePrism,
+            [
+                rehypeAutolinkHeadings,
+                {
+                    properties: {
+                        className: ["anchor"],
+                    },
+                },
+            ],
+        ],
+    },
 });

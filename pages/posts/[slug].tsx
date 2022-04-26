@@ -1,10 +1,14 @@
 import Head from "next/head";
 import { format, parseISO } from "date-fns";
-import { allBlogs, Blog } from "contentlayer/generated";
+import { allPosts, Post } from "contentlayer/generated";
+import ReactMarkdown from "markdown-to-jsx";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import { fontSize } from "@mui/system";
 
 export async function getStaticPaths() {
-    //console.log(allBlogs);
-    const paths: string[] = allBlogs.map((post) => post.slug);
+    const paths: string[] = allPosts.map((post) => post.url);
+
     return {
         paths,
         fallback: false,
@@ -12,36 +16,66 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    console.log("asdasd");
-    console.log(params.slug);
-    const blog = allBlogs.find((blog) => blog.slug === params.slug);
-
-    console.log(blog);
+    const post: Post = allPosts.find(
+        (post) => post._raw.flattenedPath === params.slug
+    );
     return {
         props: {
-            blog,
+            post,
         },
     };
 }
 
-const PostLayout = ({ blog }: { blog: Blog }) => {
-    console.log("adadad");
+const PostLayout = ({ post }: { post: Post }) => {
     return (
         <>
             <Head>
-                <title>{blog.title}</title>
+                <title>{post.title}</title>
             </Head>
             <article className="max-w-xl mx-auto py-8">
                 <div className="text-center mb-8">
                     <time
-                        dateTime={blog.publishedAt}
+                        dateTime={post.date}
                         className="text-xs text-gray-600 mb-1"
                     >
-                        {format(parseISO(blog.publishedAt), "LLLL d, yyyy")}
+                        {format(parseISO(post.date), "LLLL d, yyyy")}
                     </time>
-                    <h1>{blog.title}</h1>
+                    <h1>{post.title}</h1>
                 </div>
-                <div dangerouslySetInnerHTML={{ __html: blog.body.html }} />
+                <ReactMarkdown
+                    options={{
+                        overrides: {
+                            h1: {
+                                component: Typography,
+                                props: {
+                                    gutterBottom: true,
+                                },
+                            },
+                            h2: {
+                                component: Typography,
+                                props: { gutterBottom: true, variant: "h6" },
+                            },
+                            h3: {
+                                component: Typography,
+                                props: {
+                                    gutterBottom: true,
+                                    variant: "subtitle1",
+                                },
+                            },
+                            h4: {
+                                component: Typography,
+                                props: {
+                                    gutterBottom: true,
+                                    variant: "caption",
+                                    paragraph: true,
+                                },
+                            },
+                            a: { component: Link },
+                        },
+                    }}
+                >
+                    {post.body.html}
+                </ReactMarkdown>
             </article>
         </>
     );
