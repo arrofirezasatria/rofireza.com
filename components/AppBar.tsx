@@ -11,7 +11,14 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import ThemeModeToggle from "./header/ThemeModeToogle";
+
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+
+import { useContext } from "react";
+import ThemeModeToogle from "./header/ThemeModeToogle";
+
+import { useTheme } from "../modules/ThemeContext";
 
 const NavItem = ({ name = "nav", href = "sd" }) => {
     return (
@@ -23,17 +30,22 @@ const NavItem = ({ name = "nav", href = "sd" }) => {
     );
 };
 
+/* const konteks = React.createContext(); */
+
 export default function AppBar() {
-    const changeTheme = useChangeTheme();
-    const [mode, setMode] = React.useState<string | null>(null);
+    /*  const colorMode = useContext(konteks); */
+
+    const [mode, setoMde] = React.useState<string | null>(null);
     const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+
+    const { darkTheme, toggleColorMode } = useTheme();
+
+    React.useEffect(() => {
+        console.log(darkTheme);
+    }, [darkTheme]);
 
     const handleChangeThemeMode = (checked: boolean) => {
         const paletteMode = checked ? "dark" : "light";
-        setMode(paletteMode);
-
-        document.cookie = `paletteMode=${paletteMode};path=/;max-age=31536000`;
-        changeTheme({ paletteMode });
     };
 
     return (
@@ -62,15 +74,29 @@ export default function AppBar() {
                         <NavItem name="Blog" href="/blog" />
                         <NavItem name="Snippets" href="snippets" />
                     </Stack>
-                    <Button>a</Button>
-                    <ThemeModeToggle
-                        checked={
-                            mode === "system"
-                                ? prefersDarkMode
-                                : mode === "dark"
-                        }
-                        onChange={handleChangeThemeMode}
-                    />
+                    <IconButton
+                        sx={{ ml: 1 }}
+                        //onClick={colorMode.toggleColorMode}
+                        color="inherit"
+                    >
+                        {/*            
+            {theme.palette.mode === "dark" ? (
+              <Brightness7Icon />
+            ) : (
+              <Brightness4Icon />
+            )} 
+            */}
+                        <Brightness4Icon />
+                        <ThemeModeToogle
+                            checked={
+                                mode === "system"
+                                    ? prefersDarkMode
+                                    : mode === "dark"
+                            }
+                            onChange={toggleColorMode}
+                        />
+                    </IconButton>
+                    <Button onClick={toggleColorMode}>asd</Button>
                 </Container>
             </Toolbar>
         </Appbar>

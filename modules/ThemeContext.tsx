@@ -1,9 +1,21 @@
-import React from "react";
+import { dark } from "@mui/material/styles/createPalette";
+import React, { useContext, useState, createContext } from "react";
+const ThemeContext = React.createContext(null);
 
-const themeContext = React.createContext();
+export function useTheme() {
+    return useContext(ThemeContext);
+}
 
-export default function themeContext({ children }) {
-    const [darkTheme, setDarkTheme] = useState(false);
+export default function ThemeProvider({ children }) {
+    const [darkTheme, setDarkTheme] = useState(true);
 
-    return <>{children}</>;
+    const toggleColorMode = () => {
+        setDarkTheme((prevDarkTheme) => !prevDarkTheme);
+    };
+
+    return (
+        <ThemeContext.Provider value={{ darkTheme, toggleColorMode }}>
+            {children}
+        </ThemeContext.Provider>
+    );
 }
