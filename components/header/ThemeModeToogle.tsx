@@ -11,9 +11,18 @@ export default function ThemeModeToogle(props: {
     return (
         <Tooltip
             title={props.checked ? "Turn on the light" : "Turn off the light"}
-            onClick={() => props.onChange(!props.checked)}
         >
-            <IconButton></IconButton>
+            <IconButton
+                color="primary"
+                disableTouchRipple
+                onClick={() => props.onChange(!props.checked)}
+            >
+                {props.checked ? (
+                    <LightModeOutlined fontSize="small" />
+                ) : (
+                    <DarkModeOutlined fontSize="small" />
+                )}
+            </IconButton>
         </Tooltip>
     );
 }
