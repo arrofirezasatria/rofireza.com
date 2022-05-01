@@ -64,39 +64,36 @@ export default function AppBar() {
                         display: "flex",
                         flexDirection: "row",
                         justifyContent: "space-between",
-                        alignItems: "baseline",
                     }}
                 >
-                    <Stack direction="row" spacing={6} sx={{ flexGrow: 1 }}>
+                    <Stack
+                        direction="row"
+                        spacing={6}
+                        sx={{
+                            flexGrow: 1,
+                            alignItems: "center",
+                            alignContent: "center",
+                            display: {
+                                xs: "none",
+                                md: "flex",
+                            },
+                        }}
+                    >
                         <NavItem name="Home" href="/" />
                         <NavItem name="Guestbook" href="/guestbook" />
                         <NavItem name="Dashboard" href="/dashboard" />
                         <NavItem name="Blog" href="/blog" />
                         <NavItem name="Snippets" href="snippets" />
                     </Stack>
-                    <IconButton
-                        sx={{ ml: 1 }}
-                        //onClick={colorMode.toggleColorMode}
-                        color="inherit"
-                    >
-                        {/*            
-            {theme.palette.mode === "dark" ? (
-              <Brightness7Icon />
-            ) : (
-              <Brightness4Icon />
-            )} 
-            */}
-                        <Brightness4Icon />
-                        <ThemeModeToogle
-                            checked={
-                                mode === "system"
-                                    ? prefersDarkMode
-                                    : mode === "dark"
-                            }
-                            onChange={toggleColorMode}
-                        />
-                    </IconButton>
-                    <Button onClick={toggleColorMode}>asd</Button>
+                    <Stack sx={{ alignItems: "center" }}>
+                        <IconButton onClick={toggleColorMode}>
+                            {darkTheme === true ? (
+                                <Brightness7Icon />
+                            ) : (
+                                <Brightness4Icon />
+                            )}
+                        </IconButton>
+                    </Stack>
                 </Container>
             </Toolbar>
         </Appbar>

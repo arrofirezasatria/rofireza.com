@@ -5,9 +5,13 @@ import ReactMarkdown from "markdown-to-jsx";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import { fontSize } from "@mui/system";
+import { useMDXComponent } from "next-contentlayer/hooks";
+
+import Image from "next/image";
 
 import ContainerHero from "components/ContainerHero";
 import { Box, Stack, Avatar, Divider } from "@mui/material";
+import ImageMDX from "components/mdxcomponents/ImageMDX";
 
 export async function getStaticPaths() {
     const paths: string[] = allPosts.map((post) => post.url);
@@ -29,20 +33,33 @@ export async function getStaticProps({ params }) {
     };
 }
 
-const PostLayout = ({ post }: { post: Post }) => {
+const ImageComponent = ({ props }) => {
+    return <Image {...props} />;
+};
+
+const ImageBox = ({ props }) => {
+    const { sx, src, ...rest } = props;
+
     return (
-        <ContainerHero>
+        <Box sx={sx}>
+            <Image src={src} {...rest} />
+        </Box>
+    );
+};
+
+const PostLayout = ({ post }: { post: Post }) => {
+    console.log(post);
+
+    return (
+        <ContainerHero variantContainer="blog">
             <Head>
                 <title>{post.title}</title>
             </Head>
             <article className="max-w-xl mx-auto py-8">
                 <Box sx={{ mb: 1 }}>
-                    <time
-                        dateTime={post.date}
-                        className="text-xs text-gray-600 mb-1"
-                    >
+                    <Typography component="time" variant="body2">
                         {format(parseISO(post.date), "LLLL d, yyyy")}
-                    </time>
+                    </Typography>
                     <Typography
                         component="h1"
                         variant="h3"
@@ -53,8 +70,12 @@ const PostLayout = ({ post }: { post: Post }) => {
                     <Stack
                         sx={{
                             justifyContent: "space-between",
-                            pt: 2,
-                            alignItems: "center",
+                            pt: {
+                                xs: 1,
+                                md: 2,
+                            },
+                            alignItems: "baseline",
+                            pb: 1,
                         }}
                         direction="row"
                     >
@@ -72,6 +93,8 @@ const PostLayout = ({ post }: { post: Post }) => {
                                 A
                             </Avatar>
                             <Typography
+                                component="h4"
+                                variant="subtitle1"
                                 sx={{
                                     fontSize: "14px",
                                     fontWeight: "500",
@@ -83,6 +106,8 @@ const PostLayout = ({ post }: { post: Post }) => {
                         </Stack>
                         <Stack direction="row" spacing={1}>
                             <Typography
+                                component="p"
+                                variant="subtitle1"
                                 sx={{
                                     fontSize: "14px",
                                     fontWeight: "500",
@@ -139,11 +164,32 @@ const PostLayout = ({ post }: { post: Post }) => {
                                     paragraph: true,
                                 },
                             },
+                            p: {
+                                component: Typography,
+                                props: {
+                                    component: "p",
+                                    sx: {
+                                        my: "20px",
+                                    },
+                                },
+                            },
                             a: { component: Link },
+                            ImageMDX: {
+                                component: ImageMDX,
+                            },
+                            // ImageMDX: {
+                            //     component: (props) => {
+                            //         return (
+                            //             <Box>
+                            //                 <Image {...props} />
+                            //             </Box>
+                            //         );
+                            //     },
+                            // },
                         },
                     }}
                 >
-                    {post.body.html}
+                    {post.body.raw}
                 </ReactMarkdown>
             </article>
         </ContainerHero>
