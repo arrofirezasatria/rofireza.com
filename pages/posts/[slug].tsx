@@ -47,6 +47,16 @@ const ImageBox = ({ props }) => {
     );
 };
 
+function MarkdownListItem(props: any) {
+    return (
+        <Box
+            component="li"
+            sx={{ mt: 1, typography: "body1", color: "text.secondary" }}
+            {...props}
+        />
+    );
+}
+
 const PostLayout = ({ post }: { post: Post }) => {
     console.log(post);
 
@@ -57,7 +67,7 @@ const PostLayout = ({ post }: { post: Post }) => {
             </Head>
             <article className="max-w-xl mx-auto py-8">
                 <Box sx={{ mb: 1 }}>
-                    <Typography component="time" variant="body2">
+                    <Typography component="time" variant="subtitle2">
                         {format(parseISO(post.date), "LLLL d, yyyy")}
                     </Typography>
                     <Typography
@@ -98,7 +108,6 @@ const PostLayout = ({ post }: { post: Post }) => {
                                 sx={{
                                     fontSize: "14px",
                                     fontWeight: "500",
-                                    color: "gray",
                                 }}
                             >
                                 Arrofi Reza Satria
@@ -111,7 +120,6 @@ const PostLayout = ({ post }: { post: Post }) => {
                                 sx={{
                                     fontSize: "14px",
                                     fontWeight: "500",
-                                    color: "gray",
                                 }}
                             >
                                 10 min read
@@ -125,7 +133,6 @@ const PostLayout = ({ post }: { post: Post }) => {
                                 sx={{
                                     fontSize: "14px",
                                     fontWeight: "500",
-                                    color: "gray",
                                 }}
                             >
                                 213 views
@@ -168,8 +175,19 @@ const PostLayout = ({ post }: { post: Post }) => {
                                 component: Typography,
                                 props: {
                                     component: "p",
+                                    color: "text.secondary",
                                     sx: {
                                         my: "20px",
+                                        "& > a ": {
+                                            fontWeight: 600,
+                                            "&:hover": {
+                                                color: "#5090D3",
+                                                transitionProperty: "all",
+                                                transitionTimingFunction:
+                                                    "cubic-bezier(.4,0,.2,1)",
+                                                transitionDuration: ".2s",
+                                            },
+                                        },
                                     },
                                 },
                             },
@@ -177,6 +195,27 @@ const PostLayout = ({ post }: { post: Post }) => {
                             ImageMDX: {
                                 component: ImageMDX,
                             },
+                            blockquote: {
+                                component: Typography,
+                                props: {
+                                    component: "blockquote",
+                                    color: "blockquote",
+                                    sx: {
+                                        color: "white",
+                                        paddingLeft: "16px",
+                                        fontStyle: "italic",
+                                        borderLeftWidth: "0.25rem",
+                                        "& > p": {
+                                            fontWeight: 600,
+                                        },
+                                    },
+                                },
+                            },
+
+                            li: {
+                                component: MarkdownListItem,
+                            },
+
                             // ImageMDX: {
                             //     component: (props) => {
                             //         return (
@@ -191,6 +230,9 @@ const PostLayout = ({ post }: { post: Post }) => {
                 >
                     {post.body.raw}
                 </ReactMarkdown>
+                <Typography component="p" color="secondary">
+                    adadadad
+                </Typography>
             </article>
         </ContainerHero>
     );

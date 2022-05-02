@@ -8,9 +8,11 @@ export default function ImageMDX(props) {
         <Box
             sx={{
                 my: "20px",
+                cursor: "pointer",
                 "& img": {
-                    "border-radius": "18px",
+                    "border-radius": "12px",
                 },
+                "&:hover": {},
             }}
         >
             <Image {...props} />

@@ -54,7 +54,6 @@ export default function AppBar() {
             sx={{
                 backgroundColor: "transparent !important",
                 boxShadow: "none",
-                color: "black",
             }}
         >
             <Toolbar sx={{ height: "88px" }}>
