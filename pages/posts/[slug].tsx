@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import { fontSize } from "@mui/system";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import defaultTheme from "@mui/material/styles/defaultTheme";
 
 import Image from "next/image";
 
@@ -181,7 +182,7 @@ const PostLayout = ({ post }: { post: Post }) => {
                                         "& > a ": {
                                             fontWeight: 600,
                                             "&:hover": {
-                                                color: "#5090D3",
+                                                color: "# 5090D3",
                                                 transitionProperty: "all",
                                                 transitionTimingFunction:
                                                     "cubic-bezier(.4,0,.2,1)",
@@ -211,9 +212,48 @@ const PostLayout = ({ post }: { post: Post }) => {
                                     },
                                 },
                             },
-
                             li: {
                                 component: MarkdownListItem,
+                            },
+                            pre: {
+                                component: Typography,
+                                props: {
+                                    component: "pre",
+                                    sx: {
+                                        margin: defaultTheme.spacing(2, "auto"),
+                                        padding: defaultTheme.spacing(2),
+                                        backgroundColor: "#0A1929",
+                                        colorScheme: "dark",
+                                        borderRadius: "10px",
+                                        border: "1px solid",
+                                        borderColor: defaultTheme[700],
+                                        overflow: "auto",
+                                        WebkitOverflowScrolling: "touch", // iOS momentum scrolling.
+                                        maxWidth: "calc(100vw - 32px)",
+                                        [defaultTheme.breakpoints.up("md")]: {
+                                            maxWidth:
+                                                "calc(100vw - 32px - 16px)",
+                                        },
+
+                                        "& code": {
+                                            direction: "ltr",
+                                            display: "inline-block",
+                                            ...defaultTheme.typography.body2,
+                                            fontSize:
+                                                defaultTheme.typography.pxToRem(
+                                                    13
+                                                ),
+                                            fontFamily:
+                                                defaultTheme.typography
+                                                    .fontFamilyCode,
+                                            fontWeight: 400,
+                                            WebkitFontSmoothing:
+                                                "subpixel-antialiased",
+                                            padding: "0 5px",
+                                            borderRadius: 5,
+                                        },
+                                    },
+                                },
                             },
 
                             // ImageMDX: {
