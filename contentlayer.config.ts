@@ -6,10 +6,12 @@ import rehypeSlug from "rehype-slug";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrism from "rehype-prism-plus";
+import rehypeHighlight from "rehype-highlight";
 
 const Post = defineDocumentType(() => ({
     name: "Post",
     filePathPattern: `**/*.mdx`,
+    contentType: "mdx",
     fields: {
         title: {
             type: "string",

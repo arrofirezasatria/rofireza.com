@@ -5,6 +5,8 @@ import React from "react";
 import { SessionProvider } from "next-auth/react";
 import ThemeContext from "../modules/ThemeContext";
 
+import "../styles/prismokaida.css";
+
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     return (
         <SessionProvider session={session}>
