@@ -19,13 +19,36 @@ import { useContext } from "react";
 import ThemeModeToogle from "./header/ThemeModeToogle";
 
 import { useTheme } from "../modules/ThemeContext";
+import { useTheme as useMyTheme } from "@mui/material/styles";
+import { blueDark, blue } from "../modules/ThemeContext";
 
 const NavItem = ({ name = "nav", href = "sd" }) => {
+    const theme = useMyTheme();
     return (
         <NextLink href={href}>
-            <a>
-                <Typography>{name}</Typography>
-            </a>
+            <Button
+                component={Link}
+                sx={{
+                    padding: "6px 10px",
+                    minWidth: 0,
+                    border: "1px solid transparent",
+                    "&:hover": {
+                        backgroundColor: blueDark[100],
+                        border: "1px solid #c5daf1",
+                        boxShadow: "3px 3px 3px -10px rgba(0,0,0,0.4) inset",
+                    },
+                }}
+            >
+                <Typography
+                    component="span"
+                    sx={{
+                        fontWeight: 400,
+                        fontFamily: "Rubik",
+                    }}
+                >
+                    {name}
+                </Typography>
+            </Button>
         </NextLink>
     );
 };
@@ -56,7 +79,7 @@ export default function AppBar() {
                 boxShadow: "none",
             }}
         >
-            <Toolbar sx={{ height: "88px" }}>
+            <Toolbar sx={{}}>
                 <Container
                     maxWidth="md"
                     sx={{
@@ -67,7 +90,7 @@ export default function AppBar() {
                 >
                     <Stack
                         direction="row"
-                        spacing={6}
+                        spacing={3}
                         sx={{
                             flexGrow: 1,
                             alignItems: "center",
@@ -82,7 +105,6 @@ export default function AppBar() {
                         <NavItem name="Guestbook" href="/guestbook" />
                         <NavItem name="Dashboard" href="/dashboard" />
                         <NavItem name="Blog" href="/blog" />
-                        <NavItem name="Snippets" href="snippets" />
                     </Stack>
                     <Stack sx={{ alignItems: "center" }}>
                         <IconButton onClick={toggleColorMode}>

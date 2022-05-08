@@ -452,7 +452,9 @@ export default function ThemeProvider({ children }) {
     const [lightTheme, setLightTheme] = useState<"light" | "dark">("dark");
 
     const toggleColorMode = () => {
-        setDarkTheme((prevDarkTheme) => !prevDarkTheme);
+        setLightTheme((prevLightTheme) =>
+            prevLightTheme === "light" ? "dark" : "light"
+        );
     };
 
     const toogleLightTheme = () => {

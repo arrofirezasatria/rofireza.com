@@ -1,7 +1,7 @@
 import "styles/globals.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import React from "react";
-
+import { CodeCopyProvider } from "../modules/CodeCopy";
 import { SessionProvider } from "next-auth/react";
 import ThemeContext from "../modules/ThemeContext";
 
