@@ -14,13 +14,13 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-
+import GitHubIcon from "@mui/icons-material/GitHub";
 import { useContext } from "react";
 import ThemeModeToogle from "./header/ThemeModeToogle";
 
 import { useTheme } from "../modules/ThemeContext";
-import { useTheme as useMyTheme } from "@mui/material/styles";
-import { blueDark, blue } from "../modules/ThemeContext";
+import { useTheme as useMyTheme, alpha } from "@mui/material/styles";
+import { blueDark, blue, grey } from "../modules/ThemeContext";
 
 const NavItem = ({ name = "nav", href = "sd" }) => {
     const theme = useMyTheme();
@@ -32,9 +32,21 @@ const NavItem = ({ name = "nav", href = "sd" }) => {
                     padding: "6px 10px",
                     minWidth: 0,
                     border: "1px solid transparent",
+                    color:
+                        theme.palette.mode === "dark"
+                            ? grey[300]
+                            : blueDark[500],
+
                     "&:hover": {
-                        backgroundColor: blueDark[100],
-                        border: "1px solid #c5daf1",
+                        color: theme.palette.mode === "dark" && blueDark[500],
+                        backgroundColor:
+                            theme.palette.mode === "dark"
+                                ? grey[300]
+                                : blueDark[100],
+                        border:
+                            theme.palette.mode === "light"
+                                ? "1px solid #c5daf1"
+                                : "1px solid transparent",
                         boxShadow: "3px 3px 3px -10px rgba(0,0,0,0.4) inset",
                     },
                 }}
@@ -71,12 +83,26 @@ export default function AppBar() {
         const paletteMode = checked ? "dark" : "light";
     };
 
+    const theme = useMyTheme();
+
     return (
         <Appbar
             position="static"
             sx={{
-                backgroundColor: "transparent !important",
-                boxShadow: "none",
+                position: "sticky",
+                top: 0,
+                transition: theme.transitions.create("top"),
+                zIndex: theme.zIndex.appBar,
+                backdropFilter: "blur(20px)",
+                boxShadow: `inset 0px -1px 1px ${
+                    theme.palette.mode === "dark"
+                        ? blueDark[700]
+                        : theme.palette.grey[100]
+                }`,
+                backgroundColor:
+                    theme.palette.mode === "dark"
+                        ? alpha(blueDark[900], 0.1)
+                        : "rgba(255,255,255,0.5)",
             }}
         >
             <Toolbar sx={{}}>
@@ -106,13 +132,20 @@ export default function AppBar() {
                         <NavItem name="Dashboard" href="/dashboard" />
                         <NavItem name="Blog" href="/blog" />
                     </Stack>
-                    <Stack sx={{ alignItems: "center" }}>
+                    <Stack
+                        direction="row"
+                        spacing={1}
+                        sx={{ alignItems: "center" }}
+                    >
                         <IconButton onClick={toggleColorMode}>
                             {darkTheme === true ? (
                                 <Brightness7Icon />
                             ) : (
                                 <Brightness4Icon />
                             )}
+                        </IconButton>
+                        <IconButton>
+                            <GitHubIcon />
                         </IconButton>
                     </Stack>
                 </Container>
