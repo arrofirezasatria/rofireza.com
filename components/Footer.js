@@ -6,41 +6,70 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Link from "@mui/material/Link";
 import { alpha, styled } from "@mui/material/styles";
+import { IconButton, Typography } from "@mui/material";
+import { grey, blueDark, blue } from "../modules/ThemeContext";
+
+import EmailIcon from "@mui/icons-material/Email";
 
 import Links from "next/link";
 
 const StyledLink = styled((props) => <Link underline="none" {...props} />)(
-  ({ theme }) => ({})
+    ({ theme }) => ({})
 );
 
 export default function Footer() {
-  return (
-    <Container component="footer" maxWidth="md" sx={{ pb: 8, pt: 2 }}>
-      <Divider variant="middle" sx={{ mb: 4 }} />
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <Stack spacing={2}>
-            <StyledLink href="/">Home</StyledLink>
-            <StyledLink href="/about">About</StyledLink>
-            <StyledLink href="/newsletter">Newsletter</StyledLink>
-          </Stack>
-        </Grid>
-        <Grid item xs={4}>
-          <Stack spacing={2}>
-            <StyledLink href="https://www.twitter.com">Twitter</StyledLink>
-            <StyledLink href="https://www.youtube.com"> Youtube</StyledLink>
-            <StyledLink href="https://github.com">Github</StyledLink>
-          </Stack>
-        </Grid>
-        <Grid item xs={4}>
-          <Stack spacing={2}>
-            <StyledLink href="/uses">Uses</StyledLink>
-            <StyledLink href="/guestbook">Guestbook</StyledLink>
-            <StyledLink href="/guestbook">Snippets</StyledLink>
-            <StyledLink href="#">Tweets</StyledLink>
-          </Stack>
-        </Grid>
-      </Grid>
-    </Container>
-  );
+    return (
+        <Container component="footer" maxWidth="md" sx={{ pb: 8, pt: 2 }}>
+            <Divider variant="middle" sx={{ mb: 4 }} />
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
+                    <Typography
+                        sx={{
+                            color: blueDark[100],
+                            fontSize: "14px",
+                            fontWeight: 600,
+                        }}
+                    >
+                        Reach me on ,
+                    </Typography>
+                    <Typography sx={{ color: blueDark[300], fontSize: "14px" }}>
+                        Join our newsletter for regular updates. No spam ever.
+                    </Typography>
+                    <Stack direction="row">
+                        <IconButton
+                            sx={{
+                                height: "14px",
+                                width: "14px",
+                                marginTop: "8px",
+                            }}
+                        >
+                            <EmailIcon />
+                        </IconButton>
+                        <IconButton size="small">a</IconButton>
+                        <IconButton size="small">a</IconButton>
+                    </Stack>
+                </Grid>
+                <Grid item xs={3}>
+                    <Stack spacing={2}>
+                        <StyledLink href="https://www.twitter.com">
+                            Twitter
+                        </StyledLink>
+                        <StyledLink href="https://www.youtube.com">
+                            Youtube
+                        </StyledLink>
+                        <StyledLink href="https://github.com">
+                            Github
+                        </StyledLink>
+                    </Stack>
+                </Grid>
+                <Grid item xs={3}>
+                    <Stack spacing={2}>
+                        <StyledLink href="/">Home</StyledLink>
+                        <StyledLink href="/guestbook">Guestbook</StyledLink>
+                        <StyledLink href="#">Tweets</StyledLink>
+                    </Stack>
+                </Grid>
+            </Grid>
+        </Container>
+    );
 }
