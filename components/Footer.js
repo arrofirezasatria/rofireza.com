@@ -9,6 +9,7 @@ import { alpha, styled } from "@mui/material/styles";
 import { IconButton, Typography } from "@mui/material";
 import { grey, blueDark, blue } from "../modules/ThemeContext";
 
+import EmailSubscriber from "./footer/EmailSubscriber";
 import EmailIcon from "@mui/icons-material/Email";
 
 import Links from "next/link";
@@ -20,9 +21,9 @@ const StyledLink = styled((props) => <Link underline="none" {...props} />)(
 export default function Footer() {
     return (
         <Container component="footer" maxWidth="md" sx={{ pb: 8, pt: 2 }}>
-            <Divider variant="middle" sx={{ mb: 4 }} />
+            <Divider sx={{ mb: "40px" }} />
             <Grid container spacing={2}>
-                <Grid item xs={6}>
+                <Grid item xs={7}>
                     <Typography
                         sx={{
                             color: blueDark[100],
@@ -32,24 +33,47 @@ export default function Footer() {
                     >
                         Reach me on ,
                     </Typography>
-                    <Typography sx={{ color: blueDark[300], fontSize: "14px" }}>
-                        Join our newsletter for regular updates. No spam ever.
-                    </Typography>
-                    <Stack direction="row">
+
+                    <Stack direction="row" spacing={1}>
                         <IconButton
                             sx={{
                                 height: "14px",
                                 width: "14px",
-                                marginTop: "8px",
                             }}
                         >
                             <EmailIcon />
                         </IconButton>
-                        <IconButton size="small">a</IconButton>
-                        <IconButton size="small">a</IconButton>
+                        <IconButton
+                            sx={{
+                                height: "14px",
+                                width: "14px",
+                            }}
+                        >
+                            <EmailIcon />
+                        </IconButton>
+                        <IconButton
+                            sx={{
+                                height: "14px",
+                                width: "14px",
+                            }}
+                        >
+                            <EmailIcon />
+                        </IconButton>
                     </Stack>
+                    <Typography
+                        sx={{
+                            color: blueDark[300],
+                            fontSize: "14px",
+                            paddingTop: "36px",
+                        }}
+                    >
+                        Join our newsletter for regular updates. No spam ever.
+                    </Typography>
+                    <Box sx={{}}>
+                        <EmailSubscriber />
+                    </Box>
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={2}>
                     <Stack spacing={2}>
                         <StyledLink href="https://www.twitter.com">
                             Twitter
@@ -70,6 +94,7 @@ export default function Footer() {
                     </Stack>
                 </Grid>
             </Grid>
+            <Divider sx={{ pt: "40px" }} />
         </Container>
     );
 }

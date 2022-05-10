@@ -101,7 +101,7 @@ export default function AppBar() {
                 }`,
                 backgroundColor:
                     theme.palette.mode === "dark"
-                        ? alpha(blueDark[900], 0.1)
+                        ? alpha(blueDark[900], 0.5)
                         : "rgba(255,255,255,0.5)",
             }}
         >
@@ -138,7 +138,7 @@ export default function AppBar() {
                         sx={{ alignItems: "center" }}
                     >
                         <IconButton onClick={toggleColorMode}>
-                            {darkTheme === true ? (   
+                            {darkTheme === true ? (
                                 <Brightness7Icon />
                             ) : (
                                 <Brightness4Icon />
