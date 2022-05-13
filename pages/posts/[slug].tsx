@@ -397,11 +397,21 @@ const PostLayout = ({ post }: { post: Post }) => {
           </Stack>
         </Box>
         <Component components={mdxComponents} />
-        <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+            paddingTop: "16px",
+          }}
+        >
           <Button
             component={Link}
             href="www.google.com"
-            endIcon={<CreateIcon sx={{ height: "16px", width: "16px" }} />}
+            endIcon={
+              <CreateIcon
+                sx={{ height: "16px", width: "16px", paddingTop: "0px" }}
+              />
+            }
             sx={{
               fontWeight: 400,
               "&:hover": {
