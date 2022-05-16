@@ -20,7 +20,7 @@ export default function GuestBook({ fallbackData }) {
     e.preventDefault();
     setForm({ state: Form.Loading });
 
-    console.log(session);
+    // console.log(session);
 
     const res = await fetch("/api/guestbook", {
       body: JSON.stringify({

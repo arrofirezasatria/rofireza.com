@@ -25,3 +25,11 @@ model views {
   slug  String @id @db.VarChar(128)
   count BigInt @default(1)
 }
+
+model showcase {
+  id         Int    @id @default(autoincrement())
+  name       String @db.VarChar(256)
+  image      String @db.VarChar(256)
+  smallimage String @db.VarChar(256)
+  category   String @db.VarChar(256)
+}

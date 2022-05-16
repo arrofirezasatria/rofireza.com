@@ -23,121 +23,135 @@ import { useTheme as useMyTheme, alpha } from "@mui/material/styles";
 import { blueDark, blue, grey } from "../modules/ThemeContext";
 
 const NavItem = ({ name = "nav", href = "sd" }) => {
-  const theme = useMyTheme();
-  return (
-    <NextLink href={href}>
-      <Button
-        component={Link}
-        sx={{
-          padding: "6px 10px",
-          minWidth: 0,
-          border: "1px solid transparent",
-          color: theme.palette.mode === "dark" ? grey[300] : blueDark[500],
+    const theme = useMyTheme();
+    return (
+        <NextLink href={href}>
+            <Button
+                component={Link}
+                sx={{
+                    padding: "6px 10px",
+                    minWidth: 0,
+                    border: "1px solid transparent",
+                    color:
+                        theme.palette.mode === "dark"
+                            ? grey[300]
+                            : blueDark[500],
+                    fonfFamily: "Rubik",
 
-          "&:hover": {
-            color: theme.palette.mode === "dark" && blueDark[500],
-            backgroundColor:
-              theme.palette.mode === "dark" ? grey[300] : blueDark[100],
-            border:
-              theme.palette.mode === "light"
-                ? "1px solid #c5daf1"
-                : "1px solid transparent",
-            boxShadow: "3px 3px 3px -10px rgba(0,0,0,0.4) inset",
-          },
-        }}
-      >
-        <Typography
-          component="span"
-          sx={{
-            fontWeight: 400,
-            fontFamily: "Rubik",
-          }}
-        >
-          {name}
-        </Typography>
-      </Button>
-    </NextLink>
-  );
+                    "&:hover": {
+                        color: theme.palette.mode === "dark" && blueDark[500],
+                        backgroundColor:
+                            theme.palette.mode === "dark"
+                                ? grey[300]
+                                : blueDark[100],
+                        border:
+                            theme.palette.mode === "light"
+                                ? "1px solid #c5daf1"
+                                : "1px solid transparent",
+                        boxShadow: "3px 3px 3px -10px rgba(0,0,0,0.4) inset",
+                    },
+                }}
+            >
+                <Typography
+                    component="span"
+                    sx={{
+                        fontWeight: 400,
+                        fontFamily: "Rubik",
+                    }}
+                >
+                    {name}
+                </Typography>
+            </Button>
+        </NextLink>
+    );
 };
 
 /* const konteks = React.createContext(); */
 
 export default function AppBar() {
-  /*  const colorMode = useContext(konteks); */
+    /*  const colorMode = useContext(konteks); */
 
-  const [mode, setoMde] = React.useState<string | null>(null);
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+    const [mode, setoMde] = React.useState<string | null>(null);
+    const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
-  const { darkTheme, toggleColorMode } = useTheme();
+    const { darkTheme, toggleColorMode } = useTheme();
 
-  React.useEffect(() => {
-    console.log(darkTheme);
-  }, [darkTheme]);
+    React.useEffect(() => {
+        // console.log(darkTheme);
+    }, [darkTheme]);
 
-  const handleChangeThemeMode = (checked: boolean) => {
-    const paletteMode = checked ? "dark" : "light";
-  };
+    const handleChangeThemeMode = (checked: boolean) => {
+        const paletteMode = checked ? "dark" : "light";
+    };
 
-  const theme = useMyTheme();
+    const theme = useMyTheme();
 
-  return (
-    <Appbar
-      position="static"
-      sx={{
-        position: "sticky",
-        top: 0,
-        transition: theme.transitions.create("top"),
-        zIndex: theme.zIndex.appBar,
-        backdropFilter: "blur(20px)",
-        boxShadow: `inset 0px -1px 1px ${
-          theme.palette.mode === "dark"
-            ? blueDark[700]
-            : theme.palette.grey[100]
-        }`,
-        backgroundColor:
-          theme.palette.mode === "dark"
-            ? alpha(blueDark[900], 0.5)
-            : "rgba(255,255,255,0.5)",
-      }}
-    >
-      <Toolbar sx={{}}>
-        <Container
-          maxWidth="md"
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-          }}
-        >
-          <Stack
-            direction="row"
-            spacing={3}
+    return (
+        <Appbar
+            position="static"
             sx={{
-              flexGrow: 1,
-              alignItems: "center",
-              alignContent: "center",
-              display: {
-                xs: "none",
-                md: "flex",
-              },
+                position: "sticky",
+                top: 0,
+                transition: theme.transitions.create("top"),
+                zIndex: theme.zIndex.appBar,
+                backdropFilter: "blur(20px)",
+                boxShadow: `inset 0px -1px 1px ${
+                    theme.palette.mode === "dark"
+                        ? blueDark[700]
+                        : theme.palette.grey[100]
+                }`,
+                backgroundColor:
+                    theme.palette.mode === "dark"
+                        ? alpha(blueDark[900], 0.5)
+                        : "rgba(255,255,255,0.5)",
             }}
-          >
-            <NavItem name="Home" href="/" />
-            <NavItem name="Guestbook" href="/guestbook" />
-            {/* <NavItem name="Dashboard" href="/dashboard" /> */}
-            <NavItem name="Blog" href="/blog" />
-            <NavItem name="Project" href="blog" />
-          </Stack>
-          <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
-            <IconButton onClick={toggleColorMode}>
-              {darkTheme === true ? <Brightness7Icon /> : <Brightness4Icon />}
-            </IconButton>
-            <IconButton>
-              <GitHubIcon />
-            </IconButton>
-          </Stack>
-        </Container>
-      </Toolbar>
-    </Appbar>
-  );
+        >
+            <Toolbar sx={{}}>
+                <Container
+                    maxWidth="md"
+                    sx={{
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                    }}
+                >
+                    <Stack
+                        direction="row"
+                        spacing={3}
+                        sx={{
+                            flexGrow: 1,
+                            alignItems: "center",
+                            alignContent: "center",
+                            display: {
+                                xs: "none",
+                                md: "flex",
+                            },
+                        }}
+                    >
+                        <NavItem name="Home" href="/" />
+                        <NavItem name="Guestbook" href="/guestbook" />
+                        {/* <NavItem name="Dashboard" href="/dashboard" /> */}
+                        <NavItem name="Blog" href="/blog" />
+                        <NavItem name="Project" href="/project" />
+                    </Stack>
+                    <Stack
+                        direction="row"
+                        spacing={1}
+                        sx={{ alignItems: "center" }}
+                    >
+                        <IconButton onClick={toggleColorMode}>
+                            {darkTheme === true ? (
+                                <Brightness7Icon />
+                            ) : (
+                                <Brightness4Icon />
+                            )}
+                        </IconButton>
+                        <IconButton>
+                            <GitHubIcon />
+                        </IconButton>
+                    </Stack>
+                </Container>
+            </Toolbar>
+        </Appbar>
+    );
 }
