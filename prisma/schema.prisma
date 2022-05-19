@@ -29,7 +29,10 @@ model views {
 model showcase {
   id         Int    @id @default(autoincrement())
   name       String @db.VarChar(256)
+  alt        String @db.VarChar(256)
   image      String @db.VarChar(256)
   smallimage String @db.VarChar(256)
   category   String @db.VarChar(256)
+  link1      String @db.VarChar(256)
+  link2      String @db.VarChar(256)
 }

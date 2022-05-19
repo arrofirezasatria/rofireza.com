@@ -73,6 +73,15 @@ export default function ContainerHero({
                     {children}
                 </Container>
             )}
+            {variantContainer === "project" && (
+                <Container
+                    component="main"
+                    maxWidth="md"
+                    sx={{ paddingTop: 6 }}
+                >
+                    {children}
+                </Container>
+            )}
             <Footer />
         </div>
     );
