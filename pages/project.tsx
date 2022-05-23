@@ -12,152 +12,7 @@ import { useTrail, animated as a } from "react-spring";
 
 import ContainerHero from "components/ContainerHero";
 import { Divider, Grid } from "@mui/material";
-import { Category } from "@mui/icons-material";
-
-// interface showCaseDataInterface {
-//     name: string;
-//     image: string;
-//     smallImage: string;
-//     category: string;
-// }
-
-// const ListShowCase = (data: Array<showCaseDataInterface>) => {
-//     return (
-//         <Box>
-//             {data.map(() => {
-//                 return <Box>a</Box>;
-//             })}
-//         </Box>
-//     );
-// };
-
-// const ListShowCaseComponent = (params) => {
-//     const { data, ...rest } = params;
-//     return <Box>{}</Box>;
-// };
-
-const imageCategory = [
-    {
-        name: "Sidebar",
-        image: "firstImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "react",
-    },
-    {
-        name: "Buttonbar",
-        image: "secondImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "nextjs",
-    },
-    {
-        name: "adadad",
-        image: "secondImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "mui",
-    },
-    {
-        name: "Buttonbar",
-        image: "firstImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "react",
-    },
-    {
-        name: "Buttonbar",
-        image: "secondImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "nextjs",
-    },
-    {
-        name: "Buttonbar",
-        image: "secondImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "nextjs",
-    },
-    {
-        name: "Buttonbar",
-        image: "secondImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "nextjs",
-    },
-    {
-        name: "Buttonbar",
-        image: "secondImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "nextjs",
-    },
-    {
-        name: "adadad",
-        image: "secondImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "mui",
-    },
-    {
-        name: "Buttonbar",
-        image: "firstImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "react",
-    },
-    {
-        name: "Buttonbar",
-        image: "secondImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "nextjs",
-    },
-    {
-        name: "Buttonbar",
-        image: "secondImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "nextjs",
-    },
-    {
-        name: "Buttonbar",
-        image: "secondImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "nextjs",
-    },
-    {
-        name: "Buttonbar",
-        image: "secondImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "mui",
-    },
-    {
-        name: "Buttonbar",
-        image: "secondImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "mui",
-    },
-    {
-        name: "Buttonbar",
-        image: "secondImage.png",
-        smallImage: "smallSecondImage.png",
-        category: "mui",
-    },
-];
-
-// const ButtonStyled = styled((props) => <Button {...props} />)(({ theme }) => ({
-//     backgroundColor: checked,
-// }));
-
-const ImageBoxx = (props) => {
-    const { children, ...rest } = props;
-
-    return (
-        <Box
-            sx={{
-                position: "relative",
-                borderRadius: "7px",
-                overflow: "hidden",
-                width: "inherit",
-                height: "230.63px",
-                backgroundColor: "transparent",
-                cursor: "pointer",
-            }}
-        >
-            <Image src="/Capture1.PNG" layout="fill" />
-        </Box>
-    );
-};
+import prisma from "lib/prisma";
 
 const ImageButton = styled((props) => <ButtonBase disableRipple {...props} />)(
     ({ theme }) => ({
@@ -183,7 +38,7 @@ const ImageButton = styled((props) => <ButtonBase disableRipple {...props} />)(
 );
 
 const ImageBox = (props) => {
-    const { children, data, ...rest } = props;
+    const { children, data_showcase, ...rest } = props;
 
     return (
         <ImageButton
@@ -212,7 +67,10 @@ const ImageBox = (props) => {
                     inset: "0px",
                 }}
             >
-                <Image src={`/${data.image}`} layout="fill" />
+                <Image
+                    src={`/showcase/original/${data_showcase.image}`}
+                    layout="fill"
+                />
             </Box>
             <Box
                 sx={{
@@ -299,7 +157,6 @@ const StyledButton = (props) => {
             sx={{
                 minWidth: "90px",
             }}
-            // sx={{ color: props.checked === true ? "red" : "green" }}
         >
             <Typography
                 component="h3"
@@ -316,22 +173,15 @@ const StyledButton = (props) => {
     );
 };
 
-export default function project() {
+export default function project({ data_showcase }) {
     const theme = useTheme();
-    const [toggle, set] = React.useState(true);
-    const config = { mass: 5, tension: 2000, friction: 200 };
+    const [selectedCategory, setSelectedCategory] = React.useState("All");
+    const [showcase, setShowcase] = React.useState(data_showcase);
 
-    // const [showCase, setShowCase] = React.useState(imageCategory);
-    const [selectedCategory, setSelectedCategory] = React.useState("all");
-
-    const [image, setImage] = React.useState(imageCategory);
-
-    // React.useEffect(() => {}, [showCase]);
-
-    const setImageList = () => {
-        setImage(() => {
-            return imageCategory.filter(function (el) {
-                if (selectedCategory !== "all") {
+    const setShowcaselist = () => {
+        setShowcase(() => {
+            return data_showcase.filter((el) => {
+                if (selectedCategory !== "All") {
                     return el.category === selectedCategory;
                 }
                 return el.category;
@@ -340,22 +190,8 @@ export default function project() {
     };
 
     React.useEffect(() => {
-        setImageList();
-        console.log(image);
+        setShowcaselist();
     }, [selectedCategory]);
-
-    const changeCategory = (params: string = "All") => {
-        console.log(params);
-        setSelectedCategory(params);
-    };
-
-    const trail = useTrail(image.length, {
-        config,
-        opacity: toggle ? 1 : 0,
-        x: toggle ? 0 : 20,
-        height: toggle ? 80 : 0,
-        from: { opacity: 0, x: 20, height: 0 },
-    });
 
     return (
         <ContainerHero variantContainer="project">
@@ -387,30 +223,21 @@ export default function project() {
                         alignItems: "baseline",
                     }}
                 >
-                    <StyledButton
-                        checked={selectedCategory === "all"}
-                        onClick={() => setSelectedCategory("all")}
-                    >
-                        All
-                    </StyledButton>
-                    <StyledButton
-                        checked={selectedCategory === "react"}
-                        onClick={() => setSelectedCategory("react")}
-                    >
-                        React
-                    </StyledButton>
-                    <StyledButton
-                        checked={selectedCategory === "nextjs"}
-                        onClick={() => setSelectedCategory("nextjs")}
-                    >
-                        Next JS
-                    </StyledButton>
-                    <StyledButton
-                        checked={selectedCategory === "mui"}
-                        onClick={() => setSelectedCategory("mui")}
-                    >
-                        MUI
-                    </StyledButton>
+                    {["All", "React", "Next Js", "MUI"].map(
+                        (category, index) => {
+                            return (
+                                <StyledButton
+                                    key={index}
+                                    checked={selectedCategory === category}
+                                    onClick={() =>
+                                        setSelectedCategory(category)
+                                    }
+                                >
+                                    {category}
+                                </StyledButton>
+                            );
+                        }
+                    )}
                 </Stack>
                 <Divider sx={{}} />
                 <Box
@@ -420,46 +247,44 @@ export default function project() {
                 >
                     <Grid
                         container
-                        rowSpacing={3}
-                        columnSpacing={3}
+                        spacing={3}
                         sx={{
                             pt: "20px",
                             pb: "10px",
                         }}
                     >
-                        {/* {imageCategory
-                            .filter(function (el) {
-                                if (selectedCategory !== "all") {
-                                    return el.category === selectedCategory;
-                                }
-                                return el.category;
-                            })
-                            .map((index) => {
-                                return (
-                                    <Grid item md={6} key={index}>
-                                        <ImageBox />
-                                    </Grid>
-                                );
-                            })} */}
-
-                        {trail.map(({ x, height, ...rest }, index) => (
-                            <Grid item md={6} key={index}>
-                                <a.div
-                                    className="trails-text"
-                                    style={{
-                                        ...rest,
-                                        transform: x.interpolate(
-                                            (x) => `translate3d(0,${x}px,0)`
-                                        ),
-                                    }}
-                                >
-                                    <ImageBox data={image[index]} />
-                                </a.div>
-                            </Grid>
-                        ))}
+                        {showcase.map((data, index) => {
+                            return (
+                                <Grid item md={6} key={index}>
+                                    <ImageBox data_showcase={data} />
+                                </Grid>
+                            );
+                        })}
                     </Grid>
                 </Box>
             </Box>
         </ContainerHero>
     );
+}
+
+export async function getStaticProps() {
+    const array_showcase = await prisma.showcase.findMany();
+
+    const data_showcase = array_showcase.map((data) => ({
+        id: data.id.toString(),
+        name: data.name,
+        alt: data.alt,
+        image: data.image,
+        image_small: data.smallimage,
+        category: data.category,
+        link1: data.link1,
+        link2: data.link2,
+    }));
+
+    return {
+        props: {
+            data_showcase,
+        },
+        revalidate: 360,
+    };
 }
