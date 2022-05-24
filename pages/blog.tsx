@@ -4,41 +4,47 @@ import { TextField, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import { useTheme } from "@mui/material/styles";
+import Link from "next/link";
 
 const BlogPost = () => {
     const theme = useTheme();
     return (
-        <Box>
-            <Stack
-                direction={{ md: "row", xs: "column" }}
-                sx={{
-                    justifyContent: "space-between",
-                    alignItems: { md: "center", xs: "flex-start" },
-                }}
-            >
-                <Typography variant="h6" gutterBottom={true} sx={{}}>
-                    Rust Is The Future of JavaScript Infrastructure
-                </Typography>
-                <Typography
-                    sx={{
-                        marginBottom: { md: "0px", xs: "12px" },
-                        color: theme.palette.text.secondary,
-                    }}
-                >
-                    224,120 views
-                </Typography>
-            </Stack>
-            <Typography
-                sx={{
-                    color: theme.palette.text.secondary,
-                }}
-            >
-                Why is Rust being used to replace parts of the JavaScript web
-                ecosystem like minification (Terser), transpilation (Babel),
-                formatting (Prettier), bundling (webpack), linting (ESLint), and
-                more? Rust Is The Future of JavaScript Infrastructure
-            </Typography>
-        </Box>
+        <Link href="/">
+            <a>
+                <Box>
+                    <Stack
+                        direction={{ md: "row", xs: "column" }}
+                        sx={{
+                            justifyContent: "space-between",
+                            alignItems: { md: "center", xs: "flex-start" },
+                        }}
+                    >
+                        <Typography variant="h6" gutterBottom={true} sx={{}}>
+                            Rust Is The Future of JavaScript Infrastructure
+                        </Typography>
+                        <Typography
+                            sx={{
+                                marginBottom: { md: "0px", xs: "12px" },
+                                color: theme.palette.text.secondary,
+                            }}
+                        >
+                            224,120 views
+                        </Typography>
+                    </Stack>
+                    <Typography
+                        sx={{
+                            color: theme.palette.text.secondary,
+                        }}
+                    >
+                        Why is Rust being used to replace parts of the
+                        JavaScript web ecosystem like minification (Terser),
+                        transpilation (Babel), formatting (Prettier), bundling
+                        (webpack), linting (ESLint), and more? Rust Is The
+                        Future of JavaScript Infrastructure
+                    </Typography>
+                </Box>
+            </a>
+        </Link>
     );
 };
 

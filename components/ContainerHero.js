@@ -52,7 +52,12 @@ export default function ContainerHero({
                 <Container
                     component="main"
                     maxWidth="md"
-                    sx={{ paddingTop: 8 }}
+                    sx={{
+                        paddingTop: 8,
+                        px: {
+                            md: "90px !important",
+                        },
+                    }}
                 >
                     {children}
                 </Container>
