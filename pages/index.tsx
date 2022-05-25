@@ -9,6 +9,7 @@ import Stack from "@mui/material/Stack";
 import Link from "@mui/material/Link";
 import ArrowRight from "@mui/icons-material/ArrowRightAlt";
 import Divider from "@mui/material/Divider";
+import FaceIcon from "@mui/icons-material/face";
 
 import BlogPostCard from "../components/BlogPostCard";
 import VideoCard from "../components/VideoCard";
@@ -16,6 +17,7 @@ import Subscribe from "../components/Subscribe";
 
 import { allPosts, Post } from "contentlayer/generated";
 import { useTheme } from "@mui/material/styles";
+import { Chip } from "@mui/material";
 
 export default function Home() {
     const theme = useTheme();
@@ -40,7 +42,7 @@ export default function Home() {
                             >
                                 Programmer E-Commerce at
                             </Typography>
-                            <Typography sx={{ mb: 6 }}>
+                            <Typography sx={{ mb: 3 }}>
                                 Helping developers build a faster web. Teaching
                                 about web development, serverless, and React /
                                 Next.js.
@@ -51,6 +53,49 @@ export default function Home() {
                         <Box></Box>
                     </Grid>
                 </Grid>
+                <Stack direction={"row"} spacing={2} sx={{ mb: 3 }}>
+                    <Chip
+                        icon={<FaceIcon fontSize="small" />}
+                        sx={{
+                            height: "28px",
+                            "& .MuiChip-label": {
+                                paddingRight: 0,
+                            },
+                        }}
+                    />
+                    <Chip
+                        icon={<FaceIcon fontSize="small" />}
+                        label="React"
+                        sx={{ height: "28px" }}
+                    />
+                    <Chip
+                        icon={<FaceIcon fontSize="small" />}
+                        label="Next Js"
+                        sx={{ height: "28px" }}
+                    />
+                    <Chip
+                        icon={<FaceIcon fontSize="small" />}
+                        label="MUI"
+                        sx={{ height: "28px" }}
+                    />
+                    <Chip
+                        icon={<FaceIcon fontSize="small" />}
+                        label="Laravel"
+                        sx={{ height: "28px" }}
+                    />
+                    <Chip
+                        icon={<FaceIcon fontSize="small" />}
+                        label="React Native"
+                        sx={{ height: "28px" }}
+                    />
+                </Stack>
+                <Typography
+                    component="h3"
+                    variant="h5"
+                    sx={{ fontWeight: "bold", marginBottom: 2 }}
+                >
+                    Recent Guestbook.
+                </Typography>
                 <Typography
                     component="h3"
                     variant="h5"
