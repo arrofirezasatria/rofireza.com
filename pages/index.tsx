@@ -20,43 +20,43 @@ import { useTheme } from "@mui/material/styles";
 import { Chip } from "@mui/material";
 
 const Boxxx = () => {
-    const theme = useTheme();
-    return (
-        <Link
-            href="/"
-            sx={{
-                textDecoration: "none",
-                padding: "1rem",
-                "&:hover": {
-                    // border: "1px solid lightGray",
-                    backgroundColor: "lightgray",
-                    borderRadius: "10px",
-                    transform: "scale(1.025, 1.02)",
-                    transitionDuration: "300ms",
-                    transitionProperty: "all",
-                    transitionTimingFunction: "300ms",
-                },
-            }}
+  const theme = useTheme();
+  return (
+    <Link
+      href="/"
+      sx={{
+        textDecoration: "none",
+        padding: "1rem",
+        "&:hover": {
+          // border: "1px solid lightGray",
+          backgroundColor: "lightgray",
+          borderRadius: "10px",
+          transform: "scale(1.025, 1.02)",
+          transitionDuration: "300ms",
+          transitionProperty: "all",
+          transitionTimingFunction: "300ms",
+        },
+      }}
+    >
+      <Box>
+        <Stack
+          direction={{
+            md: "row",
+            xs: "column",
+          }}
+          sx={{
+            justifyContent: "space-between",
+            alignItems: {
+              md: "center",
+              xs: "flex-start",
+            },
+          }}
         >
-            <Box>
-                <Stack
-                    direction={{
-                        md: "row",
-                        xs: "column",
-                    }}
-                    sx={{
-                        justifyContent: "space-between",
-                        alignItems: {
-                            md: "center",
-                            xs: "flex-start",
-                        },
-                    }}
-                >
-                    <Typography variant="h6" sx={{ lineHeight: 1 }}>
-                        Rust Is The Future of JavaScript adasd aadasd
-                        sdadadasdad dasdadadas sdadadas
-                    </Typography>
-                    {/* <Typography
+          <Typography variant="h6" sx={{ lineHeight: 1 }}>
+            Rust Is The Future of JavaScript adasd aadasd sdadadasdad dasdadadas
+            sdadadas
+          </Typography>
+          {/* <Typography
                         sx={{
                             marginBottom: {
                                 md: "0px",
@@ -67,107 +67,102 @@ const Boxxx = () => {
                     >
                         224,120 views
                     </Typography> */}
-                </Stack>
-                <Stack
-                    direction="row"
-                    spacing={1}
-                    sx={{ color: theme.palette.text.secondary }}
-                >
-                    <Typography>3 months ago</Typography>
-                    <Typography>&bull;</Typography>
-                    <Typography>3 min read</Typography>
-                </Stack>
-                <Typography
-                    sx={{
-                        color: theme.palette.text.secondary,
-                    }}
-                >
-                    Why is Rust being used to replace parts of the JavaScript
-                    web ecosystem like minification
-                </Typography>
-            </Box>
-        </Link>
-    );
+        </Stack>
+        <Stack
+          direction="row"
+          spacing={1}
+          sx={{ color: theme.palette.text.secondary }}
+        >
+          <Typography>3 months ago</Typography>
+          <Typography>&bull;</Typography>
+          <Typography>3 min read</Typography>
+        </Stack>
+        <Typography
+          sx={{
+            color: theme.palette.text.secondary,
+          }}
+        >
+          Why is Rust being used to replace parts of the JavaScript web
+          ecosystem like minification
+        </Typography>
+      </Box>
+    </Link>
+  );
 };
 
 export default function Home() {
-    const theme = useTheme();
+  const theme = useTheme();
 
-    return (
-        <ContainerHero>
-            <Box sx={{ pb: 8 }}>
-                <Grid container spacing={6}>
-                    <Grid item xs={7}>
-                        <Stack sx={{ paddingTop: 2 }}>
-                            <Typography
-                                component="h1"
-                                variant="h3"
-                                sx={{ fontWeight: 700 }}
-                            >
-                                Arrofi Reza S.
-                            </Typography>
-                            <Typography
-                                component="h2"
-                                variant="subtitle1"
-                                sx={{ fontWeight: 500, marginBottom: 2 }}
-                            >
-                                Programmer E-Commerce at
-                            </Typography>
-                            <Typography sx={{ mb: 3 }}>
-                                Helping developers build a faster web. Teaching
-                                Web Development, Serverless, and React /
-                                Next.js.
-                            </Typography>
-                        </Stack>
-                    </Grid>
-                    <Grid item xs={5}>
-                        <Box></Box>
-                    </Grid>
-                </Grid>
-                <Stack direction={"row"} spacing={2} sx={{ mb: 3 }}>
-                    <Chip
-                        icon={<FaceIcon fontSize="small" />}
-                        clickable
-                        sx={{
-                            height: "28px",
-                            "& .MuiChip-label": {
-                                paddingLeft: "10.7px",
-                                paddingRight: 0,
-                            },
-                        }}
-                    />
-                    <Chip
-                        icon={<FaceIcon fontSize="small" />}
-                        label="React"
-                        clickable
-                        sx={{ height: "28px" }}
-                    />
-                    <Chip
-                        icon={<FaceIcon fontSize="small" />}
-                        label="Next Js"
-                        clickable
-                        sx={{ height: "28px" }}
-                    />
-                    <Chip
-                        icon={<FaceIcon fontSize="small" />}
-                        label="MUI"
-                        clickable
-                        sx={{ height: "28px" }}
-                    />
-                    <Chip
-                        icon={<FaceIcon fontSize="small" />}
-                        label="Laravel"
-                        clickable
-                        sx={{ height: "28px" }}
-                    />
-                    <Chip
-                        icon={<FaceIcon fontSize="small" />}
-                        label="React Native"
-                        clickable
-                        sx={{ height: "28px" }}
-                    />
-                </Stack>
-                {/* <Stack direction={"row"} spacing={2} sx={{ mb: 3 }}>
+  return (
+    <ContainerHero>
+      <Box sx={{ pb: 8 }}>
+        <Grid container spacing={6}>
+          <Grid item xs={7}>
+            <Stack sx={{ paddingTop: 2 }}>
+              <Typography component="h1" variant="h3" sx={{ fontWeight: 700 }}>
+                Arrofi Reza S.
+              </Typography>
+              <Typography
+                component="h2"
+                variant="subtitle1"
+                sx={{ fontWeight: 500, marginBottom: 2 }}
+              >
+                Programmer E-Commerce at
+              </Typography>
+              <Typography sx={{ mb: 3 }}>
+                Helping developers build a faster web. Teaching Web Development,
+                Serverless, and React / Next.js.
+              </Typography>
+            </Stack>
+          </Grid>
+          <Grid item xs={5}>
+            <Box></Box>
+          </Grid>
+        </Grid>
+        <Stack direction={"row"} spacing={2} sx={{ mb: 3 }}>
+          <Chip
+            icon={<FaceIcon fontSize="small" />}
+            clickable
+            sx={{
+              height: "28px",
+              "& .MuiChip-label": {
+                paddingLeft: "10.7px",
+                paddingRight: 0,
+              },
+            }}
+          />
+          <Chip
+            icon={<FaceIcon fontSize="small" />}
+            label="React"
+            clickable
+            sx={{ height: "28px" }}
+          />
+          <Chip
+            icon={<FaceIcon fontSize="small" />}
+            label="Next Js"
+            clickable
+            sx={{ height: "28px" }}
+          />
+          <Chip
+            icon={<FaceIcon fontSize="small" />}
+            label="MUI"
+            clickable
+            sx={{ height: "28px" }}
+          />
+          <Chip
+            icon={<FaceIcon fontSize="small" />}
+            label="Laravel"
+            clickable
+            sx={{ height: "28px" }}
+          />
+          <Chip
+            icon={<FaceIcon fontSize="small" />}
+            label="React Native"
+            clickable
+            sx={{ height: "28px" }}
+          />
+        </Stack>
+        {/* <Stack direction={"row"} spacing={2} sx={{ mb: 3 }}>
           <Chip
             icon={<FaceIcon fontSize="small" />}
             label="JPOP"
@@ -180,7 +175,7 @@ export default function Home() {
           />
         </Stack> */}
 
-                {/* <Typography
+        {/* <Typography
           component="h3"
           variant="h5"
           sx={{ fontWeight: "bold", marginBottom: 2 }}
@@ -188,27 +183,27 @@ export default function Home() {
           Recent Guestbook.
         </Typography> */}
 
-                <Box
-                    sx={{
-                        backgroundColor: "lightGray",
-                        height: "100px",
-                        marginBottom: 5,
-                        borderRadius: "8px",
-                    }}
-                ></Box>
-                <Typography
-                    component="h3"
-                    variant="h5"
-                    sx={{ fontWeight: "bold", marginBottom: 1 }}
-                >
-                    Recent Blog Post.
-                </Typography>
-                <Stack spacing={0}>
-                    <Boxxx />
-                    <Boxxx />
-                    <Boxxx />
-                </Stack>
-                {/* <Grid container spacing={3}>
+        <Box
+          sx={{
+            backgroundColor: "lightGray",
+            height: "100px",
+            marginBottom: 5,
+            borderRadius: "8px",
+          }}
+        ></Box>
+        <Typography
+          component="h3"
+          variant="h5"
+          sx={{ fontWeight: "bold", marginBottom: 1 }}
+        >
+          Recent Blog Post.
+        </Typography>
+        <Stack spacing={0}>
+          <Boxxx />
+          <Boxxx />
+          <Boxxx />
+        </Stack>
+        {/* <Grid container spacing={3}>
                     <Grid item xs={4}>
                         <BlogPostCard />
                     </Grid>
@@ -219,107 +214,105 @@ export default function Home() {
                         <BlogPostCard />
                     </Grid>
                 </Grid> */}
-                <Typography
-                    component="h3"
-                    variant="h5"
-                    sx={{ fontWeight: "bold", marginBottom: 2, marginTop: 4 }}
-                >
-                    Recent Videos.
-                </Typography>
-                <Grid
-                    container
-                    spacing={5}
-                    sx={{ justifyContent: "space-between" }}
-                >
-                    <Grid item md={6}>
-                        <Box
-                            sx={{
-                                borderRadius: "10px",
-                                height: "189px",
-                                backgroundColor: "lightGray",
-                            }}
-                        >
-                            a
-                        </Box>
-                        <Link href="www.google.com" underline="hover">
-                            <Typography
-                                component="h5"
-                                sx={{
-                                    mt: "0.5rem",
-                                    mb: 1,
-                                    fontSize: "20px",
-                                    lineHeight: "1.2",
-                                }}
-                            >
-                                In incididunt voluptate ullamco adipisicing
-                                aliquip
-                            </Typography>
-                        </Link>
-                        <Typography
-                            sx={{ color: theme.palette.text.secondary }}
-                        >
-                            Duis veniam mollit consectetur duis aute mollit
-                            consequat nisi. mollit consectetur duis aute mollit
-                        </Typography>
-                    </Grid>
-                    <Grid item md={6}>
-                        <Box
-                            sx={{
-                                borderRadius: "10px",
-                                height: "189px",
-                                backgroundColor: "lightGray",
-                            }}
-                        >
-                            a
-                        </Box>
-                        <Typography
-                            component="h5"
-                            sx={{
-                                mt: 2,
-                                mb: 1,
-                                fontSize: "20px",
-                                lineHeight: "1.2",
-                            }}
-                        >
-                            In incididunt voluptate ullamco adipisicing aliquip
-                        </Typography>
-                        <Typography
-                            sx={{ color: theme.palette.text.secondary }}
-                        >
-                            Duis veniam mollit consectetur duis aute mollit
-                            consequat nisi. mollit consectetur duis aute mollit
-                        </Typography>
-                    </Grid>
-                    <Grid item md={6}>
-                        <Box
-                            sx={{
-                                borderRadius: "10px",
-                                height: "189px",
-                                backgroundColor: "lightGray",
-                            }}
-                        >
-                            a
-                        </Box>
-                        <Typography
-                            component="h5"
-                            sx={{
-                                mt: 2,
-                                mb: 1,
-                                fontSize: "20px",
-                                lineHeight: "1.2",
-                            }}
-                        >
-                            In incididunt voluptate ullamco adipisicing aliquip
-                        </Typography>
-                        <Typography
-                            sx={{ color: theme.palette.text.secondary }}
-                        >
-                            Duis veniam mollit consectetur duis aute mollit
-                            consequat nisi. mollit consectetur duis aute mollit
-                        </Typography>
-                    </Grid>
-                </Grid>
-                {/* <Box>
+        <Typography
+          component="h3"
+          variant="h5"
+          sx={{ fontWeight: "bold", marginBottom: 2, marginTop: 4 }}
+        >
+          Recent Videos.
+        </Typography>
+        <Grid container spacing={5} sx={{ justifyContent: "space-between" }}>
+          <Grid item md={6}>
+            <Link href="https://www.google.com">
+              <Box
+                sx={{
+                  position: "relative",
+                  borderRadius: "10px",
+                  height: "189px",
+                  backgroundColor: "transparent",
+                  cursor: "pointer",
+                  overflow: "hidden",
+                  "&:hover": {
+                    backgroundColor: "red",
+                  },
+                }}
+              >
+                <Image src="/showcase/original/sidebar-mui.png" layout="fill" />
+              </Box>
+            </Link>
+
+            <Link href="www.google.com" underline="hover">
+              <Typography
+                component="h5"
+                sx={{
+                  mt: "0.5rem",
+                  mb: 1,
+                  fontSize: "20px",
+                  lineHeight: "1.2",
+                }}
+              >
+                In incididunt voluptate ullamco adipisicing aliquip
+              </Typography>
+            </Link>
+            <Typography sx={{ color: theme.palette.text.secondary }}>
+              Duis veniam mollit consectetur duis aute mollit consequat nisi.
+              mollit consectetur duis aute mollit
+            </Typography>
+          </Grid>
+          <Grid item md={6}>
+            <Box
+              sx={{
+                borderRadius: "10px",
+                height: "189px",
+                backgroundColor: "lightGray",
+              }}
+            >
+              a
+            </Box>
+            <Typography
+              component="h5"
+              sx={{
+                mt: 2,
+                mb: 1,
+                fontSize: "20px",
+                lineHeight: "1.2",
+              }}
+            >
+              In incididunt voluptate ullamco adipisicing aliquip
+            </Typography>
+            <Typography sx={{ color: theme.palette.text.secondary }}>
+              Duis veniam mollit consectetur duis aute mollit consequat nisi.
+              mollit consectetur duis aute mollit
+            </Typography>
+          </Grid>
+          <Grid item md={6}>
+            <Box
+              sx={{
+                borderRadius: "10px",
+                height: "189px",
+                backgroundColor: "lightGray",
+              }}
+            >
+              a
+            </Box>
+            <Typography
+              component="h5"
+              sx={{
+                mt: 2,
+                mb: 1,
+                fontSize: "20px",
+                lineHeight: "1.2",
+              }}
+            >
+              In incididunt voluptate ullamco adipisicing aliquip
+            </Typography>
+            <Typography sx={{ color: theme.palette.text.secondary }}>
+              Duis veniam mollit consectetur duis aute mollit consequat nisi.
+              mollit consectetur duis aute mollit
+            </Typography>
+          </Grid>
+        </Grid>
+        {/* <Box>
                     <Typography
                         variant="h5"
                         component="h3"
@@ -360,8 +353,8 @@ export default function Home() {
                         </Stack>
                     </Link>
                 </Box> */}
-                {/* <Subscribe /> */}
-            </Box>
-        </ContainerHero>
-    );
+        {/* <Subscribe /> */}
+      </Box>
+    </ContainerHero>
+  );
 }
