@@ -27,12 +27,13 @@ model views {
 }
 
 model showcase {
-  id         Int    @id @default(autoincrement())
-  name       String @db.VarChar(256)
-  alt        String @default("") @db.VarChar(256)
-  image      String @db.VarChar(256)
-  smallimage String @db.VarChar(256)
-  category   String @db.VarChar(256)
-  link1      String @db.VarChar(256)
-  link2      String @db.VarChar(256)
+  id          Int    @id @default(autoincrement())
+  name        String @default("") @db.VarChar(256)
+  alt         String @default("") @db.VarChar(256)
+  short_desc  String @default("") @db.VarChar(256)
+  image       String @default("default-image.jpg") @db.VarChar(256)
+  small_image String @default("default-image-small.jpg") @db.VarChar(256)
+  category    String @default("all") @db.VarChar(256)
+  link1       String @default("/") @db.VarChar(256)
+  link2       String @default("/") @db.VarChar(256)
 }

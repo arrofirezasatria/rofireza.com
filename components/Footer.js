@@ -22,7 +22,14 @@ export default function Footer() {
     return (
         <Container component="footer" maxWidth="md" sx={{ pb: 8, pt: 2 }}>
             <Divider sx={{ mb: "40px" }} />
-            <Grid container spacing={2}>
+            <Grid
+                container
+                spacing={2}
+                direction={{
+                    xs: "column",
+                    md: "row",
+                }}
+            >
                 <Grid item xs={7}>
                     {/* <Avatar sx={{ width: "32px", height: "32px" }}>A</Avatar> */}
                     <div
@@ -85,42 +92,53 @@ export default function Footer() {
                         </Box>
                     </div>
                 </Grid>
-                <Grid item xs={2.5}>
-                    <Typography
-                        fontWeight="bold"
-                        variant="body2"
-                        sx={{ marginBottom: "12px" }}
-                    >
-                        Products
-                    </Typography>
-                    <Stack
-                        spacing={1}
-                        sx={{ fontSize: "14px", textDecoration: "none" }}
-                    >
-                        <Link underline="none">MUI Core</Link>
-                        <Link underline="none">MUI X</Link>
-                        <Link underline="none">Templates</Link>
-                        <Link underline="none">Design kits</Link>
-                        <Link underline="none">Design kits</Link>
-                    </Stack>
-                </Grid>
-                <Grid item xs={2.5}>
-                    <Typography
-                        fontWeight="bold"
-                        variant="body2"
-                        sx={{ marginBottom: "12px" }}
-                    >
-                        Products
-                    </Typography>
-                    <Stack
-                        spacing={1}
-                        sx={{ fontSize: "14px", textDecoration: "none" }}
-                    >
-                        <Link underline="none">MUI Core</Link>
-                        <Link underline="none">MUI X</Link>
-                        <Link underline="none">Templates</Link>
-                        <Link underline="none">Design kits</Link>
-                    </Stack>
+                <Grid item xs={5}>
+                    <Grid container>
+                        <Grid item xs={6}>
+                            <Typography
+                                fontWeight="bold"
+                                variant="body2"
+                                sx={{ marginBottom: "12px" }}
+                            >
+                                Products
+                            </Typography>
+                            <Stack
+                                spacing={1}
+                                sx={{
+                                    fontSize: "14px",
+                                    textDecoration: "none",
+                                }}
+                            >
+                                <Link underline="none">MUI Core</Link>
+                                <Link underline="none">MUI X</Link>
+                                <Link underline="none">Templates</Link>
+                                <Link underline="none">Design kits</Link>
+                                <Link underline="none">Design kits</Link>
+                            </Stack>
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Typography
+                                fontWeight="bold"
+                                variant="body2"
+                                sx={{ marginBottom: "12px" }}
+                            >
+                                Products
+                            </Typography>
+                            <Stack
+                                spacing={1}
+                                sx={{
+                                    fontSize: "14px",
+                                    textDecoration: "none",
+                                }}
+                            >
+                                <Link underline="none">MUI Core</Link>
+                                <Link underline="none">MUI X</Link>
+                                <Link underline="none">Templates</Link>
+                                <Link underline="none">Design kits</Link>
+                                <Link underline="none">Design kits</Link>
+                            </Stack>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
             <Divider sx={{ pt: "40px" }} />

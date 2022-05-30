@@ -129,7 +129,6 @@ export default function AppBar() {
                         }}
                     >
                         <NavItem name="Home" href="/" />
-                        <NavItem name="Guestbook" href="/guestbook" />
                         {/* <NavItem name="Dashboard" href="/dashboard" /> */}
                         <NavItem name="Blog" href="/blog" />
                         <NavItem name="Project" href="/project" />
