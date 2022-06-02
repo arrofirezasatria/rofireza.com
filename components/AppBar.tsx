@@ -130,8 +130,8 @@ export default function AppBar() {
                     >
                         <NavItem name="Home" href="/" />
                         {/* <NavItem name="Dashboard" href="/dashboard" /> */}
-                        <NavItem name="Blog" href="/blog" />
-                        <NavItem name="Project" href="/project" />
+                        {/* <NavItem name="Blog" href="/blog" />
+                        <NavItem name="Project" href="/project" /> */}
                     </Stack>
                     <Stack
                         direction="row"

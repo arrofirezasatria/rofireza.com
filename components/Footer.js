@@ -32,13 +32,7 @@ export default function Footer() {
             >
                 <Grid item xs={7}>
                     {/* <Avatar sx={{ width: "32px", height: "32px" }}>A</Avatar> */}
-                    <div
-                        sx={{
-                            display: "flex",
-                            alignItems: "flex-start",
-                            justifyContent: "space-between !important",
-                        }}
-                    >
+                    <Box sx={{ ml: 6, mt: 0.5 }}>
                         <Box sx={{ height: "50px" }}>
                             <Typography
                                 sx={{
@@ -90,7 +84,7 @@ export default function Footer() {
                             </Typography>
                             <EmailSubscriber />
                         </Box>
-                    </div>
+                    </Box>
                 </Grid>
                 <Grid item xs={5}>
                     <Grid container>
