@@ -7,6 +7,7 @@ import rehypeCodeTitles from "rehype-code-titles";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrism from "rehype-prism-plus";
 import rehypeHighlight from "rehype-highlight";
+import { format } from "timeago.js";
 
 const Post = defineDocumentType(() => ({
     name: "Post",
@@ -15,12 +16,18 @@ const Post = defineDocumentType(() => ({
     fields: {
         title: {
             type: "string",
-            description: "The title of the post",
             required: true,
         },
         date: {
-            type: "date",
-            description: "The date of the post",
+            type: "string",
+            required: true,
+        },
+        summary: {
+            type: "string",
+            required: true,
+        },
+        image: {
+            type: "string",
             required: true,
         },
     },
@@ -28,6 +35,14 @@ const Post = defineDocumentType(() => ({
         url: {
             type: "string",
             resolve: (doc) => `/posts/${doc._raw.flattenedPath}`,
+        },
+        reading_time: {
+            type: "number",
+            resolve: (doc) => readingTime(doc.body.raw),
+        },
+        time_ago: {
+            type: "number",
+            resolve: (doc) => format(doc.date, "en_US"),
         },
     },
 }));

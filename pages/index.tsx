@@ -313,8 +313,19 @@ export async function getStaticProps() {
         ],
     });
 
-    const data_posts = allPosts.map((post) => pick(post, ["title", "url"]));
+    const data_posts = allPosts.map((post) =>
+        pick(post, [
+            "title",
+            "date",
+            "summary",
+            "url",
+            "reading_time",
+            "time_ago",
+            "image",
+        ])
+    );
 
+    console.log(allPosts);
     console.log(data_posts);
 
     const showcase = array_showcase.map(async (data) => {

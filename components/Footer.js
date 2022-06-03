@@ -32,7 +32,7 @@ export default function Footer() {
             >
                 <Grid item xs={7}>
                     {/* <Avatar sx={{ width: "32px", height: "32px" }}>A</Avatar> */}
-                    <Box sx={{ ml: 6, mt: 0.5 }}>
+                    <Box sx={{ ml: { md: 6, xs: 0 }, mt: 0.5 }}>
                         <Box sx={{ height: "50px" }}>
                             <Typography
                                 sx={{
