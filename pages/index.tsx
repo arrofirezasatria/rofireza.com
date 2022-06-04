@@ -26,70 +26,7 @@ import { getPlaiceholder } from "plaiceholder";
 import { pick } from "@contentlayer/utils";
 import { useSelector } from "react-redux";
 
-<<<<<<< HEAD
 const Boxxx = ({ key, title, url, time_ago, summary, reading_time }) => {
-    const theme = useTheme();
-    return (
-        <Link
-            href={url}
-            key={key}
-            sx={{
-                textDecoration: "none",
-                padding: {
-                    xs: "1rem 1rem 1rem 0rem",
-                    md: "1rem 1rem 1rem 1.5rem",
-                },
-                "&:hover": {
-                    // border: "1px solid lightGray",
-                    backgroundColor: "lightgray",
-                    borderRadius: "10px",
-                    transform: "scale(1.025, 1.02)",
-                    transitionDuration: "300ms",
-                    transitionProperty: "all",
-                    transitionTimingFunction: "300ms",
-                },
-            }}
-        >
-            <Box>
-                <Stack
-                    spacing={0.5}
-                    sx={{
-                        justifyContent: "space-between",
-                        alignItems: {
-                            md: "flex-start",
-                            xs: "flex-start",
-                        },
-                    }}
-                >
-                    <Typography variant="h6" sx={{ lineHeight: 1 }}>
-                        {title}
-                        {reading_time}
-                        {summary}
-                        {time_ago}
-                    </Typography>
-                    <Stack
-                        direction="row"
-                        spacing={1}
-                        sx={{ color: theme.palette.text.secondary }}
-                    >
-                        <Typography>3 months ago</Typography>
-                        <Typography>&bull;</Typography>
-                        <Typography>3 min read</Typography>
-                    </Stack>
-                    <Typography
-                        sx={{
-                            color: theme.palette.text.secondary,
-                        }}
-                    >
-                        Why is Rust being used to replace parts of the
-                        JavaScript web ecosystem like minification
-                    </Typography>
-                </Stack>
-            </Box>
-        </Link>
-    );
-=======
-const Boxxx = ({ key, title, url }) => {
   const theme = useTheme();
   return (
     <Link
@@ -131,23 +68,21 @@ const Boxxx = ({ key, title, url }) => {
             spacing={1}
             sx={{ color: theme.palette.text.secondary }}
           >
-            <Typography>3 months ago</Typography>
+            <Typography>{time_ago}</Typography>
             <Typography>&bull;</Typography>
-            <Typography>3 min read</Typography>
+            <Typography>{reading_time}</Typography>
           </Stack>
           <Typography
             sx={{
               color: theme.palette.text.secondary,
             }}
           >
-            Why is Rust being used to replace parts of the JavaScript web
-            ecosystem like minification
+            {summary}
           </Typography>
         </Stack>
       </Box>
     </Link>
   );
->>>>>>> ba34807a81346fe2145e382b64c396d29333c764
 };
 
 export default function Home({ data_showcase, data_posts }) {
@@ -241,36 +176,6 @@ export default function Home({ data_showcase, data_posts }) {
           />
         </Box>
 
-<<<<<<< HEAD
-                <Box
-                    sx={{
-                        backgroundColor: "lightGray",
-                        height: "100px",
-                        marginBottom: 5,
-                        borderRadius: "8px",
-                    }}
-                ></Box>
-                <Typography
-                    component="h3"
-                    variant="h5"
-                    sx={{ fontWeight: "bold", marginBottom: 1 }}
-                >
-                    Recent Blog Post.
-                </Typography>
-                <Stack spacing={0}>
-                    {data_posts.map((post, index) => {
-                        return (
-                            <Boxxx
-                                key={index}
-                                title={post.title}
-                                url={post.url}
-                                time_ago={post.time_ago}
-                                summary={post.summary}
-                                reading_time={post.reading_time.text}
-                            />
-                        );
-                    })}
-=======
         <Box
           sx={{
             backgroundColor: "lightGray",
@@ -288,79 +193,26 @@ export default function Home({ data_showcase, data_posts }) {
         </Typography>
         <Stack spacing={0}>
           {data_posts.map((post, index) => {
-            return <Boxxx key={index} title={post.title} url={post.url} />;
+            return (
+              <Boxxx
+                key={index}
+                title={post.title}
+                url={post.url}
+                time_ago={post.time_ago}
+                summary={post.summary}
+                reading_time={post.reading_time.text}
+              />
+            );
           })}
->>>>>>> ba34807a81346fe2145e382b64c396d29333c764
 
           {/* <Boxxx />
                     <Boxxx />
                     <Boxxx /> */}
-<<<<<<< HEAD
-                </Stack>
-                <Typography
-                    component="h3"
-                    variant="h5"
-                    sx={{ fontWeight: "bold", marginBottom: 2, marginTop: 3 }}
-                >
-                    Recent Videos.
-                </Typography>
-                <Grid
-                    container
-                    spacing={5}
-                    sx={{ justifyContent: "space-between" }}
-                >
-                    {data_showcase.map((data, index) => {
-                        return (
-                            <Grid item md={6} key={index}>
-                                <Link href={data.link1}>
-                                    <Box
-                                        sx={{
-                                            position: "relative",
-                                            borderRadius: "10px",
-                                            height: {
-                                                xs: `calc( ${innerWidth}px * ( 9 / 16 ) - 20px )`,
-                                                md: "189px",
-                                            },
-                                            overflow: "hidden",
-                                            "&:hover": {
-                                                "& div": {
-                                                    opacity: 1,
-                                                    transitionProperty:
-                                                        "opacity",
-                                                    transitionDuration: "400ms",
-                                                },
-                                            },
-                                        }}
-                                    >
-                                        <Image
-                                            src={`/showcase/original/${data.image}`}
-                                            layout="fill"
-                                            blurDataURL={data.blur_data_url}
-                                            placeholder="blur"
-                                        />
-                                        <Box
-                                            sx={{
-                                                position: "absolute",
-                                                width: "100%",
-                                                height: "100%",
-                                                alignItems: "center",
-                                                justifyContent: "center",
-                                                display: "flex",
-                                                overflow: "hidden",
-                                                opacity: 0,
-                                                background: "rgba(0,0,0,0.36)",
-                                            }}
-                                        >
-                                            <PlayCircleRoundedIcon fontSize="large" />
-                                        </Box>
-                                    </Box>
-                                </Link>
-=======
         </Stack>
         <Typography
           component="h3"
           variant="h5"
-          sx={{ fontWeight: "bold", marginBottom: 2, marginTop: 4 }}
+          sx={{ fontWeight: "bold", marginBottom: 2, marginTop: 3 }}
         >
           Recent Videos.
         </Typography>
@@ -410,7 +262,6 @@ export default function Home({ data_showcase, data_posts }) {
                     </Box>
                   </Box>
                 </Link>
->>>>>>> ba34807a81346fe2145e382b64c396d29333c764
 
                 <Link href={data.link1} underline="hover">
                   <Typography
