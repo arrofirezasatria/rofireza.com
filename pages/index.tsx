@@ -25,7 +25,7 @@ import { PlayCircleRounded } from "@mui/icons-material";
 import { getPlaiceholder } from "plaiceholder";
 import { pick } from "@contentlayer/utils";
 
-const Boxxx = ({ key, title, url }) => {
+const Boxxx = ({ key, title, url, time_ago, summary, reading_time }) => {
     const theme = useTheme();
     return (
         <Link
@@ -61,6 +61,9 @@ const Boxxx = ({ key, title, url }) => {
                 >
                     <Typography variant="h6" sx={{ lineHeight: 1 }}>
                         {title}
+                        {reading_time}
+                        {summary}
+                        {time_ago}
                     </Typography>
                     <Stack
                         direction="row"
@@ -201,6 +204,9 @@ export default function Home({ data_showcase, data_posts }) {
                                 key={index}
                                 title={post.title}
                                 url={post.url}
+                                time_ago={post.time_ago}
+                                summary={post.summary}
+                                reading_time={post.reading_time.text}
                             />
                         );
                     })}
@@ -212,7 +218,7 @@ export default function Home({ data_showcase, data_posts }) {
                 <Typography
                     component="h3"
                     variant="h5"
-                    sx={{ fontWeight: "bold", marginBottom: 2, marginTop: 4 }}
+                    sx={{ fontWeight: "bold", marginBottom: 2, marginTop: 3 }}
                 >
                     Recent Videos.
                 </Typography>
