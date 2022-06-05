@@ -89,47 +89,62 @@ export default function Footer() {
                 <Grid item xs={5}>
                     <Grid container>
                         <Grid item xs={6}>
-                            <Typography
+                            {/* <Typography
                                 fontWeight="bold"
                                 variant="body2"
                                 sx={{ marginBottom: "12px" }}
                             >
-                                Products
-                            </Typography>
+                                Pages
+                            </Typography> */}
                             <Stack
                                 spacing={1}
                                 sx={{
-                                    fontSize: "14px",
+                                    fontSize: "16px",
                                     textDecoration: "none",
                                 }}
                             >
-                                <Link underline="none">MUI Core</Link>
-                                <Link underline="none">MUI X</Link>
-                                <Link underline="none">Templates</Link>
-                                <Link underline="none">Design kits</Link>
-                                <Link underline="none">Design kits</Link>
+                                <Link href="/" underline="none">
+                                    Home
+                                </Link>
+                                <Link underline="none">Blog</Link>
+                                <Link underline="none">About</Link>
+                                <Link underline="none">Bookmarks</Link>
+                                <Link underline="none">Showcase</Link>
                             </Stack>
                         </Grid>
                         <Grid item xs={6}>
-                            <Typography
+                            {/* <Typography
                                 fontWeight="bold"
                                 variant="body2"
                                 sx={{ marginBottom: "12px" }}
                             >
-                                Products
-                            </Typography>
+                                Social
+                            </Typography> */}
                             <Stack
                                 spacing={1}
                                 sx={{
-                                    fontSize: "14px",
+                                    fontSize: "16px",
                                     textDecoration: "none",
                                 }}
                             >
-                                <Link underline="none">MUI Core</Link>
-                                <Link underline="none">MUI X</Link>
-                                <Link underline="none">Templates</Link>
-                                <Link underline="none">Design kits</Link>
-                                <Link underline="none">Design kits</Link>
+                                <Link
+                                    href="https://www.youtube.com/channel/UChey2Z5IrugYJH75bzs-gUw"
+                                    underline="none"
+                                >
+                                    Youtube
+                                </Link>
+                                <Link
+                                    href="https://twitter.com/rofirezadev"
+                                    underline="none"
+                                >
+                                    Twitter
+                                </Link>
+                                <Link
+                                    href="https://github.com/arrofirezasatria"
+                                    underline="none"
+                                >
+                                    Github{" "}
+                                </Link>
                             </Stack>
                         </Grid>
                     </Grid>

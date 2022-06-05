@@ -15,8 +15,21 @@ import { blueDark } from "modules/ThemeContext";
 const Form = styled("form")({});
 
 export default function EmailSubscriber() {
+    const [form, setForm] = React.useState<{ email: string }>({ email: "" });
+
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+
+        try {
+            const respond = await fetch("/api/newsletter", {
+                method: "POST",
+                body: form.email,
+            });
+        } catch (error) {}
+    };
+
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <FormLabel
                 htmlFor="email-subscribe"
                 sx={{
@@ -43,6 +56,7 @@ export default function EmailSubscriber() {
                     type="email"
                     placeholder="example@email.com"
                     inputProps={{ required: true }}
+                    onChange={(event) => setForm({ email: event.target.value })}
                     sx={{
                         bgcolor: (theme) =>
                             theme.palette.mode === "dark"

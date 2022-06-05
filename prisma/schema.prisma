@@ -37,3 +37,8 @@ model showcase {
   link1       String @default("/") @db.VarChar(256)
   link2       String @default("/") @db.VarChar(256)
 }
+
+model newsletter {
+  id    Int    @id @default(autoincrement())
+  email String @default("") @db.VarChar(256)
+}

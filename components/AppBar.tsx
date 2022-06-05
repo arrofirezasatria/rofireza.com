@@ -55,7 +55,8 @@ const NavItem = ({ name = "nav", href = "sd" }) => {
                 <Typography
                     component="span"
                     sx={{
-                        fontWeight: 400,
+                        fontSize: "18px",
+                        fontWeight: 600,
                         fontFamily: "Rubik",
                     }}
                 >
@@ -106,7 +107,11 @@ export default function AppBar() {
                         : "rgba(255,255,255,0.5)",
             }}
         >
-            <Toolbar sx={{}}>
+            <Toolbar
+                sx={{
+                    px: { xs: 0 },
+                }}
+            >
                 <Container
                     maxWidth="md"
                     sx={{
@@ -123,12 +128,12 @@ export default function AppBar() {
                             alignItems: "center",
                             alignContent: "center",
                             display: {
-                                xs: "none",
+                                xs: "flex",
                                 md: "flex",
                             },
                         }}
                     >
-                        <NavItem name="Home" href="/" />
+                        <NavItem name="Rofi." href="/" />
                         {/* <NavItem name="Dashboard" href="/dashboard" /> */}
                         {/* <NavItem name="Blog" href="/blog" />
                         <NavItem name="Project" href="/project" /> */}
