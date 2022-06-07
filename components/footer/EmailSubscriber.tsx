@@ -1,21 +1,19 @@
 import * as React from "react";
 import { Theme, styled } from "@mui/material/styles";
-import { SxProps } from "@mui/system";
-import Alert from "@mui/material/Alert";
-import AlertTitle from "@mui/material/AlertTitle";
+
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import FormLabel from "@mui/material/FormLabel";
-import FormHelperText from "@mui/material/FormHelperText";
-import InputBase from "@mui/material/InputBase";
-import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 
+import InputBase from "@mui/material/InputBase";
+import useSwr from "swr";
 import { blueDark } from "modules/ThemeContext";
 
 const Form = styled("form")({});
 
 export default function EmailSubscriber() {
     const [form, setForm] = React.useState<{ email: string }>({ email: "" });
+    const [succes, setSuccess] = React.useState<string>("sukses" || "error");
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -25,6 +23,9 @@ export default function EmailSubscriber() {
                 method: "POST",
                 body: form.email,
             });
+            console.log(respond);
+            console.log(respond.body);
+            console.log("adas");
         } catch (error) {}
     };
 

@@ -1,5 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { updateAwait } from "typescript";
 
 import prisma from "../../../lib/prisma";
 
@@ -29,11 +28,13 @@ async function addNewsletter(req: NextApiRequest, res: NextApiResponse) {
                 email: req.body,
             },
         });
-        return res.status(200).json({
+
+        return res.status(200).send({
             email: newEmail.email,
+            success: true,
         });
     } catch (error) {
-        return res.status(500).json({ message: error, succes: false });
+        return res.status(500).json({ message: error, success: false });
     }
 }
 
@@ -42,6 +43,7 @@ async function readNewsletter(req: NextApiRequest, res: NextApiResponse) {
         const readEmail = await prisma.newsletter.findMany({
             orderBy: { id: "asc" },
         });
+
         return res.status(200).json({
             success: true,
             data: readEmail.map((data) => ({
