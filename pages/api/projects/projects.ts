@@ -22,7 +22,7 @@ async function readProjectShowcase(req: NextApiRequest, res: NextApiResponse) {
                 name: data.name,
                 alt: data.alt,
                 image: data.image,
-                image_small: data.smallimage,
+                image_small: data.small_image,
                 category: data.category,
                 link1: data.link1,
                 link2: data.link2,
