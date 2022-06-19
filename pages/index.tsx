@@ -14,17 +14,16 @@ import Links from "next/link";
 
 import { allPosts, Post } from "contentlayer/generated";
 import { useTheme } from "@mui/material/styles";
-import { Chip } from "@mui/material";
+import { Avatar, Chip } from "@mui/material";
 import prisma from "lib/prisma";
 import { getPlaiceholder } from "plaiceholder";
 import { pick } from "@contentlayer/utils";
 
-const Boxxx = ({ key, title, url, time_ago, summary, reading_time }) => {
+const Boxxx = ({ title, url, time_ago, summary, reading_time }) => {
     const theme = useTheme();
     return (
         <Links href={url} passHref prefetch>
             <Link
-                key={key}
                 sx={{
                     textDecoration: "none",
                     padding: {
@@ -79,11 +78,40 @@ const Boxxx = ({ key, title, url, time_ago, summary, reading_time }) => {
     );
 };
 
-export default function Home({ data_showcase, data_posts }) {
+interface IData_showcase {
+    id: string;
+    name: string;
+    alt: string;
+    short_desc: string;
+    image: string;
+    small_image: string;
+    blur_data_url: string;
+    category: string;
+    link1: string;
+    link2: string;
+}
+
+interface IData_posts {
+    title: string;
+    date: string;
+    summary: string;
+    url: string;
+    reading_time: any;
+    time_ago: string;
+    image: string;
+}
+
+interface data {
+    data_showcase: Array<IData_showcase>;
+    data_posts: Array<IData_posts>;
+}
+
+export default function Home({ data_showcase, data_posts }: data) {
     const theme = useTheme();
 
-    const [innerWidth, setWidth] = React.useState(0);
-    const [innerHeight, setHeight] = React.useState(0);
+    const [innerWidth, setWidth] = React.useState<number>(0);
+    const [innerHeight, setHeight] = React.useState<number>(0);
+
     React.useEffect(() => {
         setWidth(window.innerWidth);
         setHeight(window.innerHeight);
@@ -96,6 +124,7 @@ export default function Home({ data_showcase, data_posts }) {
                     container
                     spacing={6}
                     direction={{ xs: "column-reverse", md: "row" }}
+                    sx={{ mb: 6 }}
                 >
                     <Grid item xs={12} md={7}>
                         <Stack sx={{ paddingTop: 2 }}>
@@ -120,8 +149,23 @@ export default function Home({ data_showcase, data_posts }) {
                             </Typography>
                         </Stack>
                     </Grid>
-                    <Grid item xs={12} md={5}>
-                        <Box></Box>
+                    <Grid
+                        item
+                        xs={12}
+                        md={5}
+                        sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}
+                    >
+                        <Avatar
+                            src="/showcase/original/sidebar-mui.jpg"
+                            sizes="large"
+                            sx={{ width: 184, height: 184 }}
+                        >
+                            a
+                        </Avatar>
                     </Grid>
                 </Grid>
                 <Box sx={{ display: "flex", flexWrap: "wrap", mb: 1 }}>
@@ -201,10 +245,6 @@ export default function Home({ data_showcase, data_posts }) {
                             />
                         );
                     })}
-
-                    {/* <Boxxx />
-                    <Boxxx />
-                    <Boxxx /> */}
                 </Stack>
                 <Typography
                     component="h3"
@@ -220,69 +260,75 @@ export default function Home({ data_showcase, data_posts }) {
                 >
                     {data_showcase.map((data, index) => {
                         return (
-                            <Grid item md={6} key={index}>
-                                <Link href={data.link1}>
-                                    <Box
-                                        sx={{
-                                            position: "relative",
-                                            borderRadius: "10px",
-                                            height: {
-                                                xs: `calc( ${innerWidth}px * ( 9 / 16 ) - 20px )`,
-                                                md: "189px",
-                                            },
-                                            overflow: "hidden",
-                                            "&:hover": {
-                                                "& div": {
-                                                    opacity: 1,
-                                                    transitionProperty:
-                                                        "opacity",
-                                                    transitionDuration: "400ms",
-                                                },
-                                            },
-                                        }}
-                                    >
-                                        <Image
-                                            src={`/showcase/original/${data.image}`}
-                                            layout="fill"
-                                            blurDataURL={data.blur_data_url}
-                                            placeholder="blur"
-                                        />
+                            <React.Fragment key={index}>
+                                <Grid item md={6}>
+                                    <Link href={data.link1}>
                                         <Box
                                             sx={{
-                                                position: "absolute",
-                                                width: "100%",
-                                                height: "100%",
-                                                alignItems: "center",
-                                                justifyContent: "center",
-                                                display: "flex",
+                                                position: "relative",
+                                                borderRadius: "10px",
+                                                height: {
+                                                    xs: `calc( ${innerWidth}px * ( 9 / 16 ) - 20px )`,
+                                                    md: "189px",
+                                                },
                                                 overflow: "hidden",
-                                                opacity: 0,
-                                                background: "rgba(0,0,0,0.36)",
+                                                "&:hover": {
+                                                    "& div": {
+                                                        opacity: 1,
+                                                        transitionProperty:
+                                                            "opacity",
+                                                        transitionDuration:
+                                                            "400ms",
+                                                    },
+                                                },
                                             }}
                                         >
-                                            <PlayCircleRoundedIcon fontSize="large" />
+                                            <Image
+                                                src={`/showcase/original/${data.image}`}
+                                                layout="fill"
+                                                blurDataURL={data.blur_data_url}
+                                                placeholder="blur"
+                                            />
+                                            <Box
+                                                sx={{
+                                                    position: "absolute",
+                                                    width: "100%",
+                                                    height: "100%",
+                                                    alignItems: "center",
+                                                    justifyContent: "center",
+                                                    display: "flex",
+                                                    overflow: "hidden",
+                                                    opacity: 0,
+                                                    background:
+                                                        "rgba(0,0,0,0.36)",
+                                                }}
+                                            >
+                                                <PlayCircleRoundedIcon fontSize="large" />
+                                            </Box>
                                         </Box>
-                                    </Box>
-                                </Link>
-                                <Link href={data.link1} underline="hover">
+                                    </Link>
+                                    <Link href={data.link1} underline="hover">
+                                        <Typography
+                                            component="h5"
+                                            sx={{
+                                                mt: "0.5rem",
+                                                mb: 1,
+                                                fontSize: "20px",
+                                                lineHeight: "1.2",
+                                            }}
+                                        >
+                                            {data.name}
+                                        </Typography>
+                                    </Link>
                                     <Typography
-                                        component="h5"
                                         sx={{
-                                            mt: "0.5rem",
-                                            mb: 1,
-                                            fontSize: "20px",
-                                            lineHeight: "1.2",
+                                            color: theme.palette.text.secondary,
                                         }}
                                     >
-                                        {data.name}
+                                        {data.short_desc}
                                     </Typography>
-                                </Link>
-                                <Typography
-                                    sx={{ color: theme.palette.text.secondary }}
-                                >
-                                    {data.short_desc}
-                                </Typography>
-                            </Grid>
+                                </Grid>
+                            </React.Fragment>
                         );
                     })}
                 </Grid>
@@ -320,9 +366,6 @@ export async function getStaticProps() {
             "image",
         ])
     );
-
-    // console.log(allPosts);
-    // console.log(data_posts);
 
     const showcase = array_showcase.map(async (data) => {
         return {

@@ -16,6 +16,7 @@
     "@mui/base": "^5.0.0-alpha.80",
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.0",
+    "@plaiceholder/next": "^2.3.0",
     "@prisma/client": "^3.11.1",
     "@reduxjs/toolkit": "^1.8.1",
     "@types/react-redux": "^7.1.24",
