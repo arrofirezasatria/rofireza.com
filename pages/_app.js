@@ -5,16 +5,17 @@ import { SessionProvider } from "next-auth/react";
 import ThemeContext from "../modules/ThemeContext";
 
 import "../styles/prismokaida.css";
+import "../styles/prism.css";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
-  return (
-    <SessionProvider session={session}>
-      <ThemeContext>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeContext>
-    </SessionProvider>
-  );
+    return (
+        <SessionProvider session={session}>
+            <ThemeContext>
+                <CssBaseline />
+                <Component {...pageProps} />
+            </ThemeContext>
+        </SessionProvider>
+    );
 }
 
 export default MyApp;

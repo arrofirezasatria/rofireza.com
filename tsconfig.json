@@ -24,7 +24,6 @@
     "**/*.ts",
     "**/*.tsx", "components/ContainerHero.tsx",
     ".contentlayer/generated" 
-
   ],
   "exclude": ["node_modules"]
 }
