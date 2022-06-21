@@ -7,17 +7,14 @@ import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 
 import { useMDXComponent } from "next-contentlayer/hooks";
-import defaultTheme from "@mui/material/styles/defaultTheme";
+
 // import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { materialDark as CodeStyle } from "react-syntax-highlighter/dist/esm/styles/prism";
+
 import { useTheme, alpha, styled } from "@mui/material/styles";
-import { duotoneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import SyntaxHighlighter from "react-syntax-highlighter";
+
 import Button from "@mui/material/Button";
 import Prism from "Prismjs";
-import { blueDark, blue } from "modules/ThemeContext";
-import Image from "next/image";
+
 import CreateIcon from "@mui/icons-material/Create";
 import ContainerHero from "components/ContainerHero";
 import { Box, Stack, Avatar, Divider } from "@mui/material";
