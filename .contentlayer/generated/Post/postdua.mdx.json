@@ -1,0 +1,27 @@
+{
+  "title": "Lorem Ipsumm",
+  "date": "2021-12-24",
+  "summary": "What decisions go into evaluating software solutions?",
+  "image": "/showcase/original/sidebar-mui.png",
+  "body": {
+    "raw": "\r\nUllamco et nostrud magna commodo nostrud occaecat quis pariatur id ipsum. Ipsum\r\nconsequat enim id excepteur consequat nostrud esse esse fugiat dolore.\r\nReprehenderit occaecat exercitation non cupidatat in eiusmod laborum ex eu\r\nfugiat aute culpa pariatur. Irure elit proident consequat veniam minim ipsum ex\r\npariatur.\r\n\r\nMollit nisi cillum exercitation minim officia velit laborum non Lorem\r\nadipisicing dolore. Labore commodo consectetur commodo velit adipisicing irure\r\ndolore dolor reprehenderit aliquip. Reprehenderit cillum mollit eiusmod\r\nexcepteur elit ipsum aute pariatur in. Cupidatat ex culpa velit culpa ad non\r\nlabore exercitation irure laborum.\r\n",
+    "code": "var Component=(()=>{var m=Object.create;var a=Object.defineProperty;var l=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,x=Object.prototype.hasOwnProperty;var g=(e,i)=>()=>(i||e((i={exports:{}}).exports,i),i.exports),f=(e,i)=>{for(var t in i)a(e,t,{get:i[t],enumerable:!0})},u=(e,i,t,r)=>{if(i&&typeof i==\"object\"||typeof i==\"function\")for(let o of p(i))!x.call(e,o)&&o!==t&&a(e,o,{get:()=>i[o],enumerable:!(r=l(i,o))||r.enumerable});return e};var h=(e,i,t)=>(t=e!=null?m(d(e)):{},u(i||!e||!e.__esModule?a(t,\"default\",{value:e,enumerable:!0}):t,e)),b=e=>u(a({},\"__esModule\",{value:!0}),e);var c=g((M,s)=>{s.exports=_jsx_runtime});var v={};f(v,{default:()=>q,frontmatter:()=>j});var n=h(c()),j={title:\"Lorem Ipsumm\",date:\"2021-12-24\",summary:\"What decisions go into evaluating software solutions?\",image:\"/showcase/original/sidebar-mui.png\"};function _(e={}){let{wrapper:i}=e.components||{};return i?(0,n.jsx)(i,Object.assign({},e,{children:(0,n.jsx)(t,{})})):t();function t(){let r=Object.assign({p:\"p\"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(r.p,{children:`Ullamco et nostrud magna commodo nostrud occaecat quis pariatur id ipsum. Ipsum\\r\nconsequat enim id excepteur consequat nostrud esse esse fugiat dolore.\\r\nReprehenderit occaecat exercitation non cupidatat in eiusmod laborum ex eu\\r\nfugiat aute culpa pariatur. Irure elit proident consequat veniam minim ipsum ex\\r\npariatur.`}),`\n`,(0,n.jsx)(r.p,{children:`Mollit nisi cillum exercitation minim officia velit laborum non Lorem\\r\nadipisicing dolore. Labore commodo consectetur commodo velit adipisicing irure\\r\ndolore dolor reprehenderit aliquip. Reprehenderit cillum mollit eiusmod\\r\nexcepteur elit ipsum aute pariatur in. Cupidatat ex culpa velit culpa ad non\\r\nlabore exercitation irure laborum.`})]})}}var q=_;return b(v);})();\n;return Component;"
+  },
+  "_id": "postdua.mdx",
+  "_raw": {
+    "sourceFilePath": "postdua.mdx",
+    "sourceFileName": "postdua.mdx",
+    "sourceFileDir": ".",
+    "contentType": "mdx",
+    "flattenedPath": "postdua"
+  },
+  "type": "Post",
+  "url": "/posts/postdua",
+  "reading_time": {
+    "text": "1 min read",
+    "minutes": 0.445,
+    "time": 26700,
+    "words": 89
+  },
+  "time_ago": "5 months ago"
+}
