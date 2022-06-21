@@ -72,7 +72,7 @@ const mdxComponents = {
 
 const PostLayout = ({ post }: { post: Post }) => {
   const Component = useMDXComponent(post.body.code);
-  // const theme = useTheme();
+  const theme = useTheme();
   // // console.log(post);
   // React.useEffect(() => {
   //   Prism.highlightAll();
