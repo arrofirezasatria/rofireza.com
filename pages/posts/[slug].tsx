@@ -13,8 +13,6 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import { useTheme, alpha, styled } from "@mui/material/styles";
 
 import Button from "@mui/material/Button";
-import Prism from "Prismjs";
-
 import CreateIcon from "@mui/icons-material/Create";
 import ContainerHero from "components/ContainerHero";
 import { Box, Stack, Avatar, Divider } from "@mui/material";
@@ -74,11 +72,11 @@ const mdxComponents = {
 
 const PostLayout = ({ post }: { post: Post }) => {
   const Component = useMDXComponent(post.body.code);
-  const theme = useTheme();
-  // console.log(post);
-  React.useEffect(() => {
-    Prism.highlightAll();
-  }, []);
+  // const theme = useTheme();
+  // // console.log(post);
+  // React.useEffect(() => {
+  //   Prism.highlightAll();
+  // }, []);
 
   return (
     <ContainerHero variantContainer="blog">
