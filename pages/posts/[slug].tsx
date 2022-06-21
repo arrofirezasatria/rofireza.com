@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { format, parseISO } from "date-fns";
-import { allPosts, Post } from "contentlayer/generated";
+import { allPosts, Post } from ".contentlayer/generated";
 
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";

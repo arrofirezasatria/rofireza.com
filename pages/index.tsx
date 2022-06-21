@@ -15,7 +15,7 @@ import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
 import { useTheme } from "@mui/material/styles";
 
 import prisma from "lib/prisma";
-import { allPosts } from "contentlayer/generated";
+import { allPosts } from ".contentlayer/generated";
 import { pick } from "@contentlayer/utils";
 //not in client side
 import { getPlaiceholder } from "plaiceholder";
