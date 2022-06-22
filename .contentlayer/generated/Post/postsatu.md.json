@@ -1,0 +1,18 @@
+{
+  "title": "Lorem Ipsumm satu",
+  "date": "2021-12-24T00:00:00.000Z",
+  "body": {
+    "raw": "\r\nUllamco et nostrud magna commodo nostrud occaecat quis pariatur id ipsum. Ipsum\r\nconsequat enim id excepteur consequat nostrud esse esse fugiat dolore.\r\nReprehenderit occaecat exercitation non cupidatat in eiusmod laborum ex eu\r\nfugiat aute culpa pariatur. Irure elit proident consequat veniam minim ipsum ex\r\npariatur.\r\n\r\nMollit nisi cillum exercitation minim officia velit laborum non Lorem\r\nadipisicing dolore. Labore commodo consectetur commodo velit adipisicing irure\r\ndolore dolor reprehenderit aliquip. Reprehenderit cillum mollit eiusmod\r\nexcepteur elit ipsum aute pariatur in. Cupidatat ex culpa velit culpa ad non\r\nlabore exercitation irure laborum.\r\n",
+    "html": "<p>Ullamco et nostrud magna commodo nostrud occaecat quis pariatur id ipsum. Ipsum\r\nconsequat enim id excepteur consequat nostrud esse esse fugiat dolore.\r\nReprehenderit occaecat exercitation non cupidatat in eiusmod laborum ex eu\r\nfugiat aute culpa pariatur. Irure elit proident consequat veniam minim ipsum ex\r\npariatur.</p>\n<p>Mollit nisi cillum exercitation minim officia velit laborum non Lorem\r\nadipisicing dolore. Labore commodo consectetur commodo velit adipisicing irure\r\ndolore dolor reprehenderit aliquip. Reprehenderit cillum mollit eiusmod\r\nexcepteur elit ipsum aute pariatur in. Cupidatat ex culpa velit culpa ad non\r\nlabore exercitation irure laborum.</p>"
+  },
+  "_id": "postsatu.md",
+  "_raw": {
+    "sourceFilePath": "postsatu.md",
+    "sourceFileName": "postsatu.md",
+    "sourceFileDir": ".",
+    "contentType": "markdown",
+    "flattenedPath": "postsatu"
+  },
+  "type": "Post",
+  "url": "/posts/postsatu"
+}

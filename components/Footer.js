@@ -20,7 +20,7 @@ const StyledLink = styled((props) => <Link underline="none" {...props} />)(
 
 export default function Footer() {
     return (
-        <Container component="footer" maxWidth="md" sx={{ pb: 8, pt: 2 }}>
+        <Container component="footer" maxWidth="md" sx={{ pb: 4, pt: 2 }}>
             <Divider sx={{ mb: "40px" }} />
             <Grid
                 container
@@ -151,6 +151,13 @@ export default function Footer() {
                 </Grid>
             </Grid>
             <Divider sx={{ pt: "40px" }} />
+            <Stack
+                direction="row"
+                sx={{ justifyContent: "space-between", px: "60px" }}
+            >
+                <Box>a</Box>
+                <Box>b</Box>
+            </Stack>
         </Container>
     );
 }

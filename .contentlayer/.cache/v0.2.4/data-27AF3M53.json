@@ -1,0 +1,42 @@
+{
+  "cacheItemsMap": {
+    "postdua.md": {
+      "document": {
+        "title": "Lorem Ipsumm",
+        "date": "2021-12-24T00:00:00.000Z",
+        "_id": "postdua.md",
+        "_raw": {
+          "sourceFilePath": "postdua.md",
+          "sourceFileName": "postdua.md",
+          "sourceFileDir": ".",
+          "contentType": "markdown",
+          "flattenedPath": "postdua"
+        },
+        "type": "Post",
+        "url": "/contents/posts/postdua"
+      },
+      "documentHash": "1650667405319",
+      "hasWarnings": false,
+      "documentTypeName": "Post"
+    },
+    "postsatu.md": {
+      "document": {
+        "title": "Lorem Ipsumm satu",
+        "date": "2021-12-24T00:00:00.000Z",
+        "_id": "postsatu.md",
+        "_raw": {
+          "sourceFilePath": "postsatu.md",
+          "sourceFileName": "postsatu.md",
+          "sourceFileDir": ".",
+          "contentType": "markdown",
+          "flattenedPath": "postsatu"
+        },
+        "type": "Post",
+        "url": "/contents/posts/postsatu"
+      },
+      "documentHash": "1650732345987",
+      "hasWarnings": false,
+      "documentTypeName": "Post"
+    }
+  }
+}
