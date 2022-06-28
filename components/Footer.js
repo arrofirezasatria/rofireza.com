@@ -20,8 +20,8 @@ const StyledLink = styled((props) => <Link underline="none" {...props} />)(
 
 export default function Footer() {
     return (
-        <Container component="footer" maxWidth="md" sx={{ pb: 4, pt: 2 }}>
-            <Divider sx={{ mb: "40px" }} />
+        <Container component="footer" maxWidth="md" sx={{ pb: 0, pt: 0 }}>
+            {/* <Divider sx={{ mb: "40px" }} />
             <Grid
                 container
                 spacing={2}
@@ -31,7 +31,7 @@ export default function Footer() {
                 }}
             >
                 <Grid item xs={7}>
-                    {/* <Avatar sx={{ width: "32px", height: "32px" }}>A</Avatar> */}
+                    <Avatar sx={{ width: "32px", height: "32px" }}>A</Avatar>
                     <Box sx={{ ml: { md: 6, xs: 0 }, mt: 0.5 }}>
                         <Box sx={{ height: "50px" }}>
                             <Typography
@@ -44,33 +44,33 @@ export default function Footer() {
                                 Reach me on ,
                             </Typography>
                         </Box>
-                        {/* 
-                    <Stack direction="row" spacing={1}>
-                        <IconButton
-                            sx={{
-                                height: "14px",
-                                width: "14px",
-                            }}
-                        >
-                            <EmailIcon />
-                        </IconButton>
-                        <IconButton
-                            sx={{
-                                height: "14px",
-                                width: "14px",
-                            }}
-                        >
-                            <EmailIcon />
-                        </IconButton>
-                        <IconButton
-                            sx={{
-                                height: "14px",
-                                width: "14px",
-                            }}
-                        >
-                            <EmailIcon />
+
+                        <Stack direction="row" spacing={1}>
+                            <IconButton
+                                sx={{
+                                    height: "14px",
+                                    width: "14px",
+                                }}
+                            >
+                                <EmailIcon />
                             </IconButton>
-                          </Stack> */}
+                            <IconButton
+                                sx={{
+                                    height: "14px",
+                                    width: "14px",
+                                }}
+                            >
+                                <EmailIcon />
+                            </IconButton>
+                            <IconButton
+                                sx={{
+                                    height: "14px",
+                                    width: "14px",
+                                }}
+                            >
+                                <EmailIcon />
+                            </IconButton>
+                        </Stack>
 
                         <Box sx={{ height: "100px" }}>
                             <Typography
@@ -89,13 +89,13 @@ export default function Footer() {
                 <Grid item xs={5}>
                     <Grid container>
                         <Grid item xs={6}>
-                            {/* <Typography
+                            <Typography
                                 fontWeight="bold"
                                 variant="body2"
                                 sx={{ marginBottom: "12px" }}
                             >
                                 Pages
-                            </Typography> */}
+                            </Typography>
                             <Stack
                                 spacing={1}
                                 sx={{
@@ -113,13 +113,13 @@ export default function Footer() {
                             </Stack>
                         </Grid>
                         <Grid item xs={6}>
-                            {/* <Typography
+                            <Typography
                                 fontWeight="bold"
                                 variant="body2"
                                 sx={{ marginBottom: "12px" }}
                             >
                                 Social
-                            </Typography> */}
+                            </Typography>
                             <Stack
                                 spacing={1}
                                 sx={{
@@ -149,14 +149,39 @@ export default function Footer() {
                         </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
+            </Grid> */}
             <Divider sx={{ pt: "40px" }} />
             <Stack
                 direction="row"
                 sx={{ justifyContent: "space-between", px: "60px" }}
             >
-                <Box>a</Box>
-                <Box>b</Box>
+                <Box sx={{ py: 2 }}>
+                    <Typography sx={{ color: "inherit" }}>
+                        {" "}
+                        © {new Date().getFullYear()} Arrofi Reza Satria
+                    </Typography>
+                </Box>
+                <Box sx={{ py: 2 }}>
+                    <Link
+                        display="inline-block"
+                        fontSize="xs"
+                        fontWeight="semibold"
+                        _hover={{ textDecoration: "none" }}
+                        href="https://vercel.com"
+                        isExternal
+                    >
+                        Powered by{" "}
+                        <Typography
+                            component="span"
+                            role="img"
+                            aria-label="Vercel logo"
+                            sx={{ color: "" }}
+                        >
+                            ▲
+                        </Typography>{" "}
+                        Vercel
+                    </Link>
+                </Box>
             </Stack>
         </Container>
     );
