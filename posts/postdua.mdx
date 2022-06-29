@@ -1,0 +1,98 @@
+---
+title: "Creating blur placeholder images using Next JS and Plaiceholder"
+date: "2022-06-28"
+summary: "adadasd"
+image: "/showcase/original/sidebar-mui.png"
+---
+
+Image load without placeholder makes like something an error on the website. We want the user to know that image is still fetching on the server and provide some feedback as soon as possible when the page is not fully loaded. Some websites, such as Unsplash, have blur image placeholders, which adds some aesthetic to the website.
+
+## 1. Install Plaiceholder
+
+I assume that you have already created a new next app using `npx create next-app` then install plaiceholder dependecy:
+
+```javascript
+npm i plaiceholder @plaiceholder/next sharp
+```
+
+## 2. Setup the Image assets
+
+You can get the image assets from local or remote. In this tutorial, I use data I get from [Pixabay](https://pixabay.com/api/docs/) API to simulate the network download process.
+
+## 3.Config Next Js
+
+This config ensures that all Plaiceholder functions start in the main thread and be able to run the function on the _getStaticProps_ function. Don't forget to define of image provider domains that you want to be served from the Next.js Image Optimization API.
+
+```javascript
+const { withPlaiceholder } = require("@plaiceholder/next");
+
+module.exports = withPlaiceholder({
+    images: {
+        domains: ["pixabay.com"],
+    },
+});
+```
+
+## 3. Generates the Static HTML pages with _getStaticProps_
+
+The code that wrote inside getStaticProps never runs on the browser. So we can run node js environment function like getPlaiceHolder as it runs on the server. We can also access our database using ORMs like Prisma inside this function.
+
+```javascript
+export async function getStaticProps() {
+    const { hits } = await axios
+        .get("https://pixabay.com/api/", {
+            params: {
+                key: "your_api_key",
+                q: "cat",
+                image_type: "photo",
+            },
+        })
+        .then((res) => {
+            return res.data;
+        });
+
+    const images_data = await Promise.all(
+        hits.slice(0, 6).map(async (data, index) => {
+            const { base64, img } = await getPlaiceholder(data.largeImageURL);
+            return {
+                ...img,
+                base64: base64,
+            };
+        })
+    ).then((value) => value);
+
+    return {
+        props: {
+            images_data,
+        },
+    };
+}
+```
+
+## 4. Render to the Page Component
+
+Pass the `props` property with the data that you want to provide to the page component.
+
+```javascript
+export default function NextBlurImage({ images_data }) {
+    //The rest of the code..
+    {
+        images_data.map((data) => {
+            return (
+                <Image
+                    src={data.src}
+                    layout="fill"
+                    alt=""
+                    blurDataURL={data.base64}
+                    placeholder="blur"
+                />
+            );
+        });
+    }
+    //The rest of the code..
+}
+```
+
+## 5. Result
+
+As you can see the result that the blurred image will appear before the original image. This also applies lazy loading, which loads the image when the user is in the viewport.
