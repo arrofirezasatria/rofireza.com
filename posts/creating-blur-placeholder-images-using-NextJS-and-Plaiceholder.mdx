@@ -1,7 +1,7 @@
 ---
 title: "Creating blur placeholder images using Next JS and Plaiceholder"
 date: "2022-06-28"
-summary: "adadasd"
+summary: "How to create blur placeholder in Next.Js"
 image: "/showcase/original/sidebar-mui.png"
 ---
 
@@ -27,9 +27,9 @@ This config ensures that all Plaiceholder functions start in the main thread and
 const { withPlaiceholder } = require("@plaiceholder/next");
 
 module.exports = withPlaiceholder({
-    images: {
-        domains: ["pixabay.com"],
-    },
+  images: {
+    domains: ["pixabay.com"],
+  },
 });
 ```
 
@@ -39,33 +39,33 @@ The code that wrote inside getStaticProps never runs on the browser. So we can r
 
 ```javascript
 export async function getStaticProps() {
-    const { hits } = await axios
-        .get("https://pixabay.com/api/", {
-            params: {
-                key: "your_api_key",
-                q: "cat",
-                image_type: "photo",
-            },
-        })
-        .then((res) => {
-            return res.data;
-        });
+  const { hits } = await axios
+    .get("https://pixabay.com/api/", {
+      params: {
+        key: "your_api_key",
+        q: "cat",
+        image_type: "photo",
+      },
+    })
+    .then((res) => {
+      return res.data;
+    });
 
-    const images_data = await Promise.all(
-        hits.slice(0, 6).map(async (data, index) => {
-            const { base64, img } = await getPlaiceholder(data.largeImageURL);
-            return {
-                ...img,
-                base64: base64,
-            };
-        })
-    ).then((value) => value);
+  const images_data = await Promise.all(
+    hits.slice(0, 6).map(async (data, index) => {
+      const { base64, img } = await getPlaiceholder(data.largeImageURL);
+      return {
+        ...img,
+        base64: base64,
+      };
+    })
+  ).then((value) => value);
 
-    return {
-        props: {
-            images_data,
-        },
-    };
+  return {
+    props: {
+      images_data,
+    },
+  };
 }
 ```
 
@@ -75,21 +75,21 @@ Pass the `props` property with the data that you want to provide to the page com
 
 ```javascript
 export default function NextBlurImage({ images_data }) {
-    //The rest of the code..
-    {
-        images_data.map((data) => {
-            return (
-                <Image
-                    src={data.src}
-                    layout="fill"
-                    alt=""
-                    blurDataURL={data.base64}
-                    placeholder="blur"
-                />
-            );
-        });
-    }
-    //The rest of the code..
+  //The rest of the code..
+  {
+    images_data.map((data) => {
+      return (
+        <Image
+          src={data.src}
+          layout="fill"
+          alt=""
+          blurDataURL={data.base64}
+          placeholder="blur"
+        />
+      );
+    });
+  }
+  //The rest of the code..
 }
 ```
 
