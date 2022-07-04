@@ -11,7 +11,9 @@ import Link from "@mui/material/Link";
 import FaceIcon from "@mui/icons-material/Face";
 import Avatar from "@mui/material/Avatar";
 import Chip from "@mui/material/Chip";
+import AddRounded from "@mui/icons-material/AddRounded";
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
+import LogoDevIcon from "@mui/icons-material/LogoDev";
 import { useTheme } from "@mui/material/styles";
 
 import prisma from "lib/prisma";
@@ -22,6 +24,43 @@ import { getPlaiceholder } from "plaiceholder";
 import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon";
 
 import ReactIcon from "../public/logo/react.svg";
+import { Button, IconButton, Paper } from "@mui/material";
+
+import TechCard from "../components/TechCard";
+import GitHub from "@mui/icons-material/GitHub";
+
+const TECHs = [
+    {
+        src: "/static/sponsors/tidelift.svg",
+        srcSet: "/static/sponsors/tidelift.svg",
+        name: "Next-Sitemap",
+        description: "Sitemap generator for Next.js",
+        href: "https://www.npmjs.com/package/next-sitemap",
+    },
+    {
+        src: "/tech/contentlayer.jpg",
+        srcSet: "/tech/contentlayer.jpg",
+        name: "Contentlayer",
+        description: "Content made easy for developers",
+        href: "https://www.contentlayer.dev/",
+    },
+    {
+        src: "/tech/maizzle.png",
+        srcSet: "/tech/maizzle.png",
+        name: "Maizzle",
+        description: "HTML emails with Tailwind CSS",
+        href: "https://maizzle.com/",
+    },
+    {
+        src: "/tech/plaiceholder-logo.jpg",
+        srcSet: "/tech/plaiceholder-logo.jpg",
+        name: "Plaiceholder",
+        description: "Beautiful blur image placeholders",
+        href: "https://plaiceholder.co/",
+    },
+];
+
+const techdata = ["a", "b", "c", "d"];
 
 const Boxxx = ({ title, url, time_ago, summary, reading_time }) => {
     const theme = useTheme();
@@ -150,11 +189,55 @@ export default function Home({ data_showcase, data_posts }: data) {
                             >
                                 Programmer E-Commerce at
                             </Typography>
-                            <Typography sx={{ mb: 3 }}>
+                            <Typography sx={{ mb: 2 }}>
                                 Helping developers build a faster web. Teaching
                                 Web Development, Serverless, and React /
                                 Next.js.
                             </Typography>
+                            {/* <Stack direction="row" spacing={2}>
+                                <Button
+                                    href="#"
+                                    component={Link}
+                                    startIcon={<GitHub size="small" />}
+                                    variant="outlined"
+                                    sx={{
+                                        px: 1.5,
+                                        display: "flex",
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontFamily: "Rubik",
+                                            // textDecoration: "underline",
+                                            fontSize: "16px",
+                                            marginBottom: "-2px",
+                                        }}
+                                    >
+                                        GitHub
+                                    </Typography>
+                                </Button>
+
+                                <Button
+                                    href="#"
+                                    component={Link}
+                                    variant="outlined"
+                                    sx={{
+                                        px: 1.5,
+                                        display: "flex",
+                                    }}
+                                >
+                                    <Typography
+                                        sx={{
+                                            fontFamily: "Rubik",
+                                            // textDecoration: "underline",
+                                            fontSize: "16px",
+                                            marginBottom: "-1px",
+                                        }}
+                                    >
+                                        DEV.to
+                                    </Typography>
+                                </Button>
+                            </Stack> */}
                         </Stack>
                     </Grid>
                     <Grid
@@ -353,7 +436,7 @@ export default function Home({ data_showcase, data_posts }: data) {
                 <Box
                     sx={{
                         backgroundColor: "lightGray",
-                        height: "100px",
+                        height: "120px",
                         marginBottom: 5,
                         borderRadius: "8px",
                     }}
@@ -370,34 +453,14 @@ export default function Home({ data_showcase, data_posts }: data) {
                 >
                     Recent Tech.
                 </Typography>
-
-                <Grid container>
-                    <Grid item md={4}>
-                        <Box
-                            sx={{
-                                width: "auto",
-                                height: "150px",
-                                backgroundColor: "lightgray",
-                                borderRadius: "16px",
-                            }}
-                        ></Box>
-                    </Grid>
-                    <Grid item md={8}>
-                        b
-                    </Grid>
-                    <Grid item md={8}>
-                        a
-                    </Grid>
-                    <Grid item md={4}>
-                        <Box
-                            sx={{
-                                width: "auto",
-                                height: "150px",
-                                backgroundColor: "lightgray",
-                                borderRadius: "16px",
-                            }}
-                        ></Box>
-                    </Grid>
+                <Grid container spacing={2}>
+                    {TECHs.map((data, index) => {
+                        return (
+                            <Grid item md={6} key={index}>
+                                <TechCard item={data} />
+                            </Grid>
+                        );
+                    })}
                 </Grid>
 
                 <Typography

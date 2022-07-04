@@ -149,6 +149,7 @@ const PostLayout = ({ post }: { post: Post }) => {
                                 Arrofi Reza Satria
                             </Typography>
                         </Stack>
+                        {/* 
                         <Stack
                             direction="row"
                             spacing={1}
@@ -177,7 +178,7 @@ const PostLayout = ({ post }: { post: Post }) => {
                             >
                                 213 views
                             </Typography>
-                        </Stack>
+                        </Stack> */}
                     </Stack>
                 </Box>
                 <Component components={mdxComponents} />
