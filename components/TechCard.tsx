@@ -29,7 +29,7 @@ export default function TechCard({
             // target="_blank"
             // rel="sponsored noopener"
             // variant="outlined"
-            elvation={1}
+            elevation={1}
             sx={{
                 p: 2,
                 display: "flex",
@@ -56,12 +56,7 @@ export default function TechCard({
                 sx={{ borderRadius: "4px", width: logoSize, height: logoSize }}
             />
             <Box sx={{ ml: 2 }}>
-                <Typography
-                    variant="body2"
-                    fontWeight="bold"
-                    underline="none"
-                    sx={{ textDecoration: "none" }}
-                >
+                <Typography variant="body2" sx={{ textDecoration: "none" }}>
                     {item.name}
                     <LaunchRounded
                         color="primary"

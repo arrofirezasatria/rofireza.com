@@ -433,14 +433,25 @@ export default function Home({ data_showcase, data_posts }: data) {
                     />
                 </Box>
 
-                <Box
+                <Paper
+                    elevation={8}
                     sx={{
+                        position: "relative",
                         backgroundColor: "lightGray",
+                        width: "auto",
                         height: "120px",
                         marginBottom: 5,
                         borderRadius: "8px",
+                        overflow: "hidden",
                     }}
-                ></Box>
+                >
+                    <Image
+                        src="/Screenshot (11).png"
+                        layout="fill"
+                        objectFit="cover"
+                        alt=""
+                    />
+                </Paper>
 
                 <Typography
                     component="h3"
