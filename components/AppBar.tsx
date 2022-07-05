@@ -150,9 +150,9 @@ export default function AppBar() {
                                 <Brightness4Icon />
                             )}
                         </IconButton>
-                        <IconButton>
+                        {/* <IconButton>
                             <GitHubIcon />
-                        </IconButton>
+                        </IconButton> */}
                     </Stack>
                 </Container>
             </Toolbar>

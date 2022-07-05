@@ -13,7 +13,7 @@ export default function Document() {
             <Box component="body">
                 <Main />
                 <NextScript />
-                {/* <script src="modules/prism.js"></script> */}
+                <script defer src="/prism.js"></script>
             </Box>
         </Html>
     );
