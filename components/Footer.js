@@ -15,13 +15,13 @@ import EmailIcon from "@mui/icons-material/Email";
 import Links from "next/link";
 
 const StyledLink = styled((props) => <Link underline="none" {...props} />)(
-  ({ theme }) => ({})
+    ({ theme }) => ({})
 );
 
 export default function Footer() {
-  return (
-    <Container component="footer" maxWidth="md" sx={{ pb: 0, pt: 0 }}>
-      {/* <Divider sx={{ mb: "40px" }} />
+    return (
+        <Container component="footer" maxWidth="md" sx={{ pb: 0, pt: 0 }}>
+            {/* <Divider sx={{ mb: "40px" }} />
             <Grid
                 container
                 spacing={2}
@@ -150,39 +150,39 @@ export default function Footer() {
                     </Grid>
                 </Grid>
             </Grid> */}
-      <Divider sx={{ pt: "40px" }} />
-      <Stack
-        direction="row"
-        sx={{ justifyContent: "space-between", px: "60px" }}
-      >
-        <Box sx={{ py: 2 }}>
-          <Typography sx={{ color: "inherit" }}>
-            {" "}
-            © {new Date().getFullYear()} Arrofi Reza S.
-          </Typography>
-        </Box>
-        <Box sx={{ py: 2 }}>
-          <Link
-            display="inline-block"
-            fontSize="xs"
-            fontWeight="semibold"
-            _hover={{ textDecoration: "none" }}
-            href="https://vercel.com"
-            isExternal
-          >
-            Powered by{" "}
-            <Typography
-              component="span"
-              role="img"
-              aria-label="Vercel logo"
-              sx={{ color: "" }}
+            <Divider sx={{ pt: "40px" }} />
+            <Stack
+                direction="row"
+                sx={{ justifyContent: "space-between", px: "60px" }}
             >
-              ▲
-            </Typography>{" "}
-            Vercel
-          </Link>
-        </Box>
-      </Stack>
-    </Container>
-  );
+                <Box sx={{ py: 2 }}>
+                    <Typography sx={{ color: "inherit" }}>
+                        {" "}
+                        © {new Date().getFullYear()} Arrofi Reza Satria
+                    </Typography>
+                </Box>
+                <Box sx={{ py: 2 }}>
+                    <Link
+                        display="inline-block"
+                        fontSize="xs"
+                        fontWeight="semibold"
+                        _hover={{ textDecoration: "none" }}
+                        href="https://vercel.com"
+                        isExternal
+                    >
+                        Powered by{" "}
+                        <Typography
+                            component="span"
+                            role="img"
+                            aria-label="Vercel logo"
+                            sx={{ color: "" }}
+                        >
+                            ▲
+                        </Typography>{" "}
+                        Vercel
+                    </Link>
+                </Box>
+            </Stack>
+        </Container>
+    );
 }
