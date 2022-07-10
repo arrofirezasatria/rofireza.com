@@ -1,6 +1,15 @@
-import { Paper, Box } from "@mui/material";
-import Image from "next/image";
 import React from "react";
+import {
+    Paper,
+    Box,
+    Typography,
+    Stack,
+    Avatar,
+    Link as Links,
+} from "@mui/material";
+import Image from "next/image";
+import Link from "next/link";
+import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
 export default function WallpaperSong() {
     return (
@@ -13,12 +22,12 @@ export default function WallpaperSong() {
                 marginBottom: 5,
                 borderRadius: "8px",
                 overflow: "hidden",
-                cursor: "pointer",
+
                 "&:hover": {
                     "& div": {
-                        opacity: "1",
                         transitionProperty: "opacity",
                         transitionDuration: "300ms",
+                        opacity: "1",
                     },
                 },
             }}
@@ -35,10 +44,109 @@ export default function WallpaperSong() {
                     background: "rgba(0,0,0,0.36)",
                     width: "100%",
                     height: "100%",
+                    px: "0.8rem",
+                    py: "0.5rem",
+                    transitionProperty: "opacity",
+                    transitionDuration: "300ms",
                     opacity: "0",
                 }}
             >
-                Recent Song
+                <Stack
+                    sx={{
+                        height: "100%",
+                        width: "100%",
+                        justifyContent: "space-between",
+                    }}
+                >
+                    <Typography
+                        variant="body2"
+                        sx={{
+                            color: "white",
+                            fontSize: "16px",
+                            fontWeight: "bold",
+                        }}
+                    >
+                        Recent Song.
+                    </Typography>
+                    <Stack
+                        direction="row"
+                        spacing={1}
+                        sx={{
+                            alignItems: "center",
+                            justifyContent: "space-between",
+                        }}
+                    >
+                        <Stack direction="row" spacing={1}>
+                            <Avatar
+                                sizes="small"
+                                src="/song-image/channels4_profile.jpg"
+                                sx={{
+                                    width: "32px",
+                                    height: "32px",
+                                }}
+                            />
+                            <Stack>
+                                <Links
+                                    href="https://www.youtube.com/watch?v=5GUaMOpfmr8"
+                                    underline="none"
+                                >
+                                    <Typography
+                                        variant="body1"
+                                        sx={{
+                                            fontWeight: "600",
+                                            color: "white",
+                                            fontSize: "18px",
+                                            lineHeight: 1,
+                                        }}
+                                    >
+                                        One Voice
+                                    </Typography>
+                                </Links>
+                                <Typography
+                                    sx={{
+                                        fontSize: "12px",
+                                        lineHeight: 1.2,
+                                        fontWeight: 600,
+                                    }}
+                                >
+                                    ロクデナシ : Rokudenashi
+                                </Typography>
+                            </Stack>
+                        </Stack>
+                        <Stack
+                            direction="row"
+                            spacing={0.5}
+                            sx={{
+                                display: "flex",
+                                height: "100%",
+                                alignItems: "flex-end",
+                                textAlign: "end",
+                            }}
+                        >
+                            <Link href="https://nextjs.org/docs/api-reference/next/link">
+                                <Typography
+                                    sx={{
+                                        fontSize: "12px",
+                                        lineHeight: 1.2,
+                                        fontWeight: 600,
+                                        cursor: "pointer",
+                                        "&:hover": {
+                                            textDecoration: "underline",
+                                        },
+                                    }}
+                                >
+                                    View Playlist
+                                </Typography>
+                            </Link>
+                            <ArrowRightAltIcon
+                                sx={{
+                                    fontSize: "1rem",
+                                    marginBottom: "-2px !important",
+                                }}
+                            />
+                        </Stack>
+                    </Stack>
+                </Stack>
             </Box>
         </Paper>
     );
