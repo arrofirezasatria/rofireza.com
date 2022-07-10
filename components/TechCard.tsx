@@ -29,7 +29,7 @@ export default function TechCard({
             // target="_blank"
             // rel="sponsored noopener"
             // variant="outlined"
-            elevation={1}
+            elevation={3}
             sx={{
                 p: 2,
                 display: "flex",
@@ -40,7 +40,7 @@ export default function TechCard({
                     transition: "0.2s",
                 },
                 "&:hover": {
-                    boxShadow: theme.shadows[5],
+                    boxShadow: theme.shadows[6],
                     "& svg": {
                         // transform: "translateY(-2px)",
                     },
