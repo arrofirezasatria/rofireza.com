@@ -6,17 +6,13 @@ import ContainerHero from "../components/ContainerHero";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Link from "@mui/material/Link";
 import FaceIcon from "@mui/icons-material/Face";
 import Avatar from "@mui/material/Avatar";
-import Chip from "@mui/material/Chip";
 import AddRounded from "@mui/icons-material/AddRounded";
 import PlayCircleRoundedIcon from "@mui/icons-material/PlayCircleRounded";
 import LogoDevIcon from "@mui/icons-material/LogoDev";
 import { useTheme } from "@mui/material/styles";
-
+import Chip from "@mui/material/Chip";
 import prisma from "lib/prisma";
 import { allPosts } from ".contentlayer/generated";
 import { pick } from "@contentlayer/utils";
@@ -25,7 +21,7 @@ import { getPlaiceholder } from "plaiceholder";
 import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon";
 
 import ReactIcon from "../public/logo/react.svg";
-import { Button, IconButton, Paper } from "@mui/material";
+import { Button, IconButton, Paper, Stack, Grid, Link } from "@mui/material";
 
 import TechCard from "../components/TechCard";
 import GitHub from "@mui/icons-material/GitHub";
@@ -114,6 +110,7 @@ export default function Home({ data_showcase, data_posts }: data) {
                         md={5}
                         sx={{
                             display: "flex",
+                            visibility: "hidden",
                             justifyContent: "center",
                             alignItems: "center",
                         }}
