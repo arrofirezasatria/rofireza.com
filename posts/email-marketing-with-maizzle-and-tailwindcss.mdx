@@ -1,0 +1,59 @@
+---
+title: "Email Marketing with Maizzle and Tailwind CSS"
+
+date: "2022-07-17"
+summary: "Create powerful email marketing with Maizzle"
+image: "/showcase/original/sidebar-mui.png"
+---
+
+Email marketing is a powerful marketing channel that uses email to promote your business products or services. Email marketing is a form of marketing that can make the customers on your email list aware of new products, discounts, and other services.
+
+Here I will teach you how to create an HTML email with Maizzle and TailwindCSS.
+
+## 1. Create New Project
+
+To create a new project it's quite easy, you can look at the [Maizzle Documentation](https://maizzle.com/docs/installation) like the code below :
+
+```
+npx degit maizzle/maizzle "your-project-name"
+```
+
+then `cd "your-project-name"` and `npm install`
+
+## 2. Edit your Email using Tailwind CSS
+
+You can start a development local server that watches in localhost with :
+
+```
+npm run dev
+```
+
+Maizzle already has a built in template that you can use, you can use it as your starter template.
+
+![localhost maizzle](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/0c83p0m69uk6ej731a4f.JPG)
+
+#### Notes:
+
+HTML email structure use `table`, `tr` and `td` as layout. The idea is same as CSS Grid, every column behave like Grid which you can adjust the width using Tailwind `class="w-1/2 sm:w-full"`
+
+## 3. Link image with imagekit.io
+
+When using Email HTML often you need to put an image on the email. Since Email HTML doesn't support image assets, you can get the image by hosting your image online. Here I use [imagekit.io]() to host my image. Simply upload and get the URL of the image to put in the src image tag then you are done. Don't forget to reduce the size since it opened between the length of an email.
+
+## 4. Production
+
+Build production ready to send HTML emails that have inlined CSS and many other optimizations, by running the following command:
+
+```
+npm run build
+```
+
+You can view the result of build production in **_Build Production folder_**. Then copy and paste the HTML code to be ready to send to the email receiver.
+
+![Build Production Maizzle](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4ipbww82fxbg72nt6al4.JPG)
+
+## 4. Send your first html email.
+
+Send your first HTML Email with [Insert HTML by Designmodo](https://chrome.google.com/webstore/detail/insert-html-by-designmodo/bcflbfdlpegakpncdgmejelcolhmfkjh) extension google chrome.
+
+![HTML Email Designmodo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fb3gi06e4h4lt1ae7e3v.JPG)

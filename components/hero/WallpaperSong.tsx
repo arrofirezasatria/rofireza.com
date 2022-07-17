@@ -137,7 +137,7 @@ export default function WallpaperSong() {
                                 >
                                     View Playlist
                                 </Typography>
-                            </Link>
+                            </Link> 
                             <ArrowRightAltIcon
                                 sx={{
                                     fontSize: "1rem",
