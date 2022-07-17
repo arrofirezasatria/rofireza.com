@@ -36,7 +36,8 @@ export default function WallpaperSong() {
                 src="/Screenshot (11).png"
                 layout="fill"
                 objectFit="cover"
-                alt=""
+                alt="Rokudenashi - One Voice"
+                priority={true}
             />
             <Box
                 sx={{
@@ -137,7 +138,7 @@ export default function WallpaperSong() {
                                 >
                                     View Playlist
                                 </Typography>
-                            </Link> 
+                            </Link>
                             <ArrowRightAltIcon
                                 sx={{
                                     fontSize: "1rem",
