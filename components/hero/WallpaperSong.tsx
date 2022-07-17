@@ -33,7 +33,7 @@ export default function WallpaperSong() {
             }}
         >
             <Image
-                src="/Screenshot (11).png"
+                src="/one voice - rokudenashi.webp"
                 layout="fill"
                 objectFit="cover"
                 alt="Rokudenashi - One Voice"
