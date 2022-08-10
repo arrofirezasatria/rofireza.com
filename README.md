@@ -11,11 +11,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Running Locally
 
-This application requires Node.js v16.13+.
-
 ```bash
-$ git clone https://github.com/leerob/leerob.io.git
-$ cd leerob.io
-$ yarn
-$ yarn dev
+$ git clone https://github.com/arrofirezasatria/rofireza.com.git
+$ cd rofireza.com
+$ npm install
+$ npm run dev
 ```
