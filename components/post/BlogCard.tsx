@@ -26,7 +26,7 @@ export default function BlogCard({
           borderRadius: "10px",
           "&:hover": {
             // border: "1px solid lightGray",
-            backgroundColor: "black",
+            backgroundColor: "lightGray",
             transform: "scale(1.025, 1.025)",
             // color: "red",
             // transitionDuration: "300ms",

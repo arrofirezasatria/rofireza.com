@@ -5,8 +5,10 @@ import { allPosts, Post } from ".contentlayer/generated";
 
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
+import Links from "next/link";
 
 import { useMDXComponent } from "next-contentlayer/hooks";
+import { useRouter } from "next/router";
 
 import { Prism } from "react-syntax-highlighter";
 
@@ -16,7 +18,10 @@ import Button from "@mui/material/Button";
 import CreateIcon from "@mui/icons-material/Create";
 import ContainerHero from "components/ContainerHero";
 import { Box, Stack, Avatar, Divider } from "@mui/material";
-import ImageMDX from "components/mdxcomponents/ImageMDX";
+import ImageMDX from "components/post/ImageMDX";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 
 import {
   TypographyH1,
@@ -79,13 +84,31 @@ const PostLayout = ({ post }: { post: Post }) => {
   //     Prism.highlightAll();
   // }, []);
 
+  const router = useRouter();
+
   return (
     <ContainerHero variantContainer="blog">
       <Head>
         <title>{post.title}</title>
       </Head>
       <article className="max-w-xl mx-auto py-8">
+        <Link
+          onClick={() => router.back()}
+          underline="hover"
+          sx={{ cursor: "pointer" }}
+        >
+          <Typography variant="subtitle2"> &#10094; Back</Typography>
+        </Link>
+
         <Box sx={{ mb: 1 }}>
+          {/* <Stack direction={"row"} sx={{ alignItems: "center" }}>
+            <NavigateBeforeIcon sx={{ width: "18px", height: "018px" }} />
+            <Links href={"#"}>
+              <Typography component={"a"} variant="subtitle2">
+                back
+              </Typography>
+            </Links>
+          </Stack> */}
           <Typography
             component="time"
             variant="subtitle2"
@@ -123,11 +146,11 @@ const PostLayout = ({ post }: { post: Post }) => {
             }}
             direction="row"
           >
-            <Stack direction="row" spacing={1} sx={{ alignItems: "inherit" }}>
+            <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
               <Avatar
                 sx={{
-                  width: "24px",
-                  height: "24px",
+                  width: "28px",
+                  height: "28px",
                 }}
                 src="/arrofi-small.webp"
               />
@@ -137,7 +160,7 @@ const PostLayout = ({ post }: { post: Post }) => {
                 sx={{
                   paddingTop: "2px",
                   fontSize: "14px",
-                  fontWeight: "400",
+                  fontWeight: "600",
                   fontFamily: "Rubik",
                 }}
               >
@@ -173,7 +196,7 @@ const PostLayout = ({ post }: { post: Post }) => {
                             >
                                 213 views
                             </Typography>
-                        </Stack> */}
+            </Stack> */}
           </Stack>
         </Box>
         <Component components={mdxComponents} />

@@ -20,7 +20,7 @@ npm i plaiceholder @plaiceholder/next sharp
 
 You can get the image assets from local or remote. In this tutorial, I use data I get from [Pixabay](https://pixabay.com/api/docs/) API to simulate the network download process.
 
-## 3.Config Next Js
+## 3. Config Next Js
 
 This config ensures that all Plaiceholder functions start in the main thread and be able to run the function on the _getStaticProps_ function. Don't forget to define of image provider domains that you want to be served from the Next.js Image Optimization API.
 
@@ -28,9 +28,9 @@ This config ensures that all Plaiceholder functions start in the main thread and
 const { withPlaiceholder } = require("@plaiceholder/next");
 
 module.exports = withPlaiceholder({
-    images: {
-        domains: ["pixabay.com"],
-    },
+  images: {
+    domains: ["pixabay.com"],
+  },
 });
 ```
 
@@ -40,33 +40,33 @@ The code that wrote inside getStaticProps never runs on the browser. So we can r
 
 ```javascript
 export async function getStaticProps() {
-    const { hits } = await axios
-        .get("https://pixabay.com/api/", {
-            params: {
-                key: "your_api_key",
-                q: "cat",
-                image_type: "photo",
-            },
-        })
-        .then((res) => {
-            return res.data;
-        });
+  const { hits } = await axios
+    .get("https://pixabay.com/api/", {
+      params: {
+        key: "your_api_key",
+        q: "cat",
+        image_type: "photo",
+      },
+    })
+    .then((res) => {
+      return res.data;
+    });
 
-    const images_data = await Promise.all(
-        hits.slice(0, 6).map(async (data, index) => {
-            const { base64, img } = await getPlaiceholder(data.largeImageURL);
-            return {
-                ...img,
-                base64: base64,
-            };
-        })
-    ).then((value) => value);
+  const images_data = await Promise.all(
+    hits.slice(0, 6).map(async (data, index) => {
+      const { base64, img } = await getPlaiceholder(data.largeImageURL);
+      return {
+        ...img,
+        base64: base64,
+      };
+    })
+  ).then((value) => value);
 
-    return {
-        props: {
-            images_data,
-        },
-    };
+  return {
+    props: {
+      images_data,
+    },
+  };
 }
 ```
 
@@ -76,21 +76,21 @@ Pass the `props` property with the data that you want to provide to the page com
 
 ```javascript
 export default function NextBlurImage({ images_data }) {
-    //The rest of the code..
-    {
-        images_data.map((data) => {
-            return (
-                <Image
-                    src={data.src}
-                    layout="fill"
-                    alt=""
-                    blurDataURL={data.base64}
-                    placeholder="blur"
-                />
-            );
-        });
-    }
-    //The rest of the code..
+  //The rest of the code..
+  {
+    images_data.map((data) => {
+      return (
+        <Image
+          src={data.src}
+          layout="fill"
+          alt=""
+          blurDataURL={data.base64}
+          placeholder="blur"
+        />
+      );
+    });
+  }
+  //The rest of the code..
 }
 ```
 

@@ -13,6 +13,7 @@ export default function Document() {
       </Head>
       <Box component="body">
         <Main />
+        <NextScript />
         <Script strategy="beforeInteractive" src="/prism.js" />
       </Box>
     </Html>

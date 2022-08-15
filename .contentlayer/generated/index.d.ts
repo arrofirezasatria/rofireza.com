@@ -2,7 +2,7 @@
 
 import { Post, DocumentTypes } from './types'
 
-export type * from './types'
+export * from './types'
 
 export declare const allPosts: Post[]
 
