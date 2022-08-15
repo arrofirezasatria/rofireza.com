@@ -1,5 +1,5 @@
 
-# RofiReza.com
+# rofireza.com
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Database**: [PlanetScale](https://planetscale.com)
