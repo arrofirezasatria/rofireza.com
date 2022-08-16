@@ -5,11 +5,12 @@ import React, { Suspense } from 'react'
 import BlogCard from 'components/post/BlogCard'
 import ContainerHero from 'components/ContainerHero'
 import Footprint from 'components/Footprint'
+import ViewCounter from 'components/ViewCounter'
 
 export default function blog({ data_posts }) {
-   return (
-      <ContainerHero>
-         {/* <Typography variant="h2" component={'h1'}>
+    return (
+        <ContainerHero>
+            {/* <Typography variant="h2" component={'h1'}>
             Blog
          </Typography>
          <Typography variant="body1">
@@ -32,27 +33,38 @@ export default function blog({ data_posts }) {
                      />
                   </div>
                )
-            })}
+            })} q
          </Suspense> */}
-         <Footprint />
-      </ContainerHero>
-   )
+            <>
+                {data_posts.slice(1).map((post, index) => {
+                    return (
+                        <div>
+                            {post.slug}
+                            <ViewCounter slug={post.slug} />
+                        </div>
+                    )
+                })}
+            </>
+            <Footprint />
+        </ContainerHero>
+    )
 }
 
 export async function getStaticProps() {
-   const data_posts = allPosts.map((post) =>
-      pick(post, [
-         'title',
-         'date',
-         'summary',
-         'url',
-         'reading_time',
-         'time_ago',
-         'image',
-      ])
-   )
+    const data_posts = allPosts.map((post) =>
+        pick(post, [
+            'title',
+            'slug',
+            'date',
+            'summary',
+            'url',
+            'reading_time',
+            'time_ago',
+            'image',
+        ])
+    )
 
-   return {
-      props: { data_posts },
-   }
+    return {
+        props: { data_posts },
+    }
 }
