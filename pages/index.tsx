@@ -22,7 +22,7 @@ import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon";
 
 import { Button, IconButton, Paper, Stack, Grid, Link } from "@mui/material";
 
-import TechCard from "../components/TechCard";
+import TechCard from "../components/hero/TechCard";
 import GitHub from "@mui/icons-material/GitHub";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
@@ -95,7 +95,7 @@ export default function Home({ data_showcase, data_posts }: data) {
                 Programmer E-Commerce at Sun Power
               </Typography>
               <Typography sx={{ mb: 2 }}>
-                Helping developers build a faster web and SEO optimized.
+                Helping developers build a Faster Web and SEO optimized.
                 Teaching Web Development, New Technology and Next JS.
               </Typography>
               <Stack direction={"row"} spacing={2}>
@@ -107,11 +107,20 @@ export default function Home({ data_showcase, data_posts }: data) {
                     py: 0.5,
                     border: "1px solid lightGray",
                     borderRadius: "8px",
+                    backgroundColor: "#d3d3d342",
+                    boxShadow: "none",
+                    transition: "all .3s ease",
+                    "&:hover": {
+                      boxShadow: theme.shadows[2],
+                    },
                   }}
                 >
                   <GitHubIcon />
-                  <Link href="#" underline="hover">
-                    <Typography variant="subtitle2" sx={{ fontSize: "16px" }}>
+                  <Link href="#" underline="none">
+                    <Typography
+                      variant="subtitle2"
+                      sx={{ color: "#1A2027", fontSize: "16px" }}
+                    >
                       GitHub
                     </Typography>
                   </Link>
@@ -124,11 +133,20 @@ export default function Home({ data_showcase, data_posts }: data) {
                     py: 0.5,
                     border: "1px solid lightGray",
                     borderRadius: "8px",
+                    backgroundColor: "#d3d3d342",
+                    boxShadow: "none",
+                    transition: "all .3s ease",
+                    "&:hover": {
+                      boxShadow: theme.shadows[2],
+                    },
                   }}
                 >
                   <LogoDevIcon />
                   <Link href="#" underline="none">
-                    <Typography variant="subtitle2" sx={{ fontSize: "16px" }}>
+                    <Typography
+                      variant="subtitle2"
+                      sx={{ color: "#1A2027", fontSize: "16px" }}
+                    >
                       DEV.to
                     </Typography>
                   </Link>

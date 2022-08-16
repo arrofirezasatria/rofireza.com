@@ -133,7 +133,11 @@ export default function AppBar() {
             {/* <NavItem name="Blog" href="/blog" />
                         <NavItem name="Project" href="/project" /> */}
           </Stack>
-          <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
+          <Stack
+            direction="row"
+            spacing={1}
+            sx={{ alignItems: "center", visibility: "hidden" }}
+          >
             <IconButton onClick={toggleColorMode}>
               {darkTheme === true ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
