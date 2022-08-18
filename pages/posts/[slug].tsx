@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import { format, parseISO } from 'date-fns'
-import { allPosts, Post } from 'contentlayer/generated'
+import { allPosts, Post } from '.contentlayer/generated'
 
 import Typography from '@mui/material/Typography'
 import Link from '@mui/material/Link'
@@ -98,9 +98,8 @@ const PostLayout = ({ post }: { post: Post }) => {
                     underline="hover"
                     sx={{ cursor: 'pointer' }}
                 >
-                    <Typography variant="subtitle2"> &#10094; Back</Typography>
+                    <Typography variant="subtitle2">&#10094; Back</Typography>
                 </Link>
-
                 <Box sx={{ mb: 1 }}>
                     {/* <Stack direction={"row"} sx={{ alignItems: "center" }}>
             <NavigateBeforeIcon sx={{ width: "18px", height: "018px" }} />

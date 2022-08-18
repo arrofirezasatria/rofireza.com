@@ -61,6 +61,8 @@ export default function Home({ data_showcase, data_posts }: data) {
     const theme = useTheme()
     const [innerWidth, setWidth] = React.useState<number>(0)
     const [innerHeight, setHeight] = React.useState<number>(0)
+    const [wordAll, setWordAll] = React.useState<string>('All' || 'Recent')
+
     React.useEffect(() => {
         setWidth(window.innerWidth)
         setHeight(window.innerHeight)
@@ -113,7 +115,10 @@ export default function Home({ data_showcase, data_posts }: data) {
                                     }}
                                 >
                                     <GitHubIcon />
-                                    <Link href="#" underline="none">
+                                    <Link
+                                        href="https://github.com/arrofirezasatria"
+                                        underline="none"
+                                    >
                                         <Typography
                                             variant="subtitle2"
                                             sx={{
@@ -142,7 +147,10 @@ export default function Home({ data_showcase, data_posts }: data) {
                                     }}
                                 >
                                     <LogoDevIcon />
-                                    <Link href="#" underline="none">
+                                    <Link
+                                        href="https://dev.to/arrofirezasatria"
+                                        underline="none"
+                                    >
                                         <Typography
                                             variant="subtitle2"
                                             sx={{
