@@ -186,6 +186,7 @@ const PostLayout = ({ post }: { post: Post }) => {
                                 variant="subtitle2"
                                 sx={{ fontWeight: 400 }}
                             >
+                                {/*// @ts-ignore */}
                                 {post.reading_time.text}
                             </Typography>
                             <Typography>&#8226;</Typography>

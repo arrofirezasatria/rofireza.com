@@ -1,7 +1,7 @@
 import { alpha, Divider, Stack, styled, Typography } from '@mui/material'
 import { allPosts } from '.contentlayer/generated'
 import { pick } from '@contentlayer/utils'
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import BlogCard from 'components/post/BlogCard'
 import ContainerHero from 'components/ContainerHero'
 import Footprint from 'components/Footprint'
@@ -10,6 +10,7 @@ import { Box } from '@mui/system'
 import SearchIcon from '@mui/icons-material/Search'
 import InputBase from '@mui/material/InputBase'
 import TextField from '@mui/material/TextField'
+import React from 'react'
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -52,8 +53,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }))
 
-export default function blog({ data_posts }) {
-    const [searchValue, setSearchValue] = React.useState('')
+export default function Blog({ data_posts }) {
+    const [searchValue, setSearchValue] = React.useState<string>('')
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value)
     }

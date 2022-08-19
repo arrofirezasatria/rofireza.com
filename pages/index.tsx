@@ -230,11 +230,11 @@ export default function Home({ data_showcase, data_posts }: data) {
                             <React.Fragment key={index}>
                                 <Grid item md={6}>
                                     {/* <VideoCard
-                    href={data.link1}
-                    alter={data.alt}
-                    blur={data.blur_data_url}
-                    imageLink={data.image}
-                  /> */}
+                                href={data.link1}
+                                alter={data.alt}
+                                blur={data.blur_data_url}
+                                imageLink={data.image}
+                            /> */}
                                     <Link href={data.link1}>
                                         <Box
                                             sx={{
