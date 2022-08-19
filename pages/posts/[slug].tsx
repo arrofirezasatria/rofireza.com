@@ -132,7 +132,6 @@ const PostLayout = ({ post }: { post: Post }) => {
                     </Typography>
                     <Stack
                         sx={{
-                            justifyContent: 'space-between',
                             pt: {
                                 xs: 1,
                                 md: 1,
@@ -145,12 +144,10 @@ const PostLayout = ({ post }: { post: Post }) => {
                                     : theme.palette.grey[900],
                         }}
                         direction="row"
+                        justifyContent="space-between"
+                        alignItems="flex-end"
                     >
-                        <Stack
-                            direction="row"
-                            spacing={1}
-                            sx={{ alignItems: 'center' }}
-                        >
+                        <Stack direction="row" spacing={1} alignItems="center">
                             <Avatar
                                 sx={{
                                     width: '28px',
@@ -158,19 +155,43 @@ const PostLayout = ({ post }: { post: Post }) => {
                                 }}
                                 src="/arrofi-small.webp"
                             />
-                            <Typography
-                                component="h4"
-                                variant="subtitle1"
-                                sx={{
-                                    paddingTop: '2px',
-                                    fontSize: '14px',
-                                    fontWeight: '600',
-                                    fontFamily: 'Rubik',
-                                }}
-                            >
-                                Arrofi Reza Satria
-                            </Typography>
+                            <Stack>
+                                <Typography
+                                    component="h4"
+                                    variant="subtitle1"
+                                    sx={{
+                                        // paddingTop: '2px',
+                                        fontSize: '15px !important',
+                                        fontWeight: '500',
+                                        fontFamily: 'Rubik',
+                                        lineHeight: 1,
+                                    }}
+                                >
+                                    Arrofi Reza Satria
+                                </Typography>
+                                <Typography
+                                    variant="subtitle2"
+                                    sx={{ lineHeight: 1, fontWeight: 400 }}
+                                >
+                                    @rofirezadev
+                                </Typography>
+                            </Stack>
                         </Stack>
+                        <Stack
+                            direction={'row'}
+                            spacing={0.6}
+                            alignItems="center"
+                        >
+                            <Typography
+                                variant="subtitle2"
+                                sx={{ fontWeight: 400 }}
+                            >
+                                {post.reading_time.text}
+                            </Typography>
+                            <Typography>&#8226;</Typography>
+                            <ViewCounter slug={post.slug} />
+                        </Stack>
+
                         {/* 
                         <Stack
                             direction="row"
@@ -203,6 +224,7 @@ const PostLayout = ({ post }: { post: Post }) => {
             </Stack> */}
                     </Stack>
                 </Box>
+                <Divider />
                 <Component components={mdxComponents} />
                 <Box
                     sx={{
