@@ -1,5 +1,5 @@
 import React from 'react'
-import ContainerHero from 'components/ContainerHero'
+import ContainerHero from '@components/ContainerHero'
 import {
     Box,
     Button,
@@ -12,7 +12,7 @@ import {
     TextField,
     Typography,
 } from '@mui/material'
-import TechCard from 'components/hero/TechCard'
+import TechCard from '@components/hero/TechCard'
 
 const TECHs = [
     {

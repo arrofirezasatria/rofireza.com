@@ -16,9 +16,9 @@ import { useTheme, alpha, styled } from '@mui/material/styles'
 
 import Button from '@mui/material/Button'
 import CreateIcon from '@mui/icons-material/Create'
-import ContainerHero from 'components/ContainerHero'
+import ContainerHero from '@components/ContainerHero'
 import { Box, Stack, Avatar, Divider } from '@mui/material'
-import ImageMDX from 'components/post/ImageMDX'
+import ImageMDX from '@components/post/ImageMDX'
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace'
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore'
@@ -34,8 +34,8 @@ import {
     PreMDX,
     AlinkMDX,
     LiMDX,
-} from 'components/post/TextComponent'
-import ViewCounter from 'components/ViewCounter'
+} from '@components/post/TextComponent'
+import ViewCounter from '@components/ViewCounter'
 // import Prism from "prismjs";
 
 export async function getStaticPaths() {

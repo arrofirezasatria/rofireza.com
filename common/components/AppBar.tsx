@@ -18,9 +18,9 @@ import GitHubIcon from '@mui/icons-material/GitHub'
 import { useContext } from 'react'
 import ThemeModeToogle from './header/ThemeModeToogle'
 
-import { useTheme } from '../modules/ThemeContext'
+import { useTheme } from 'modules/ThemeContext'
 import { useTheme as useMyTheme, alpha } from '@mui/material/styles'
-import { blueDark, blue, grey } from '../modules/ThemeContext'
+import { blueDark, blue, grey } from 'modules/ThemeContext'
 
 const NavItem = ({ name = 'nav', href = 'sd' }) => {
     const theme = useMyTheme()

@@ -1,27 +1,27 @@
-import React from "react";
-import Head from "next/head";
-import AppBarHero from "./AppBar";
-import Footer from "./Footer";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
+import React from 'react'
+import Head from 'next/head'
+import AppBarHero from './AppBar'
+import Footer from './Footer'
+import Box from '@mui/material/Box'
+import Container from '@mui/material/Container'
 
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router'
 
 export default function ContainerHero({
-    variantContainer = "nonBlog",
+    variantContainer = 'nonBlog',
     children,
 }) {
-    const router = useRouter();
+    const router = useRouter()
     // console.log(router);
 
     // console.log("asdasdad");
     return (
         <div>
             <Head>
-                <title>{"Arrofi Reza - Developer"}</title>
+                <title>{'Arrofi Reza - Developer'}</title>
                 <meta name="robots" content="follow, index" />
                 <meta
-                    content={"Arrofi Reza S. - Developer, Blogger, Teacher"}
+                    content={'Arrofi Reza S. - Developer, Blogger, Teacher'}
                     name="description"
                 />
                 {/* 
@@ -48,21 +48,21 @@ export default function ContainerHero({
             {/*      <Container component="main" maxWidth="md" sx={{ paddingTop: 8 }}>
         {children}
       </Container> */}
-            {variantContainer === "nonBlog" && (
+            {variantContainer === 'nonBlog' && (
                 <Container
                     component="main"
                     maxWidth="md"
                     sx={{
                         paddingTop: 8,
                         px: {
-                            md: "90px !important",
+                            md: '90px !important',
                         },
                     }}
                 >
                     {children}
                 </Container>
             )}
-            {variantContainer === "blog" && (
+            {variantContainer === 'blog' && (
                 <Container
                     component="main"
                     maxWidth="md"
@@ -70,15 +70,15 @@ export default function ContainerHero({
                         paddingTop: { xs: 1, md: 4 },
                         paddingBottom: { xs: 1, md: 2 },
                         px: {
-                            xs: "20px !important",
-                            md: "90px !important",
+                            xs: '20px !important',
+                            md: '90px !important',
                         },
                     }}
                 >
                     {children}
                 </Container>
             )}
-            {variantContainer === "project" && (
+            {variantContainer === 'project' && (
                 <Container
                     component="main"
                     maxWidth="md"
@@ -89,5 +89,5 @@ export default function ContainerHero({
             )}
             <Footer />
         </div>
-    );
+    )
 }
