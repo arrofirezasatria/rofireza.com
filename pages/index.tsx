@@ -225,7 +225,7 @@ export default function Home({ data_showcase, data_posts }: data) {
                     spacing={5}
                     sx={{ justifyContent: 'space-between' }}
                 >
-                    {data_showcase.map((data, index) => {
+                    {data_showcase.slice(1).map((data, index) => {
                         return (
                             <React.Fragment key={index}>
                                 <Grid item md={6}>
