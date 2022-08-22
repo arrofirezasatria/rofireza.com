@@ -93,9 +93,9 @@ export default function Tech() {
             <Box
                 sx={{ display: 'flex', mt: 2, justifyContent: 'space-around' }}
             >
-                {techCategory.map((tech) => {
+                {techCategory.map((tech, index) => {
                     return (
-                        <Button onClick={() => setValue(tech)}>
+                        <Button key={index} onClick={() => setValue(tech)}>
                             <Typography variant="subtitle2">{tech}</Typography>
                         </Button>
                     )
