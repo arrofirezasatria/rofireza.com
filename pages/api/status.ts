@@ -37,7 +37,7 @@ export default async function handler(
 
     // console.log(discord_stats)
 
-    return res.status(200).json(res_data)
+    return res.status(200).json(discord_stats)
 }
 
 export const getStatus = async () => {

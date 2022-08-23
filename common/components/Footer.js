@@ -20,6 +20,7 @@ import Image from 'next/image'
 import LaunchRounded from '@mui/icons-material/LaunchRounded'
 import useSWR from 'swr'
 import fetcher from '@lib/fetcher'
+import fetch from '@lib/fetch'
 
 const StyledLink = styled((props) => <Link underline="none" {...props} />)(
     ({ theme }) => ({})
@@ -54,12 +55,12 @@ const hobby = [
     { name: 'games', link: '#' },
 ]
 
-export default async function Footer() {
+export default function Footer() {
     const { data } = useSWR('/api/status', fetcher)
 
     const discord_status = data
 
-    console.log(JSON.stringify(data))
+    console.log(data)
     console.log('divider')
     // console.log(discord_status)
 
@@ -108,7 +109,7 @@ export default async function Footer() {
                                     }}
                                 />
                                 <Typography variant="subtitle2">
-                                    Online -{' '}
+                                    {data.status} -{' '}
                                     <Link href="#" underline="hover">
                                         <Typography
                                             component={'a'}
@@ -127,7 +128,7 @@ export default async function Footer() {
                                 variant="body2"
                                 sx={{ fontWeight: 500, lineHeight: 1 }}
                             >
-                                Online
+                                {data.activites}
                             </Typography>
                         </Stack>
                     </Stack>
