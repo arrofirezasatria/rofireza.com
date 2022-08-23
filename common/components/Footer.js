@@ -19,6 +19,7 @@ import VSCodeIcon from 'public/logo/visual-studio-code-icon.png'
 import Image from 'next/image'
 import LaunchRounded from '@mui/icons-material/LaunchRounded'
 import useSWR from 'swr'
+import fetcher from '@lib/fetcher'
 
 const StyledLink = styled((props) => <Link underline="none" {...props} />)(
     ({ theme }) => ({})
@@ -54,7 +55,7 @@ const hobby = [
 ]
 
 export default function Footer() {
-    const status = useSWR()
+    const status = useSWR('/api/status', fetcher)
 
     return (
         <Container component="footer" maxWidth="md" sx={{ pb: 0, pt: 0 }}>

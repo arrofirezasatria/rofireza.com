@@ -1,7 +1,6 @@
 import axios from 'axios'
-
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { DiscordStatus } from '@lib/types'
+import { DiscordStatus } from '@lib/types/index'
 
 const discord_id = process.env.DISCORD_ID
 
@@ -15,7 +14,7 @@ export default async function handler(
         return res.status(200).json({ isPlaying: false })
     }
 
-    const status: DiscordStatus = {
+    const statuss: DiscordStatus = {
         id: response.data,
         username: response.discord_user.username,
         avatar: response.discord_user.username,
@@ -23,7 +22,7 @@ export default async function handler(
         activites: response.activites.name,
     }
 
-    return res.status(200).json(status)
+    return res.status(200).json(statuss)
 }
 
 export const getStatus = async () => {
@@ -36,5 +35,5 @@ export const getStatus = async () => {
             return e
         })
 
-    return respond.status(200).json(respond.data)
+    return respond
 }
