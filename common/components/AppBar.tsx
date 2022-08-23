@@ -133,7 +133,7 @@ export default function AppBar() {
                             },
                         }}
                     >
-                        <NavItem name="RofiReza." href="/" />
+                        <NavItem name="." href="/" />
                         {/* <NavItem name="RofiReza." href="/" /> */}
                         {/* <NavItem name="Dashboard" href="/dashboard" /> */}
                         {/* <NavItem name="Blog" href="/blog" />

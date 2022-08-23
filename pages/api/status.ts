@@ -10,19 +10,34 @@ export default async function handler(
 ) {
     const response = await getStatus()
 
+    // console.log(response)
+
     if (response.status === 204 || response.status > 400) {
-        return res.status(200).json({ isPlaying: false })
+        return res.status(200).json({ status: 'offline' })
     }
 
-    const statuss: DiscordStatus = {
-        id: response.data,
-        username: response.discord_user.username,
-        avatar: response.discord_user.username,
-        status: response.discord_status,
-        activites: response.activites.name,
+    const res_data = response.data.data
+    // console.log(res_data)
+
+    const discord_stats: DiscordStatus = {
+        id: res_data.discord_user.id,
+        username: res_data.discord_user.username,
+        avatar: res_data.discord_user.avatar,
+        status: res_data.discord_status,
+        activites:
+            res_data.activities === undefined
+                ? ''
+                : res_data.activities[0].name,
     }
 
-    return res.status(200).json(statuss)
+    res.setHeader(
+        'Cache-Control',
+        'public, s-maxage=60, stale-while-revalidate=30'
+    )
+
+    // console.log(discord_stats)
+
+    return res.status(200).json(res_data)
 }
 
 export const getStatus = async () => {

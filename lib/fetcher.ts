@@ -9,5 +9,6 @@ import axios from 'axios'
 
 export default async function fetcher(url) {
     const res = await axios.get(url).then((res) => res.data)
+    // console.log(res)
     return res
 }

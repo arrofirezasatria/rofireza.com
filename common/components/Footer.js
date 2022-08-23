@@ -54,8 +54,14 @@ const hobby = [
     { name: 'games', link: '#' },
 ]
 
-export default function Footer() {
-    const status = useSWR('/api/status', fetcher)
+export default async function Footer() {
+    const { data } = useSWR('/api/status', fetcher)
+
+    const discord_status = data
+
+    console.log(JSON.stringify(data))
+    console.log('divider')
+    // console.log(discord_status)
 
     return (
         <Container component="footer" maxWidth="md" sx={{ pb: 0, pt: 0 }}>
@@ -121,7 +127,7 @@ export default function Footer() {
                                 variant="body2"
                                 sx={{ fontWeight: 500, lineHeight: 1 }}
                             >
-                                Visual Studio Code
+                                Online
                             </Typography>
                         </Stack>
                     </Stack>
