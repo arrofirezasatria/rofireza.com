@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Divider from '@mui/material/Divider'
@@ -56,13 +56,11 @@ const hobby = [
 ]
 
 export default function Footer() {
-    const { data } = useSWR('/api/status', fetcher)
+    const { data, error } = useSWR('/api/status', fetcher)
 
-    const discord_status = data
-
+    // console.log(data.status)
     console.log(data)
-    console.log('divider')
-    // console.log(discord_status)
+    // console.log('divider')
 
     return (
         <Container component="footer" maxWidth="md" sx={{ pb: 0, pt: 0 }}>
@@ -109,7 +107,7 @@ export default function Footer() {
                                     }}
                                 />
                                 <Typography variant="subtitle2">
-                                    {data.status} -{' '}
+                                    {data?.status} -{' '}
                                     <Link href="#" underline="hover">
                                         <Typography
                                             component={'a'}
@@ -128,11 +126,13 @@ export default function Footer() {
                                 variant="body2"
                                 sx={{ fontWeight: 500, lineHeight: 1 }}
                             >
-                                {data.activites}
+                                {!data ? '' : data.activities}
+
+                                {/* {data?.activities} */}
                             </Typography>
                         </Stack>
                     </Stack>
-                    {/* 
+                    {/*
                     <Box sx={{ ml: { md: 0, xs: 0 }, mt: 0.5 }}>
                         <Box sx={{ height: '50px' }}>
                             <Typography

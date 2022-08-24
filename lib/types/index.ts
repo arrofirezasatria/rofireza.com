@@ -3,5 +3,5 @@ export type DiscordStatus = {
     username: string
     avatar: string
     status: string
-    activites: string
+    activities: string
 }

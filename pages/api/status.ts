@@ -24,10 +24,8 @@ export default async function handler(
         username: res_data.discord_user.username,
         avatar: res_data.discord_user.avatar,
         status: res_data.discord_status,
-        activites:
-            res_data.activities === undefined
-                ? ''
-                : res_data.activities[0].name,
+        activities:
+            res_data.activities.length === 0 ? '' : res_data.activities[0].name,
     }
 
     res.setHeader(
