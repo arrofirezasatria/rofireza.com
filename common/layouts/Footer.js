@@ -37,7 +37,7 @@ export default function Footer() {
 
     return (
         <Container component="footer" maxWidth="md" sx={{ pb: 0, pt: 0 }}>
-            <Divider sx={{ mb: '40px' }} />
+            <Divider sx={{ my: '40px' }} />
             <Grid
                 container
                 spacing={2}
@@ -129,7 +129,7 @@ export default function Footer() {
                     </Grid>
                 </Grid>
             </Grid>
-            <Divider sx={{ pt: '40px' }} />
+            <Divider sx={{ mt: '40px' }} />
             <Stack
                 direction="row"
                 sx={{ justifyContent: 'space-between', px: '60px' }}

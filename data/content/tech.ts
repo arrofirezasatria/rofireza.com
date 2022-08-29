@@ -3,6 +3,7 @@ export const techCategory = [
     'Content',
     'Front End',
     'Back End',
+
     'Others',
 ]
 
@@ -38,5 +39,29 @@ export const TECHs = [
         description: 'Beautiful blur image placeholders',
         category: ['SEO', 'Content'],
         href: 'https://plaiceholder.co/',
+    },
+    {
+        src: '/tech/swr.png',
+        srcSet: '/tech/swr.png',
+        name: 'SWR',
+        description: 'React Hooks for Data Fetching',
+        category: ['SEO', 'Content'],
+        href: 'https://swr.vercel.app/',
+    },
+    {
+        src: '/tech/framer-motion.png',
+        srcSet: '/tech/framer-motion.png',
+        name: 'Framer Motion',
+        description: 'Production declarative animations.',
+        category: ['Content'],
+        href: 'https://www.framer.com/motion/',
+    },
+    {
+        src: '/tech/material-ui.svg',
+        srcSet: '/tech/material-ui.png',
+        name: 'MUI',
+        description: 'intuitive React UI tools',
+        category: ['Front End'],
+        href: 'https://mui.com/',
     },
 ]

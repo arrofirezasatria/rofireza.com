@@ -48,7 +48,7 @@ export default function Tech() {
                 id="Search"
                 sx={{ mt: 2 }}
             />
-            <Box
+            {/* <Box
                 sx={{ display: 'flex', mt: 2, justifyContent: 'space-around' }}
             >
                 {techCategory.map((tech, index) => {
@@ -58,8 +58,8 @@ export default function Tech() {
                         </Button>
                     )
                 })}
-            </Box>
-            <Divider sx={{ my: 2 }} />
+            </Box> */}
+            <Divider sx={{ mt: 2, mb: '40px' }} />
             <React.Suspense fallback={null}>
                 <Grid container spacing={2}>
                     {filteredTech.map((data, index) => {
