@@ -1,55 +1,15 @@
 import React from 'react'
-import ContainerHero from '@components/ContainerHero'
+import ContainerHero from '@layouts/ContainerHero'
 import {
     Box,
     Button,
-    ButtonGroup,
-    Chip,
     Divider,
-    FormControlLabel,
     Grid,
-    RadioGroup,
     TextField,
     Typography,
 } from '@mui/material'
 import TechCard from '@components/hero/TechCard'
-
-const TECHs = [
-    {
-        src: '',
-        srcSet: '',
-        name: 'Next-Sitemap',
-        description: 'Sitemap generator for Next.js',
-        category: ['SEO'],
-        href: 'https://www.npmjs.com/package/next-sitemap',
-    },
-    {
-        src: '/tech/contentlayer.jpg',
-        srcSet: '/tech/contentlayer.jpg',
-        name: 'Contentlayer',
-        description: 'Content made easy for developers',
-        category: ['Content'],
-        href: 'https://www.contentlayer.dev/',
-    },
-    {
-        src: '/tech/maizzle.png',
-        srcSet: '/tech/maizzle.png',
-        name: 'Maizzle',
-        description: 'HTML emails with Tailwind CSS',
-        category: ['Others'],
-        href: 'https://maizzle.com/',
-    },
-    {
-        src: '/tech/plaiceholder-logo.jpg',
-        srcSet: '/tech/plaiceholder-logo.jpg',
-        name: 'Plaiceholder',
-        description: 'Beautiful blur image placeholders',
-        category: ['SEO', 'Content'],
-        href: 'https://plaiceholder.co/',
-    },
-]
-
-const techCategory = ['SEO', 'Content', 'Front End', 'Back End', 'Others']
+import { TECHs, techCategory } from 'data/content/tech'
 
 export default function Tech() {
     const [searchValue, setSearchValue] = React.useState<string>('')
@@ -80,7 +40,6 @@ export default function Tech() {
                 asperiores aliquam officiis est assumenda modi sit libero
                 architecto, dolor quidem tempora eius minima quo unde?
             </Typography>
-
             <TextField
                 fullWidth
                 onChange={handleChange}
@@ -89,7 +48,6 @@ export default function Tech() {
                 id="Search"
                 sx={{ mt: 2 }}
             />
-
             <Box
                 sx={{ display: 'flex', mt: 2, justifyContent: 'space-around' }}
             >
@@ -101,15 +59,7 @@ export default function Tech() {
                     )
                 })}
             </Box>
-
-            {/* <RadioGroup value={'SEO'} onChange={handleChange2}>
-                {techCategory.map((tech) => {
-                    return <Button>{tech}</Button>
-                })}
-            </RadioGroup> */}
-
             <Divider sx={{ my: 2 }} />
-
             <React.Suspense fallback={null}>
                 <Grid container spacing={2}>
                     {filteredTech.map((data, index) => {

@@ -16,7 +16,7 @@ import { useTheme, alpha, styled } from '@mui/material/styles'
 
 import Button from '@mui/material/Button'
 import CreateIcon from '@mui/icons-material/Create'
-import ContainerHero from '@components/ContainerHero'
+import ContainerHero from '@layouts/ContainerHero'
 import { Box, Stack, Avatar, Divider } from '@mui/material'
 import ImageMDX from '@components/post/ImageMDX'
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft'
@@ -88,7 +88,7 @@ const PostLayout = ({ post }: { post: Post }) => {
     const router = useRouter()
 
     return (
-        <ContainerHero variantContainer="blog">
+        <ContainerHero>
             <Head>
                 <title>{post.title}</title>
             </Head>
@@ -101,14 +101,6 @@ const PostLayout = ({ post }: { post: Post }) => {
                     <Typography variant="subtitle2">&#10094; Back</Typography>
                 </Link>
                 <Box sx={{ mb: 1 }}>
-                    {/* <Stack direction={"row"} sx={{ alignItems: "center" }}>
-            <NavigateBeforeIcon sx={{ width: "18px", height: "018px" }} />
-            <Links href={"#"}>
-              <Typography component={"a"} variant="subtitle2">
-                back
-              </Typography>
-            </Links>
-          </Stack> */}
                     <Typography
                         component="time"
                         variant="subtitle2"
@@ -160,7 +152,6 @@ const PostLayout = ({ post }: { post: Post }) => {
                                     component="h4"
                                     variant="subtitle1"
                                     sx={{
-                                        // paddingTop: '2px',
                                         fontSize: '15px !important',
                                         fontWeight: '500',
                                         fontFamily: 'Rubik',
@@ -192,37 +183,6 @@ const PostLayout = ({ post }: { post: Post }) => {
                             <Typography>&#8226;</Typography>
                             <ViewCounter slug={post.slug} />
                         </Stack>
-
-                        {/* 
-                        <Stack
-                            direction="row"
-                            spacing={1}
-                            sx={{ alignItems: "baseline" }}
-                        >
-                            <Typography
-                                component="p"
-                                variant="subtitle1"
-                                sx={{
-                                    fontSize: "14px",
-                                    fontWeight: "400",
-                                    fontFamily: "Rubik",
-                                }}
-                            >
-                                10 min read
-                            </Typography>
-                            <Typography component="span" sx={{}}>
-                                &bull;
-                            </Typography>
-                            <Typography
-                                sx={{
-                                    fontSize: "14px",
-                                    fontWeight: "400",
-                                    fontFamily: "Rubik",
-                                }}
-                            >
-                                213 views
-                            </Typography>
-            </Stack> */}
                     </Stack>
                 </Box>
                 <Divider />

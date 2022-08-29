@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import Links from 'next/link'
 import axios from 'axios'
-import ContainerHero from '@components/ContainerHero'
+import ContainerHero from '@layouts/ContainerHero'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import FaceIcon from '@mui/icons-material/Face'
@@ -31,6 +31,7 @@ import RecentTech from '@components/hero/RecentTech'
 import BlogCard from '@components/post/BlogCard'
 import VideoCard from '@components/VideoCard'
 import { borderRadius } from '@mui/system'
+
 interface IData_showcase {
     id?: string
     name?: string
@@ -310,12 +311,14 @@ export default function Home({ data_showcase, data_posts }: data) {
         </ContainerHero>
     )
 }
+
 const getPlaiceholderBase64 = async (image_adress: string) => {
     const { base64 } = await getPlaiceholder(
         `/showcase/original/${image_adress}`
     )
     return base64
 }
+
 export async function getStaticProps() {
     const array_showcase = await prisma.showcase.findMany({
         take: 4,

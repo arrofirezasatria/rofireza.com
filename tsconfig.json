@@ -20,6 +20,7 @@
       "@components/*":["common/components/*"],
       "@layouts/*":["common/layouts/*"],
       "@lib/*":["lib/*"],
+      "@data/*":["data/*"]
     }
   },
   "include": [

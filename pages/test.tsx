@@ -1,6 +1,8 @@
 import React from 'react'
-import ContainerHero from '@components/ContainerHero'
+import swr from 'swr'
+import ContainerHero from '@layouts/ContainerHero'
+import axios from 'axios'
 
-export default function () {
-    return <ContainerHero>asd</ContainerHero>
+export default function test() {
+    return <div>test</div>
 }
