@@ -1,6 +1,6 @@
 {
-  "name": "rofirezaio",
-  "version": "0.1.0",
+  "name": "rofireza.com",
+  "version": "0.8.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -23,6 +23,7 @@
     "@next/bundle-analyzer": "^12.2.5",
     "@plaiceholder/next": "^2.4.0",
     "@prisma/client": "^3.15.2",
+    "@react-spring/web": "^9.5.2",
     "@reduxjs/toolkit": "^1.8.4",
     "@types/react-redux": "^7.1.24",
     "@types/redux": "^3.6.31",
