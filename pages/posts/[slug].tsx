@@ -1,22 +1,27 @@
-import React from "react";
-import Head from "next/head";
-import { format, parseISO } from "date-fns";
-import { allPosts, Post } from ".contentlayer/generated";
+import React from 'react'
+import Head from 'next/head'
+import { format, parseISO } from 'date-fns'
+import { allPosts, Post } from '.contentlayer/generated'
 
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
+import Typography from '@mui/material/Typography'
+import Link from '@mui/material/Link'
+import Links from 'next/link'
 
-import { useMDXComponent } from "next-contentlayer/hooks";
+import { useMDXComponent } from 'next-contentlayer/hooks'
+import { useRouter } from 'next/router'
 
-import { Prism } from "react-syntax-highlighter";
+import { Prism } from 'react-syntax-highlighter'
 
-import { useTheme, alpha, styled } from "@mui/material/styles";
+import { useTheme, alpha, styled } from '@mui/material/styles'
 
-import Button from "@mui/material/Button";
-import CreateIcon from "@mui/icons-material/Create";
-import ContainerHero from "components/ContainerHero";
-import { Box, Stack, Avatar, Divider } from "@mui/material";
-import ImageMDX from "components/mdxcomponents/ImageMDX";
+import Button from '@mui/material/Button'
+import CreateIcon from '@mui/icons-material/Create'
+import ContainerHero from '@layouts/ContainerHero'
+import { Box, Stack, Avatar, Divider } from '@mui/material'
+import ImageMDX from '@components/post/ImageMDX'
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft'
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace'
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore'
 
 import {
     TypographyH1,
@@ -29,27 +34,28 @@ import {
     PreMDX,
     AlinkMDX,
     LiMDX,
-} from "components/post/TextComponent";
+} from '@components/post/TextComponent'
+import ViewCounter from '@components/ViewCounter'
 // import Prism from "prismjs";
 
 export async function getStaticPaths() {
-    const paths: string[] = allPosts.map((post) => post.url);
+    const paths: string[] = allPosts.map((post) => post.url)
 
     return {
         paths,
         fallback: false,
-    };
+    }
 }
 
 export async function getStaticProps({ params }) {
     const post: Post = allPosts.find(
         (post) => post._raw.flattenedPath === params.slug
-    );
+    )
     return {
         props: {
             post,
         },
-    };
+    }
 }
 
 const mdxComponents = {
@@ -59,7 +65,7 @@ const mdxComponents = {
     h4: (props) => <TypographyH4 {...props} />,
     p: (props) => <ParagraphMDX {...props} />,
     ImageMDX: (props) => (
-        <ImageMDX layout={"intrinsic"} width={720} height={405} {...props} />
+        <ImageMDX layout={'intrinsic'} width={720} height={405} {...props} />
     ),
     blockquote: (props) => <BlockquoteMDXX {...props} />,
     li: (props) => <LiMDX {...props} />,
@@ -69,38 +75,47 @@ const mdxComponents = {
     // table: (props) => <TableMDX />,
     // td: (props) => <TdMDX />,
     // th: (props) => <ThMDX />,
-};
+}
 
 const PostLayout = ({ post }: { post: Post }) => {
-    const Component = useMDXComponent(post.body.code);
-    const theme = useTheme();
+    const Component = useMDXComponent(post.body.code)
+    const theme = useTheme()
     // // console.log(post);
     // React.useEffect(() => {
     //     Prism.highlightAll();
     // }, []);
 
+    const router = useRouter()
+
     return (
-        <ContainerHero variantContainer="blog">
+        <ContainerHero>
             <Head>
                 <title>{post.title}</title>
             </Head>
             <article className="max-w-xl mx-auto py-8">
+                <Link
+                    onClick={() => router.back()}
+                    underline="hover"
+                    sx={{ cursor: 'pointer' }}
+                >
+                    <Typography variant="subtitle2">&#10094; Back</Typography>
+                </Link>
                 <Box sx={{ mb: 1 }}>
                     <Typography
                         component="time"
                         variant="subtitle2"
                         sx={{ fontWeight: 400 }}
                     >
-                        {format(parseISO(post.date), "LLLL d, yyyy")}
+                        {format(parseISO(post.date), 'LLLL d, yyyy')}
                     </Typography>
                     <Typography
                         component="h1"
                         variant="h3"
                         sx={{
-                            fontWeight: "bold",
-                            fontSize: "40px",
+                            fontWeight: 'bold',
+                            fontSize: '40px',
                             color:
-                                theme.palette.mode === "dark"
+                                theme.palette.mode === 'dark'
                                     ? theme.palette.grey[200]
                                     : theme.palette.grey[900],
                         }}
@@ -109,84 +124,74 @@ const PostLayout = ({ post }: { post: Post }) => {
                     </Typography>
                     <Stack
                         sx={{
-                            justifyContent: "space-between",
                             pt: {
                                 xs: 1,
                                 md: 1,
                             },
-                            alignItems: "center",
+                            alignItems: 'center',
                             pb: 1,
                             color:
-                                theme.palette.mode === "dark"
+                                theme.palette.mode === 'dark'
                                     ? theme.palette.grey[200]
                                     : theme.palette.grey[900],
                         }}
                         direction="row"
+                        justifyContent="space-between"
+                        alignItems="flex-end"
                     >
-                        <Stack
-                            direction="row"
-                            spacing={1}
-                            sx={{ alignItems: "inherit" }}
-                        >
+                        <Stack direction="row" spacing={1} alignItems="center">
                             <Avatar
                                 sx={{
-                                    width: "24px",
-                                    height: "24px",
+                                    width: '28px',
+                                    height: '28px',
                                 }}
-                            >
-                                A
-                            </Avatar>
-                            <Typography
-                                component="h4"
-                                variant="subtitle1"
-                                sx={{
-                                    paddingTop: "2px",
-                                    fontSize: "14px",
-                                    fontWeight: "400",
-                                    fontFamily: "Rubik",
-                                }}
-                            >
-                                Arrofi Reza Satria
-                            </Typography>
+                                src="/arrofi-small.webp"
+                            />
+                            <Stack>
+                                <Typography
+                                    component="h4"
+                                    variant="subtitle1"
+                                    sx={{
+                                        fontSize: '15px !important',
+                                        fontWeight: '500',
+                                        fontFamily: 'Rubik',
+                                        lineHeight: 1,
+                                    }}
+                                >
+                                    Arrofi Reza Satria
+                                </Typography>
+                                <Typography
+                                    variant="subtitle2"
+                                    sx={{ lineHeight: 1, fontWeight: 400 }}
+                                >
+                                    @rofirezadev
+                                </Typography>
+                            </Stack>
                         </Stack>
-                        {/* 
                         <Stack
-                            direction="row"
-                            spacing={1}
-                            sx={{ alignItems: "baseline" }}
+                            direction={'row'}
+                            spacing={0.6}
+                            alignItems="center"
                         >
                             <Typography
-                                component="p"
-                                variant="subtitle1"
-                                sx={{
-                                    fontSize: "14px",
-                                    fontWeight: "400",
-                                    fontFamily: "Rubik",
-                                }}
+                                variant="subtitle2"
+                                sx={{ fontWeight: 400 }}
                             >
-                                10 min read
+                                {/*// @ts-ignore */}
+                                {post.reading_time.text}
                             </Typography>
-                            <Typography component="span" sx={{}}>
-                                &bull;
-                            </Typography>
-                            <Typography
-                                sx={{
-                                    fontSize: "14px",
-                                    fontWeight: "400",
-                                    fontFamily: "Rubik",
-                                }}
-                            >
-                                213 views
-                            </Typography>
-                        </Stack> */}
+                            <Typography>&#8226;</Typography>
+                            <ViewCounter slug={post.slug} />
+                        </Stack>
                     </Stack>
                 </Box>
+                <Divider />
                 <Component components={mdxComponents} />
                 <Box
                     sx={{
-                        display: "flex",
-                        justifyContent: "flex-end",
-                        paddingTop: "16px",
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        paddingTop: '16px',
                     }}
                 >
                     <Button
@@ -195,16 +200,16 @@ const PostLayout = ({ post }: { post: Post }) => {
                         endIcon={
                             <CreateIcon
                                 sx={{
-                                    height: "16px",
-                                    width: "16px",
-                                    paddingTop: "0px",
+                                    height: '16px',
+                                    width: '16px',
+                                    paddingTop: '0px',
                                 }}
                             />
                         }
                         sx={{
                             fontWeight: 400,
-                            "&:hover": {
-                                textDecoration: "underline",
+                            '&:hover': {
+                                textDecoration: 'underline',
                             },
                         }}
                     >
@@ -213,7 +218,7 @@ const PostLayout = ({ post }: { post: Post }) => {
                 </Box>
             </article>
         </ContainerHero>
-    );
-};
+    )
+}
 
-export default PostLayout;
+export default PostLayout

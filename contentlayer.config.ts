@@ -1,54 +1,59 @@
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 
-import readingTime from "reading-time";
-import remarkGfm from "remark-gfm";
-import rehypeSlug from "rehype-slug";
-import rehypeCodeTitles from "rehype-code-titles";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypePrism from "rehype-prism-plus";
-import rehypeHighlight from "rehype-highlight";
-import { format } from "timeago.js";
+import readingTime from 'reading-time'
+import remarkGfm from 'remark-gfm'
+import rehypeSlug from 'rehype-slug'
+import rehypeCodeTitles from 'rehype-code-titles'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypePrism from 'rehype-prism-plus'
+import rehypeHighlight from 'rehype-highlight'
+import { format } from 'timeago.js'
 
 const Post = defineDocumentType(() => ({
-    name: "Post",
+    name: 'Post',
     filePathPattern: `**/*.mdx`,
-    contentType: "mdx",
+    contentType: 'mdx',
     fields: {
         title: {
-            type: "string",
+            type: 'string',
+            required: true,
+        },
+        slug: {
+            type: 'string',
             required: true,
         },
         date: {
-            type: "string",
+            type: 'string',
             required: true,
         },
         summary: {
-            type: "string",
+            type: 'string',
             required: true,
         },
         image: {
-            type: "string",
+            type: 'string',
             required: true,
         },
     },
     computedFields: {
         url: {
-            type: "string",
+            type: 'string',
             resolve: (doc) => `/posts/${doc._raw.flattenedPath}`,
         },
         reading_time: {
-            type: "number",
+            type: 'number',
             resolve: (doc) => readingTime(doc.body.raw),
         },
         time_ago: {
-            type: "number",
-            resolve: (doc) => format(doc.date, "en_US"),
+            type: 'number',
+            resolve: (doc) => format(doc.date, 'en_US'),
         },
     },
-}));
+}))
 
 export default makeSource({
-    contentDirPath: "posts",
+    contentDirPath: 'posts',
+    disableImportAliasWarning: true,
     documentTypes: [Post],
     mdx: {
         remarkPlugins: [remarkGfm],
@@ -60,10 +65,10 @@ export default makeSource({
                 rehypeAutolinkHeadings,
                 {
                     properties: {
-                        className: ["anchor"],
+                        className: ['anchor'],
                     },
                 },
             ],
         ],
     },
-});
+})

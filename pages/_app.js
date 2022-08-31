@@ -1,19 +1,19 @@
-import "styles/globals.css";
-import CssBaseline from "@mui/material/CssBaseline";
-import React from "react";
-import { SessionProvider } from "next-auth/react";
-import ThemeContext from "../modules/ThemeContext";
+import 'styles/globals.css'
+import CssBaseline from '@mui/material/CssBaseline'
+import React from 'react'
+import { SessionProvider } from 'next-auth/react'
+import ThemeContext from '../modules/ThemeContext'
 
-import "../styles/prismokaida.css";
+import '../styles/prismokaida.css'
 // import "../styles/prism.css";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
-    const [hasMounted, setHasMounted] = React.useState(false);
+    const [hasMounted, setHasMounted] = React.useState(false)
     React.useEffect(() => {
-        setHasMounted(true);
-    }, []);
+        setHasMounted(true)
+    }, [])
     if (!hasMounted) {
-        return null;
+        return null
     }
     return (
         <SessionProvider session={session}>
@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
                 <Component {...pageProps} />
             </ThemeContext>
         </SessionProvider>
-    );
+    )
 }
 
-export default MyApp;
+export default MyApp
