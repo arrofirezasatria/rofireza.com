@@ -36,7 +36,6 @@ import {
     LiMDX,
 } from '@components/post/TextComponent'
 import ViewCounter from '@components/ViewCounter'
-// import Prism from "prismjs";
 
 export async function getStaticPaths() {
     const paths: string[] = allPosts.map((post) => post.url)
