@@ -5,7 +5,19 @@ import Footer from '@layouts/Footer'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 
-export default function ContainerHero({ children }) {
+// const { children, ...customMeta } = props
+
+export default function ContainerHero(props) {
+    const { children, ...customMeta } = props
+
+    const meta = {
+        title: 'Lee Robinson – Developer, writer, creator.',
+        description: `Front-end developer, JavaScript enthusiast, and course creator.`,
+        image: 'https://leerob.io/static/images/lee-banner.png',
+        type: 'website',
+        ...customMeta,
+    }
+
     return (
         <div>
             <Head>
@@ -15,20 +27,18 @@ export default function ContainerHero({ children }) {
                     content={'Arrofi Reza S. - Developer, Blogger, Teacher'}
                     name="description"
                 />
-                {/* 
-                    <meta property="og:url" content={`https://leerob.io${router.asPath}`} />
-                    <link rel="canonical" href={`https://leerob.io${router.asPath}`} />
-                    <meta property="og:type" content={meta.type} />
-                    <meta property="og:site_name" content="Lee Robinson" />
-                    <meta property="og:description" content={meta.description} />
-                    <meta property="og:title" content={meta.title} />
-                    <meta property="og:image" content={meta.image} />
-                    <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:site" content="@leeerob" />
-                    <meta name="twitter:title" content={meta.title} />
-                    <meta name="twitter:description" content={meta.description} />
-                    <meta name="twitter:image" content={meta.image} /> 
-                */}
+                <meta property="og:url" content={``} />
+                <link rel="canonical" href={``} />
+                <meta property="og:type" content={meta.type} />
+                <meta property="og:site_name" content="Lee Robinson" />
+                <meta property="og:description" content={meta.description} />
+                <meta property="og:title" content={meta.title} />
+                <meta property="og:image" content={meta.image} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content="" />
+                <meta name="twitter:title" content={meta.title} />
+                <meta name="twitter:description" content={meta.description} />
+                <meta name="twitter:image" content={meta.image} />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link
                     rel="preconnect"
