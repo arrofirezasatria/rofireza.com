@@ -5,8 +5,6 @@ import Footer from '@layouts/Footer'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 
-// const { children, ...customMeta } = props
-
 export default function ContainerHero(props) {
     const { children, ...customMeta } = props
 
@@ -30,7 +28,7 @@ export default function ContainerHero(props) {
                 <meta property="og:url" content={``} />
                 <link rel="canonical" href={``} />
                 <meta property="og:type" content={meta.type} />
-                <meta property="og:site_name" content="Lee Robinson" />
+                <meta property="og:site_name" content="" />
                 <meta property="og:description" content={meta.description} />
                 <meta property="og:title" content={meta.title} />
                 <meta property="og:image" content={meta.image} />
