@@ -1,37 +1,7 @@
 import React from 'react'
 import { Grid, Typography } from '@mui/material'
 import TechCard from '@components/hero/TechCard'
-
-const TECHs = [
-    {
-        src: '',
-        srcSet: '',
-        name: 'Next-Sitemap',
-        description: 'Sitemap generator for Next.js',
-        href: 'https://www.npmjs.com/package/next-sitemap',
-    },
-    {
-        src: '/tech/contentlayer.jpg',
-        srcSet: '/tech/contentlayer.jpg',
-        name: 'Contentlayer',
-        description: 'Content made easy for developers',
-        href: 'https://www.contentlayer.dev/',
-    },
-    {
-        src: '/tech/maizzle.png',
-        srcSet: '/tech/maizzle.png',
-        name: 'Maizzle',
-        description: 'HTML emails with Tailwind CSS',
-        href: 'https://maizzle.com/',
-    },
-    {
-        src: '/tech/plaiceholder-logo.jpg',
-        srcSet: '/tech/plaiceholder-logo.jpg',
-        name: 'Plaiceholder',
-        description: 'Beautiful blur image placeholders',
-        href: 'https://plaiceholder.co/',
-    },
-]
+import { TECHs } from '@data/content/tech'
 
 export default function RecentTech() {
     return (
@@ -48,13 +18,15 @@ export default function RecentTech() {
                 Recent Tech.
             </Typography>
             <Grid container spacing={2}>
-                {TECHs.map((data, index) => {
-                    return (
-                        <Grid item md={6} key={index}>
-                            <TechCard item={data} />
-                        </Grid>
-                    )
-                })}
+                {TECHs.slice(3)
+                    .reverse()
+                    .map((data, index) => {
+                        return (
+                            <Grid item md={6} key={index}>
+                                <TechCard item={data} />
+                            </Grid>
+                        )
+                    })}
             </Grid>
         </>
     )

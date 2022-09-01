@@ -354,6 +354,7 @@ export async function getStaticProps() {
             link2: data.link2,
         }
     })
+
     const resolved = await Promise.all(showcase)
     const data_showcase = await Promise.all(resolved)
     return {
