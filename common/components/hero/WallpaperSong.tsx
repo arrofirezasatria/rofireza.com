@@ -37,6 +37,7 @@ export default function WallpaperSong() {
                 layout="fill"
                 objectFit="cover"
                 alt="Rokudenashi - One Voice"
+                blurDataURL="LFFG*5-o00Mw00Io=c%L}Zn$RiNH"
                 placeholder="blur"
                 priority={true}
             />

@@ -6,9 +6,10 @@ export default function ContainerBlog({
     children,
     post,
 }: PropsWithChildren<{ post: Post }>) {
+    console.log(post)
     return (
         <ContainerHero
-            title={`${post.title} – Lee Robinson`}
+            title={`${post.title} – Arrofi Reza S.`}
             description={post.summary}
             date={new Date(post.date).toISOString()}
             type="article"
