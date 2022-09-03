@@ -163,35 +163,37 @@ export default function Home({ data_showcase, data_posts }: data) {
                                         </Typography>
                                     </Link>
                                 </Stack>
-                                <Stack
-                                    direction={'row'}
-                                    spacing={1}
-                                    sx={{
-                                        px: 1.2,
-                                        py: 0.5,
-                                        border: '1px solid lightGray',
-                                        borderRadius: '8px',
-                                        backgroundColor: '#d3d3d342',
-                                        boxShadow: 'none',
-                                        transition: 'all .3s ease',
-                                        justifyContent: 'center',
-
-                                        '&:hover': {
-                                            boxShadow: theme.shadows[2],
-                                        },
-                                    }}
+                                <Link
+                                    href="https://dev.to/arrofirezasatria"
+                                    underline="none"
+                                    sx={{ display: 'flex' }}
                                 >
-                                    <Link
-                                        href="https://dev.to/arrofirezasatria"
-                                        underline="none"
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            px: 1,
+                                            border: '1px solid lightGray',
+                                            borderRadius: '8px',
+                                            backgroundColor: '#d3d3d342',
+                                            boxShadow: 'none',
+                                            transition: 'all .3s ease',
+                                            justifyContent: 'center',
+                                            textAlign: 'center',
+                                            alignContent: 'center',
+                                            alignItems: 'center',
+                                            justifyItems: 'center',
+                                            '&:hover': {
+                                                boxShadow: theme.shadows[2],
+                                            },
+                                        }}
                                     >
                                         <Image
                                             src={'/logo/gitlabicon.png'}
-                                            width={16}
-                                            height={16}
+                                            width={22}
+                                            height={22}
                                         />
-                                    </Link>
-                                </Stack>
+                                    </Box>
+                                </Link>
                             </Stack>
                         </Stack>
                     </Grid>
