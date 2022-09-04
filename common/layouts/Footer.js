@@ -13,6 +13,7 @@ import fetcher from '@lib/fetcher'
 import { social, page, hobby } from 'data/content/footer'
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 import Image from 'next/image'
+import { FaDragon, GiDoubleDragon } from 'react-icons/fa'
 
 const StyledLink = ({ title, url }) => {
     return (
@@ -58,11 +59,15 @@ export default function Footer() {
                                 textAlign: 'center',
                             }}
                         >
-                            <Image
-                                src={'/logo/visual-studio-code-icon.png'}
-                                width={22}
-                                height={22}
-                            />
+                            {data?.status === 'offline' ? (
+                                <></>
+                            ) : (
+                                <Image
+                                    src={'/logo/visual-studio-code-icon.png'}
+                                    width={22}
+                                    height={22}
+                                />
+                            )}
                         </Box>
                         <Stack>
                             <Stack

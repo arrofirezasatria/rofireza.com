@@ -32,7 +32,7 @@ export default function Tech() {
                 component={'h1'}
                 sx={{ fontWeight: 600, mb: 2, fontFamily: 'rubik' }}
             >
-                Tech
+                Tech.
             </Typography>
             <Typography variant="body1">
                 I have been Lorem ipsum dolor sit amet consectetur adipisicing
