@@ -37,7 +37,7 @@ export default function WallpaperSong() {
                 layout="fill"
                 objectFit="cover"
                 alt="Rokudenashi - One Voice"
-                blurDataURL="LFFG*5-o00Mw00Io=c%L}Zn$RiNH"
+                blurDataURL="data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoEAAEAAUAmJagCdLoAAwkG+4AA/cW63/t7/rDFz/4MU8NynUnymMj+CIyZIDzHGAA="
                 placeholder="blur"
                 priority={true}
             />
