@@ -35,7 +35,9 @@ const StyledLink = ({ title, url }) => {
 }
 
 export default function Footer() {
-    const { data, error } = useSWR('/api/status', fetcher)
+    const { data, error } = useSWR('/api/status', fetcher, {
+        refreshInterval: 5000,
+    })
 
     return (
         <Container component="footer" maxWidth="md" sx={{ pb: 0, pt: 0 }}>
