@@ -12,6 +12,8 @@ import {
 import fetcher from '@lib/fetcher'
 import { social, page, hobby } from 'data/content/footer'
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
+import Image from 'next/image'
+import { FaDragon, GiDoubleDragon } from 'react-icons/fa'
 
 const StyledLink = ({ title, url }) => {
     return (
@@ -22,7 +24,7 @@ const StyledLink = ({ title, url }) => {
                 sx={{
                     transition: 'all 0.25s ease-in-out',
                     '&:hover': {
-                        color: 'aqua',
+                        color: '#007FFF',
                     },
                 }}
             >
@@ -49,6 +51,24 @@ export default function Footer() {
             >
                 <Grid item xs={7}>
                     <Stack direction={'row'} spacing={1}>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                alignContent: 'center',
+                                alignItems: 'center',
+                                textAlign: 'center',
+                            }}
+                        >
+                            {data?.status === 'offline' ? (
+                                <></>
+                            ) : (
+                                <Image
+                                    src={'/logo/visual-studio-code-icon.png'}
+                                    width={22}
+                                    height={22}
+                                />
+                            )}
+                        </Box>
                         <Stack>
                             <Stack
                                 direction={'row'}
@@ -57,14 +77,61 @@ export default function Footer() {
                                     display: 'flex',
                                     alignContent: 'center',
                                     alignItems: 'center',
+                                    textAlign: 'center',
                                 }}
                             >
-                                <FiberManualRecordIcon
+                                <Box
                                     sx={{
-                                        fontSize: '12px',
-                                        color: 'green !important',
+                                        position: 'relative',
+                                        height: '12px',
+                                        display: 'flex',
+                                        alignContent: 'center',
+                                        alignItems: 'center',
+                                        textAlign: 'center',
                                     }}
-                                />
+                                >
+                                    <FiberManualRecordIcon
+                                        sx={{
+                                            fontSize: '12px',
+                                            color:
+                                                data?.status === 'online'
+                                                    ? 'green'
+                                                    : data?.status === 'idle'
+                                                    ? 'orange'
+                                                    : 'gray',
+                                        }}
+                                    />
+                                    <Box
+                                        sx={{
+                                            '&::after': {
+                                                position: 'absolute',
+                                                display:
+                                                    data?.status !== 'online'
+                                                        ? 'none'
+                                                        : 'initial',
+                                                top: 0,
+                                                left: 0,
+                                                width: '100%',
+                                                height: '100%',
+                                                borderRadius: '50%',
+                                                animation:
+                                                    'ripple 1.2s infinite ease-in-out',
+                                                border: '1px solid green',
+                                                content: '""',
+                                            },
+                                            '@keyframes ripple': {
+                                                '0%': {
+                                                    transform: 'scale(.4)',
+                                                    opacity: 1,
+                                                },
+                                                '100%': {
+                                                    transform: 'scale(1.5)',
+                                                    opacity: 0,
+                                                },
+                                            },
+                                        }}
+                                    />
+                                </Box>
                                 <Typography
                                     variant="subtitle2"
                                     sx={{ pb: '2px', lineHeight: 1 }}
@@ -80,8 +147,8 @@ export default function Footer() {
                                 }}
                             >
                                 {data?.activities === ''
-                                    ? ''
-                                    : data?.activities}
+                                    ? 'Currently - ' + 'Slay The Dragons Code'
+                                    : '' + data?.activities}
                             </Typography>
                         </Stack>
                     </Stack>

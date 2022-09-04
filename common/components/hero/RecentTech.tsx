@@ -1,61 +1,60 @@
 import React from 'react'
-import { Grid, Typography } from '@mui/material'
+import { Box, Grid, Typography } from '@mui/material'
+import Link from 'next/link'
 import TechCard from '@components/hero/TechCard'
-
-const TECHs = [
-    {
-        src: '',
-        srcSet: '',
-        name: 'Next-Sitemap',
-        description: 'Sitemap generator for Next.js',
-        href: 'https://www.npmjs.com/package/next-sitemap',
-    },
-    {
-        src: '/tech/contentlayer.jpg',
-        srcSet: '/tech/contentlayer.jpg',
-        name: 'Contentlayer',
-        description: 'Content made easy for developers',
-        href: 'https://www.contentlayer.dev/',
-    },
-    {
-        src: '/tech/maizzle.png',
-        srcSet: '/tech/maizzle.png',
-        name: 'Maizzle',
-        description: 'HTML emails with Tailwind CSS',
-        href: 'https://maizzle.com/',
-    },
-    {
-        src: '/tech/plaiceholder-logo.jpg',
-        srcSet: '/tech/plaiceholder-logo.jpg',
-        name: 'Plaiceholder',
-        description: 'Beautiful blur image placeholders',
-        href: 'https://plaiceholder.co/',
-    },
-]
+import { TECHs } from '@data/content/tech'
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
 
 export default function RecentTech() {
     return (
-        <>
+        <Box display={'flex'} flexDirection={'column'}>
             <Typography
                 component="h3"
                 variant="h5"
                 sx={{
                     fontWeight: 'bold',
                     marginBottom: 1,
-                    marginTop: '40px',
+                    marginTop: '24px',
                 }}
             >
                 Recent Tech.
             </Typography>
             <Grid container spacing={2}>
-                {TECHs.map((data, index) => {
-                    return (
-                        <Grid item md={6} key={index}>
-                            <TechCard item={data} />
-                        </Grid>
-                    )
-                })}
+                {TECHs.slice(3)
+                    .reverse()
+                    .map((data, index) => {
+                        return (
+                            <Grid item md={6} key={index}>
+                                <TechCard item={data} />
+                            </Grid>
+                        )
+                    })}
             </Grid>
-        </>
+            <Link href="/tech" passHref>
+                <Typography
+                    sx={{
+                        my: 1.5,
+                        fontSize: '12px',
+                        lineHeight: 1.2,
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        textAlign: 'end',
+                        alignItems: 'center',
+                        alignContent: 'center',
+                        '&:hover': {
+                            textDecoration: 'underline',
+                        },
+                    }}
+                >
+                    {TECHs.length - 4} &#8226; More Tech{' '}
+                    <ArrowRightAltIcon
+                        sx={{
+                            fontSize: '18px',
+                            marginBottom: '-5px !important',
+                        }}
+                    />
+                </Typography>
+            </Link>
+        </Box>
     )
 }

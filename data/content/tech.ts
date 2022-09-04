@@ -60,7 +60,7 @@ export const TECHs = [
         src: '/tech/material-ui.svg',
         srcSet: '/tech/material-ui.png',
         name: 'MUI',
-        description: 'intuitive React UI tools',
+        description: 'Intuitive React UI tools',
         category: ['Front End'],
         href: 'https://mui.com/',
     },

@@ -36,6 +36,7 @@ import {
     LiMDX,
 } from '@components/post/TextComponent'
 import ViewCounter from '@components/ViewCounter'
+import ContainerBlog from '@layouts/ContainerBlog'
 
 export async function getStaticPaths() {
     const paths: string[] = allPosts.map((post) => post.url)
@@ -79,18 +80,10 @@ const mdxComponents = {
 const PostLayout = ({ post }: { post: Post }) => {
     const Component = useMDXComponent(post.body.code)
     const theme = useTheme()
-    // // console.log(post);
-    // React.useEffect(() => {
-    //     Prism.highlightAll();
-    // }, []);
-
     const router = useRouter()
 
     return (
-        <ContainerHero>
-            <Head>
-                <title>{post.title}</title>
-            </Head>
+        <ContainerBlog post={post}>
             <article className="max-w-xl mx-auto py-8">
                 <Link
                     onClick={() => router.back()}
@@ -216,7 +209,7 @@ const PostLayout = ({ post }: { post: Post }) => {
                     </Button>
                 </Box>
             </article>
-        </ContainerHero>
+        </ContainerBlog>
     )
 }
 
