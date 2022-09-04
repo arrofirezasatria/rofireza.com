@@ -10,7 +10,7 @@ My Personal blog post for notes what tech that i have been use. This website is 
 - **Content**: 
   - [MDX](https://mdxjs.com/) for Blog Post
   - [Lanyard](https://discord.gg/MMCHfwfVPG) for Discrod Status API
-- **Styling**: [Material UI](https://tailwindcss.com/)
+- **Styling**: [MUI](https://tailwindcss.com/)
 
 
 
