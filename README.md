@@ -7,7 +7,7 @@ My Personal blog post for notes what tech that i have been use. This website is 
 - **Database**: [PlanetScale](https://planetscale.com)
 - **ORM**: [Prisma](https://prisma.io/)
 - **Deployment**: [Vercel](https://vercel.com)
-- **Content**: [MDX](https://mdxjs.com/)
+- **Content**: 
   - [MDX](https://mdxjs.com/) for Blog Post
   - [Lanyard](https://discord.gg/MMCHfwfVPG) for Discrod Status API
 - **Styling**: [Material UI](https://tailwindcss.com/)
