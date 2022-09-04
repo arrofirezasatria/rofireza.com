@@ -5,7 +5,8 @@ export const social = [
     },
     { name: 'Twitter', link: 'https://twitter.com/rofirezadev' },
     { name: 'GitHub', link: 'https://github.com/arrofirezasatria' },
-    { name: 'DEV.to', link: 'https://github.com/arrofirezasatria' },
+    { name: 'DEV.to', link: 'https://dev.to/arrofirezasatria' },
+    { name: 'GitLab', link: 'https://gitlab.com/arrofirezasatria' },
 ]
 
 export const page = [
@@ -25,4 +26,40 @@ export const hobby = [
         link: '#',
     },
     { name: 'games', link: '#' },
+]
+
+export const onlineApps = [
+    {
+        nameApps: 'Visual Studio Code [Administrator]',
+        iconApps: 'visual-studio-code-icon.png',
+    },
+    {
+        nameApps: 'Visual Studio Code',
+        iconApps: 'visual-studio-code-icon.png',
+    },
+    {
+        nameApps: 'Google Chrome',
+        iconApps: 'google-chrome.png',
+    },
+]
+
+export const randomStatus = [
+    {
+        nameStatus: 'Slay the Dragons Code',
+    },
+    {
+        nameStatus: 'Hacking NASA Super Computer',
+    },
+    {
+        nameStatus: 'Look at Some Programmer Memes',
+    },
+    {
+        nameStatus: 'Crying In the Corner',
+    },
+    {
+        nameStatus: 'Programmer need to Socialize Right ?',
+    },
+    {
+        nameStatus: 'Making Super Strong Coffe',
+    },
 ]

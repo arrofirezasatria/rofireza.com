@@ -18,8 +18,17 @@ import { pick } from '@contentlayer/utils'
 //not in client side
 import { getPlaiceholder } from 'plaiceholder'
 import SvgIcon, { SvgIconProps } from '@mui/material/SvgIcon'
+import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt'
 
-import { Button, IconButton, Paper, Stack, Grid, Link } from '@mui/material'
+import {
+    Button,
+    IconButton,
+    Paper,
+    Stack,
+    Grid,
+    Link,
+    Tooltip,
+} from '@mui/material'
 
 import TechCard from '@components/hero/TechCard'
 import GitHub from '@mui/icons-material/GitHub'
@@ -163,37 +172,39 @@ export default function Home({ data_showcase, data_posts }: data) {
                                         </Typography>
                                     </Link>
                                 </Stack>
-                                <Link
-                                    href="https://dev.to/arrofirezasatria"
-                                    underline="none"
-                                    sx={{ display: 'flex' }}
-                                >
-                                    <Box
-                                        sx={{
-                                            display: 'flex',
-                                            px: 1,
-                                            border: '1px solid lightGray',
-                                            borderRadius: '8px',
-                                            backgroundColor: '#d3d3d342',
-                                            boxShadow: 'none',
-                                            transition: 'all .3s ease',
-                                            justifyContent: 'center',
-                                            textAlign: 'center',
-                                            alignContent: 'center',
-                                            alignItems: 'center',
-                                            justifyItems: 'center',
-                                            '&:hover': {
-                                                boxShadow: theme.shadows[2],
-                                            },
-                                        }}
+                                <Tooltip title="GitLab">
+                                    <Link
+                                        href="https://dev.to/arrofirezasatria"
+                                        underline="none"
+                                        sx={{ display: 'flex' }}
                                     >
-                                        <Image
-                                            src={'/logo/gitlabicon.png'}
-                                            width={22}
-                                            height={22}
-                                        />
-                                    </Box>
-                                </Link>
+                                        <Box
+                                            sx={{
+                                                display: 'flex',
+                                                px: 1,
+                                                border: '1px solid lightGray',
+                                                borderRadius: '8px',
+                                                backgroundColor: '#d3d3d342',
+                                                boxShadow: 'none',
+                                                transition: 'all .3s ease',
+                                                justifyContent: 'center',
+                                                textAlign: 'center',
+                                                alignContent: 'center',
+                                                alignItems: 'center',
+                                                justifyItems: 'center',
+                                                '&:hover': {
+                                                    boxShadow: theme.shadows[2],
+                                                },
+                                            }}
+                                        >
+                                            <Image
+                                                src={'/logo/gitlabicon.png'}
+                                                width={22}
+                                                height={22}
+                                            />
+                                        </Box>
+                                    </Link>
+                                </Tooltip>
                             </Stack>
                         </Stack>
                     </Grid>
@@ -245,6 +256,7 @@ export default function Home({ data_showcase, data_posts }: data) {
                         )
                     })}
                 </Stack>
+
                 <Typography
                     component="h3"
                     variant="h5"

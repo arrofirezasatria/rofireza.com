@@ -66,7 +66,6 @@ export default function WallpaperSong() {
                         sx={{
                             color: 'white',
                             fontSize: '16px',
-                            fontWeight: 'bold',
                         }}
                     >
                         Recent Song.
