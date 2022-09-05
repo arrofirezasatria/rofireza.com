@@ -142,7 +142,7 @@ export default function AppBar() {
                     <Stack
                         direction="row"
                         spacing={1}
-                        sx={{ alignItems: 'center', visibility: 'hidden' }}
+                        sx={{ alignItems: 'center' }}
                     >
                         <IconButton onClick={toggleColorMode}>
                             {darkTheme === true ? (
