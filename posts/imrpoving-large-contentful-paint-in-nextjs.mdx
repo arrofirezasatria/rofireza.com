@@ -1,0 +1,39 @@
+---
+title: 'Email Marketing with Maizzle and Tailwind CSS'
+slug: 'email-marketing-with-maizzle-and-tailwind-css'
+date: '2022-07-17'
+summary: 'Create powerful email marketing with Maizzle'
+image: '/showcase/original/sidebar-mui.png'
+---
+
+Largest Contentful Paint or LCP is the time during the page load process when the largest page element is rendered within viewport. LCP is one of three charateristic
+measure of core web vital Google uses as part of its search rankings, along with Cumulative Layout Shift and First Input Delay.
+
+Is common LCP is to be element of image.
+
+using priority in LCP image
+
+1. Use the height and width attributes on your Image component in Next.js or <img> element in HTML to prevent layout shift. Adding these attributes to your markup will tell the browser how much space to allocate.
+2. Do not Lazy-load LCP Images
+   Not lazy loading the LCP image helps it load faster because the browser will just process it normally as it's encountered in the markup.
+   This is better for your LCP timing and makes your page appear visually complete to the user much earlier in the page load.
+   To achive this in next js you can set Image component = priority='true'
+
+    <Image priority="true" />
+    Image of example LCP Image
+
+3. Use modern image formats (WebP, AVIF).
+   Webp and avif provide smaller image size
+   next js support webp and avif
+
+4. Serve correctly sized images using srcset.
+
+scrset={}
+w stand for width
+
+using Imagekit don worry about scrset 5. Provide blur-up placeholders.
+Using blur placeholder give full know that the image is fully loaded. meanwhit the original image is still downloaded
+
+6. CDN Image
+   CDN
+7. Know what is blocking the download and what its initiator
