@@ -54,5 +54,61 @@
       "words": 336
     },
     "time_ago": "1 month ago"
+  },
+  {
+    "title": "4 Tips Improving Large Contentful Paint in NextJS",
+    "slug": "4 Tips improving-large-contentful-paint-in-NextJS",
+    "date": "2022-07-17",
+    "summary": "Fastest your LCP webpage with this strategy",
+    "image": "/showcase/original/sidebar-mui.png",
+    "body": {
+      "raw": "\r\n[Largest Contentful Paint](https://web.dev/lcp/) or LCP is the time during the page load process when the largest page element is rendered within viewport. LCP is one of three charateristic\r\nmeasure of core web vital Google uses as part of its search rankings, along with\r\n[Comulative Layout Shift](https://web.dev/cls/)\r\nand\r\n[First Input Delay](https://web.dev/fid/).\r\n\r\n![LCP RofiReza](https://ik.imagekit.io/rofireza/Blog/lCP_rofireza_ExtOAUpvR.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1662420126178)\r\n\r\nIs common LCP is to be element of image.\r\n\r\nThere are several ways to optimize LCP Image in Next JS :\r\n\r\n1. Use the height and width attributes on your Image component in Next.js or element in HTML to prevent layout shift. Adding these attributes to your markup will tell the browser how much space to allocate.\r\n\r\n### 2. Do not Lazy-load LCP Images\r\n\r\nNot lazy loading the LCP image helps it load faster because the browser will just process it normally as it's encountered in the markup.\r\nTo achive this in Next js you can set Image component [priority='true'](https://nextjs.org/docs/api-reference/next/image#priority) see the [docs](https://nextjs.org/docs/api-reference/next/image#priority)\r\n\r\n```javascript\r\n<Image\r\n    priority={true}\r\n    src=\"me.png\"\r\n    alt=\"Picture of the author\"\r\n    width={500}\r\n    height={500}\r\n/>\r\n```\r\n\r\nImage of example LCP Image\r\n\r\n### 2. Use modern image formats (WebP, AVIF).\r\n\r\n3. Use modern image formats (WebP, AVIF).\r\n   Webp and avif provide smaller image size\r\n   next js support webp and avif\r\n\r\n### 3. Serve correctly sized images using srcset.\r\n\r\n4. Serve correctly sized images using srcset.\r\n   w stand for width\r\n\r\n    using Imagekit don worry about scrset 5. Provide blur-up placeholders.\r\n    Using blur placeholder give full know that the image is fully loaded. meanwhit the original image is still downloaded\r\n\r\n5. CDN Image\r\n   CDN\r\n\r\n6. Know what is blocking the download and what its initiator\r\n",
+      "code": "var Component=(()=>{var h=Object.create;var r=Object.defineProperty;var p=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,u=Object.prototype.hasOwnProperty;var N=(a,e)=>()=>(e||a((e={exports:{}}).exports,e),e.exports),f=(a,e)=>{for(var s in e)r(a,s,{get:e[s],enumerable:!0})},o=(a,e,s,t)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of m(e))!u.call(a,i)&&i!==s&&r(a,i,{get:()=>e[i],enumerable:!(t=p(e,i))||t.enumerable});return a};var k=(a,e,s)=>(s=a!=null?h(g(a)):{},o(e||!a||!a.__esModule?r(s,\"default\",{value:a,enumerable:!0}):s,a)),w=a=>o(r({},\"__esModule\",{value:!0}),a);var c=N((C,l)=>{l.exports=_jsx_runtime});var x={};f(x,{default:()=>y,frontmatter:()=>b});var n=k(c()),b={title:\"4 Tips Improving Large Contentful Paint in NextJS\",slug:\"4 Tips improving-large-contentful-paint-in-NextJS\",date:\"2022-07-17\",summary:\"Fastest your LCP webpage with this strategy\",image:\"/showcase/original/sidebar-mui.png\"};function d(a){let e=Object.assign({p:\"p\",a:\"a\",img:\"img\",ol:\"ol\",li:\"li\",h3:\"h3\",span:\"span\",pre:\"pre\",code:\"code\"},a.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.a,{href:\"https://web.dev/lcp/\",children:\"Largest Contentful Paint\"}),` or LCP is the time during the page load process when the largest page element is rendered within viewport. LCP is one of three charateristic\\r\nmeasure of core web vital Google uses as part of its search rankings, along with\\r\n`,(0,n.jsx)(e.a,{href:\"https://web.dev/cls/\",children:\"Comulative Layout Shift\"}),`\\r\nand\\r\n`,(0,n.jsx)(e.a,{href:\"https://web.dev/fid/\",children:\"First Input Delay\"}),\".\"]}),`\n`,(0,n.jsx)(e.p,{children:(0,n.jsx)(e.img,{src:\"https://ik.imagekit.io/rofireza/Blog/lCP_rofireza_ExtOAUpvR.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1662420126178\",alt:\"LCP RofiReza\"})}),`\n`,(0,n.jsx)(e.p,{children:\"Is common LCP is to be element of image.\"}),`\n`,(0,n.jsx)(e.p,{children:\"There are several ways to optimize LCP Image in Next JS :\"}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsx)(e.li,{children:\"Use the height and width attributes on your Image component in Next.js or element in HTML to prevent layout shift. Adding these attributes to your markup will tell the browser how much space to allocate.\"}),`\n`]}),`\n`,(0,n.jsxs)(e.h3,{id:\"2-do-not-lazy-load-lcp-images\",children:[(0,n.jsx)(e.a,{className:\"anchor\",href:\"#2-do-not-lazy-load-lcp-images\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"2. Do not Lazy-load LCP Images\"]}),`\n`,(0,n.jsxs)(e.p,{children:[`Not lazy loading the LCP image helps it load faster because the browser will just process it normally as it's encountered in the markup.\\r\nTo achive this in Next js you can set Image component `,(0,n.jsx)(e.a,{href:\"https://nextjs.org/docs/api-reference/next/image#priority\",children:\"priority='true'\"}),\" see the \",(0,n.jsx)(e.a,{href:\"https://nextjs.org/docs/api-reference/next/image#priority\",children:\"docs\"})]}),`\n`,(0,n.jsx)(e.pre,{className:\"language-javascript\",children:(0,n.jsxs)(e.code,{className:\"language-javascript code-highlight\",children:[(0,n.jsxs)(e.span,{className:\"code-line\",children:[(0,n.jsx)(e.span,{className:\"token operator\",children:\"<\"}),(0,n.jsx)(e.span,{className:\"token maybe-class-name\",children:\"Image\"}),`\\r\n`]}),(0,n.jsxs)(e.span,{className:\"code-line\",children:[\"    priority\",(0,n.jsx)(e.span,{className:\"token operator\",children:\"=\"}),(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"{\"}),(0,n.jsx)(e.span,{className:\"token boolean\",children:\"true\"}),(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"}\"}),`\\r\n`]}),(0,n.jsxs)(e.span,{className:\"code-line\",children:[\"    src\",(0,n.jsx)(e.span,{className:\"token operator\",children:\"=\"}),(0,n.jsx)(e.span,{className:\"token string\",children:'\"me.png\"'}),`\\r\n`]}),(0,n.jsxs)(e.span,{className:\"code-line\",children:[\"    alt\",(0,n.jsx)(e.span,{className:\"token operator\",children:\"=\"}),(0,n.jsx)(e.span,{className:\"token string\",children:'\"Picture of the author\"'}),`\\r\n`]}),(0,n.jsxs)(e.span,{className:\"code-line\",children:[\"    width\",(0,n.jsx)(e.span,{className:\"token operator\",children:\"=\"}),(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"{\"}),(0,n.jsx)(e.span,{className:\"token number\",children:\"500\"}),(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"}\"}),`\\r\n`]}),(0,n.jsxs)(e.span,{className:\"code-line\",children:[\"    height\",(0,n.jsx)(e.span,{className:\"token operator\",children:\"=\"}),(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"{\"}),(0,n.jsx)(e.span,{className:\"token number\",children:\"500\"}),(0,n.jsx)(e.span,{className:\"token punctuation\",children:\"}\"}),`\\r\n`]}),(0,n.jsxs)(e.span,{className:\"code-line\",children:[(0,n.jsx)(e.span,{className:\"token operator\",children:\"/\"}),(0,n.jsx)(e.span,{className:\"token operator\",children:\">\"}),`\n`]})]})}),`\n`,(0,n.jsx)(e.p,{children:\"Image of example LCP Image\"}),`\n`,(0,n.jsxs)(e.h3,{id:\"2-use-modern-image-formats-webp-avif\",children:[(0,n.jsx)(e.a,{className:\"anchor\",href:\"#2-use-modern-image-formats-webp-avif\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"2. Use modern image formats (WebP, AVIF).\"]}),`\n`,(0,n.jsxs)(e.ol,{start:\"3\",children:[`\n`,(0,n.jsx)(e.li,{children:`Use modern image formats (WebP, AVIF).\\r\nWebp and avif provide smaller image size\\r\nnext js support webp and avif`}),`\n`]}),`\n`,(0,n.jsxs)(e.h3,{id:\"3-serve-correctly-sized-images-using-srcset\",children:[(0,n.jsx)(e.a,{className:\"anchor\",href:\"#3-serve-correctly-sized-images-using-srcset\",children:(0,n.jsx)(e.span,{className:\"icon icon-link\"})}),\"3. Serve correctly sized images using srcset.\"]}),`\n`,(0,n.jsxs)(e.ol,{start:\"4\",children:[`\n`,(0,n.jsxs)(e.li,{children:[`\n`,(0,n.jsx)(e.p,{children:`Serve correctly sized images using srcset.\\r\nw stand for width`}),`\n`,(0,n.jsx)(e.p,{children:`using Imagekit don worry about scrset 5. Provide blur-up placeholders.\\r\nUsing blur placeholder give full know that the image is fully loaded. meanwhit the original image is still downloaded`}),`\n`]}),`\n`,(0,n.jsxs)(e.li,{children:[`\n`,(0,n.jsx)(e.p,{children:`CDN Image\\r\nCDN`}),`\n`]}),`\n`,(0,n.jsxs)(e.li,{children:[`\n`,(0,n.jsx)(e.p,{children:\"Know what is blocking the download and what its initiator\"}),`\n`]}),`\n`]})]})}function v(a={}){let{wrapper:e}=a.components||{};return e?(0,n.jsx)(e,Object.assign({},a,{children:(0,n.jsx)(d,a)})):d(a)}var y=v;return w(x);})();\n;return Component;"
+    },
+    "_id": "imrpoving-large-contentful-paint-in-nextjs.mdx",
+    "_raw": {
+      "sourceFilePath": "imrpoving-large-contentful-paint-in-nextjs.mdx",
+      "sourceFileName": "imrpoving-large-contentful-paint-in-nextjs.mdx",
+      "sourceFileDir": ".",
+      "contentType": "mdx",
+      "flattenedPath": "imrpoving-large-contentful-paint-in-nextjs"
+    },
+    "type": "Post",
+    "url": "/posts/imrpoving-large-contentful-paint-in-nextjs",
+    "reading_time": {
+      "text": "2 min read",
+      "minutes": 1.315,
+      "time": 78900,
+      "words": 263
+    },
+    "time_ago": "1 month ago"
+  },
+  {
+    "title": "Tools for check core web vitals",
+    "slug": "email-marketing-with-maizzle-and-tailwind-css",
+    "date": "2022-07-17",
+    "summary": "Create powerful email marketing with Maizzle",
+    "image": "/showcase/original/sidebar-mui.png",
+    "body": {
+      "raw": "\r\nadadadad\r\n",
+      "code": "var Component=(()=>{var d=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var g=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var w=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),x=(e,t)=>{for(var n in t)i(e,n,{get:t[n],enumerable:!0})},s=(e,t,n,r)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let a of g(t))!f.call(e,a)&&a!==n&&i(e,a,{get:()=>t[a],enumerable:!(r=u(t,a))||r.enumerable});return e};var h=(e,t,n)=>(n=e!=null?d(p(e)):{},s(t||!e||!e.__esModule?i(n,\"default\",{value:e,enumerable:!0}):n,e)),j=e=>s(i({},\"__esModule\",{value:!0}),e);var m=w((C,c)=>{c.exports=_jsx_runtime});var M={};x(M,{default:()=>z,frontmatter:()=>_});var o=h(m()),_={title:\"Tools for check core web vitals\",slug:\"email-marketing-with-maizzle-and-tailwind-css\",date:\"2022-07-17\",summary:\"Create powerful email marketing with Maizzle\",image:\"/showcase/original/sidebar-mui.png\"};function l(e){let t=Object.assign({p:\"p\"},e.components);return(0,o.jsx)(t.p,{children:\"adadadad\"})}function b(e={}){let{wrapper:t}=e.components||{};return t?(0,o.jsx)(t,Object.assign({},e,{children:(0,o.jsx)(l,e)})):l(e)}var z=b;return j(M);})();\n;return Component;"
+    },
+    "_id": "tools-for-check-core-web-vitals.mdx",
+    "_raw": {
+      "sourceFilePath": "tools-for-check-core-web-vitals.mdx",
+      "sourceFileName": "tools-for-check-core-web-vitals.mdx",
+      "sourceFileDir": ".",
+      "contentType": "mdx",
+      "flattenedPath": "tools-for-check-core-web-vitals"
+    },
+    "type": "Post",
+    "url": "/posts/tools-for-check-core-web-vitals",
+    "reading_time": {
+      "text": "1 min read",
+      "minutes": 0.005,
+      "time": 300,
+      "words": 1
+    },
+    "time_ago": "1 month ago"
   }
 ]
