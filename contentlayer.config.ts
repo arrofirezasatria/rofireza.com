@@ -34,6 +34,10 @@ const Post = defineDocumentType(() => ({
             type: 'string',
             required: true,
         },
+        link: {
+            type: 'string',
+            required: true,
+        },
     },
     computedFields: {
         url: {
