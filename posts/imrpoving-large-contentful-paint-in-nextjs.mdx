@@ -21,10 +21,12 @@ There are several ways to optimize LCP Image in Next JS :
 
 1. Use the height and width attributes on your Image component in Next.js or element in HTML to prevent layout shift. Adding these attributes to your markup will tell the browser how much space to allocate.
 
+### 1. Inspect what is blocking your request
+
 ### 2. Do not Lazy-load LCP Images
 
 Not lazy loading the LCP image helps it load faster because the browser will just process it normally as it's encountered in the markup.
-To achive this in Next js you can set Image component [priority='true'](https://nextjs.org/docs/api-reference/next/image#priority) see the [docs](https://nextjs.org/docs/api-reference/next/image#priority)
+To achive this in Next js you can set Image component [priority='true'](https://nextjs.org/docs/api-reference/next/image#priority) more see the [docs](https://nextjs.org/docs/api-reference/next/image#priority)
 
 ```javascript
 <Image
@@ -36,23 +38,36 @@ To achive this in Next js you can set Image component [priority='true'](https://
 />
 ```
 
-Image of example LCP Image
+When true, the image will be considered high priority and preload. Lazy loading is automatically disabled for images using priority. Its also posible to priority more than one image
 
 ### 2. Use modern image formats (WebP, AVIF).
 
-3. Use modern image formats (WebP, AVIF).
-   Webp and avif provide smaller image size
-   next js support webp and avif
+Out of the box NextJS Image component support
+Webp Image format, but if you want to use AVIF format You can enable AVIF support with the following configuration.
+
+    ```javascript
+    module.exports = {
+        images: {
+            formats: ['image/avif', 'image/webp'],
+        },
+    }
+    ```
+
+> Note: AVIF generally takes 20% longer to encode but it compresses 20% smaller compared to WebP. This means that the first time an image is requested, it will typically be slower and then subsequent requests that are cached will be faster.
 
 ### 3. Serve correctly sized images using srcset.
 
-4. Serve correctly sized images using srcset.
-   w stand for width
+Serve correctly sized images using srcset.
+w stand for width
+
+    The srcset attribute doesn't replace the src attribute. Instead the srcset attribute complements the src attribute. You still need to have a valid src attribute, but now the browser can replace its value with one of the options listed in the srcset attribute.
+
+    The browser won't download the larger images unless they're needed. That saves bandwidth.
 
     using Imagekit don worry about scrset 5. Provide blur-up placeholders.
     Using blur placeholder give full know that the image is fully loaded. meanwhit the original image is still downloaded
 
-5. CDN Image
-   CDN
+5. CDN Image yours Image
+   Using Image Kit.io
 
 6. Know what is blocking the download and what its initiator
