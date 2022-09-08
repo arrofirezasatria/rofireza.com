@@ -19,6 +19,7 @@ export type Post = {
   date: string
   summary: string
   image: string
+  link: string
   /** MDX file body */
   body: MDX
   url: string

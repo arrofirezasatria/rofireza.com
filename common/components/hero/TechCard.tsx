@@ -3,6 +3,7 @@ import LaunchRounded from '@mui/icons-material/LaunchRounded'
 import React from 'react'
 import Link from '@mui/material/Link'
 import { useTheme } from '@mui/material/styles'
+import Image from 'next/image'
 
 function stringToColor(string: string) {
     let hash = 0
@@ -78,18 +79,28 @@ export default function TechCard({
             }}
         >
             <Avatar
-                {...(item.src && {
-                    src: item.src,
-                    srcSet: item.srcSet,
-                    alt: `${item.name}`,
-                })}
-                {...(!item.src && {
-                    ...stringAvatar(item.name),
-                    srcSet: item.srcSet,
-                    alt: `${item.name}`,
-                })}
-                sx={{ borderRadius: '4px', width: logoSize, height: logoSize }}
-            />
+                sizes={'40px'}
+                sx={{
+                    borderRadius: '4px',
+                    backgroundColor: 'transparent',
+                    color: 'gray',
+                    '& img': {
+                        width: `${logoSize}px !important`,
+                        height: `${logoSize}px !important`,
+                    },
+                }}
+            >
+                {item.src ? (
+                    <Image
+                        layout="fill"
+                        src={item.src}
+                        alt={item.name}
+                        priority={true}
+                    />
+                ) : (
+                    <>{item.name.charAt(0)}</>
+                )}
+            </Avatar>
             <Box sx={{ ml: 2 }}>
                 <Typography
                     variant="body2"

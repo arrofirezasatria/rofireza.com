@@ -188,13 +188,13 @@ const PostLayout = ({ post }: { post: Post }) => {
                 >
                     <Button
                         component={Link}
-                        href="www.google.com"
+                        href={post.link}
                         endIcon={
                             <CreateIcon
                                 sx={{
                                     height: '16px',
                                     width: '16px',
-                                    paddingTop: '0px',
+                                    marginRight: '4px',
                                 }}
                             />
                         }
