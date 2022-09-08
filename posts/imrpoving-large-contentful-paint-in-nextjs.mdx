@@ -15,17 +15,9 @@ and
 
 ![LCP RofiReza](https://ik.imagekit.io/rofireza/Blog/lCP_rofireza_ExtOAUpvR.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1662420126178)
 
-Is common LCP is to be element of image.
+### 1. Preload LCP Images
 
-There are several ways to optimize LCP Image in Next JS :
-
-1. Use the height and width attributes on your Image component in Next.js or element in HTML to prevent layout shift. Adding these attributes to your markup will tell the browser how much space to allocate.
-
-### 1. Inspect what is blocking your request
-
-### 2. Do not Lazy-load LCP Images
-
-Not lazy loading the LCP image helps it load faster because the browser will just process it normally as it's encountered in the markup.
+Preload the LCP image helps it load faster because the browser will just process it normally as it's encountered in the markup.
 To achive this in Next js you can set Image component [priority='true'](https://nextjs.org/docs/api-reference/next/image#priority) more see the [docs](https://nextjs.org/docs/api-reference/next/image#priority)
 
 ```javascript
@@ -67,7 +59,8 @@ w stand for width
     using Imagekit don worry about scrset 5. Provide blur-up placeholders.
     Using blur placeholder give full know that the image is fully loaded. meanwhit the original image is still downloaded
 
-5. CDN Image yours Image
-   Using Image Kit.io
+### 4. Use Image Blur Placeholder
 
-6. Know what is blocking the download and what its initiator
+### 5. CDN Image yours Image
+
+Using Image Kit.io

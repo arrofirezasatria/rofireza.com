@@ -2,7 +2,6 @@
 
 import creatingBlurPlaceholderImagesUsingNextJsAndPlaiceholderMdx from './creating-blur-placeholder-images-using-NextJS-and-Plaiceholder.mdx.json' assert { type: 'json' }
 import emailMarketingWithMaizzleAndTailwindcssMdx from './email-marketing-with-maizzle-and-tailwindcss.mdx.json' assert { type: 'json' }
-import toolsForCheckCoreWebVitalsMdx from './tools-for-check-core-web-vitals.mdx.json' assert { type: 'json' }
 import imrpovingLargeContentfulPaintInNextjsMdx from './imrpoving-large-contentful-paint-in-nextjs.mdx.json' assert { type: 'json' }
 
-export const allPosts = [creatingBlurPlaceholderImagesUsingNextJsAndPlaiceholderMdx, emailMarketingWithMaizzleAndTailwindcssMdx, toolsForCheckCoreWebVitalsMdx, imrpovingLargeContentfulPaintInNextjsMdx]
+export const allPosts = [creatingBlurPlaceholderImagesUsingNextJsAndPlaiceholderMdx, emailMarketingWithMaizzleAndTailwindcssMdx, imrpovingLargeContentfulPaintInNextjsMdx]
