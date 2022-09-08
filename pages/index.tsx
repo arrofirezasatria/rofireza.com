@@ -199,6 +199,7 @@ export default function Home({ data_showcase, data_posts }: data) {
                                         >
                                             <Image
                                                 src={'/logo/gitlabicon.png'}
+                                                alt="Gitlab Icon"
                                                 width={22}
                                                 height={22}
                                             />

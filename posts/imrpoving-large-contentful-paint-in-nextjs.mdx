@@ -61,6 +61,20 @@ w stand for width
 
 ### 4. Use Image Blur Placeholder
 
+    Blur Placeholder is use while the image is loading. Next JS Build in Image placeholder when you use from static image.
+    For dynamic images, you must provide the blurDataURL property. Solutions such as Plaiceholder can help with base64 generation.[Post](https://rofireza.com/posts/creating-blur-placeholder-images-using-NextJS-and-Plaiceholder)
+
+    ```javascript
+    <Image
+        src="me.png"
+        alt="Picture of the author"
+        width={500}
+        height={500}
+        placeholder="blur"
+        blurDataURL={base64BlurImage}
+    />
+    ```
+
 ### 5. CDN Image yours Image
 
 Using Image Kit.io
