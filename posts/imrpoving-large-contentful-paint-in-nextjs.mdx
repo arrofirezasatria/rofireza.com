@@ -52,6 +52,18 @@ Webp Image format, but if you want to use AVIF format You can enable AVIF suppor
 Serve correctly sized images using srcset.
 w stand for width
 
+```javascript
+<Image
+    src="me.png"
+    alt="Picture of the author"
+    width={500}
+    height={500}
+    scrset={
+
+    }
+/>
+```
+
     The srcset attribute doesn't replace the src attribute. Instead the srcset attribute complements the src attribute. You still need to have a valid src attribute, but now the browser can replace its value with one of the options listed in the srcset attribute.
 
     The browser won't download the larger images unless they're needed. That saves bandwidth.
@@ -62,7 +74,8 @@ w stand for width
 ### 4. Use Image Blur Placeholder
 
     Blur Placeholder is use while the image is loading. Next JS Build in Image placeholder when you use from static image.
-    For dynamic images, you must provide the blurDataURL property. Solutions such as Plaiceholder can help with base64 generation.[Post](https://rofireza.com/posts/creating-blur-placeholder-images-using-NextJS-and-Plaiceholder)
+    For dynamic images, you must provide the blurDataURL property. Solutions such as Plaiceholder can help with base64 generation.
+    You can also learn how to implement from this post [Post](https://rofireza.com/posts/creating-blur-placeholder-images-using-NextJS-and-Plaiceholder)
 
     ```javascript
     <Image
@@ -74,7 +87,3 @@ w stand for width
         blurDataURL={base64BlurImage}
     />
     ```
-
-### 5. CDN Image yours Image
-
-Using Image Kit.io

@@ -41,6 +41,7 @@
     "next-compose-plugins": "^2.2.1",
     "next-contentlayer": "^0.2.7",
     "next-sitemap": "^3.1.17",
+    "nextjs-google-analytics": "^2.1.0",
     "nodemailer": "^6.7.8",
     "plaiceholder": "^2.4.0",
     "prismjs": "^1.28.0",
