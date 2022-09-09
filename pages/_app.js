@@ -4,6 +4,8 @@ import React from 'react'
 import { SessionProvider } from 'next-auth/react'
 import ThemeContext from '../modules/ThemeContext'
 
+import { GoogleAnalytics } from 'nextjs-google-analytics'
+
 import '../styles/prismokaida.css'
 // import "../styles/prism.css";
 
@@ -18,6 +20,10 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     return (
         <SessionProvider session={session}>
             <ThemeContext>
+                <GoogleAnalytics
+                    trackPageViews
+                    gaMeasurementId="G-9K08PKVE5S"
+                />
                 <CssBaseline />
                 <Component {...pageProps} />
             </ThemeContext>
