@@ -36,7 +36,7 @@ export const TECHs = [
         src: '/tech/plaiceholder-logo.jpg',
         srcSet: '/tech/plaiceholder-logo.jpg',
         name: 'Plaiceholder',
-        description: 'Beautiful blur image placeholders',
+        description: 'Beautiful blur image placeholders for next js',
         category: ['SEO', 'Content'],
         href: 'https://plaiceholder.co/',
     },

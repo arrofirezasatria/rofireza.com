@@ -13,6 +13,7 @@ const nextConfig = {
             'i.giphy.com',
             'i.giphy.com',
             'ik.imagekit.io',
+            'dev-to-uploads.s3.amazonaws.com',
         ],
     },
 }

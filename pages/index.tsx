@@ -214,13 +214,16 @@ export default function Home({ data_showcase, data_posts }: data) {
                         xs={12}
                         md={4}
                         sx={{
-                            display: 'flex',
+                            display: { xs: 'none', md: 'flex' },
                             visibility: 'hidden',
                             justifyContent: 'center',
                             alignItems: 'center',
                         }}
                     >
-                        <Avatar sizes="large" sx={{ width: 184, height: 184 }}>
+                        <Avatar
+                            sizes="large"
+                            sx={{ width: 184, height: { xs: 0, md: 184 } }}
+                        >
                             a
                         </Avatar>
                     </Grid>

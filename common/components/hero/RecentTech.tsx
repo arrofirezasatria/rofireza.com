@@ -24,7 +24,7 @@ export default function RecentTech() {
                     .reverse()
                     .map((data, index) => {
                         return (
-                            <Grid item md={6} key={index}>
+                            <Grid item xs={12} md={6} key={index}>
                                 <TechCard item={data} />
                             </Grid>
                         )
