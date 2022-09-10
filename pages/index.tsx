@@ -220,11 +220,7 @@ export default function Home({ data_showcase, data_posts }: data) {
                             alignItems: 'center',
                         }}
                     >
-                        <Avatar
-                            src="/showcase/original/sidebar-mui.jpg"
-                            sizes="large"
-                            sx={{ width: 184, height: 184 }}
-                        >
+                        <Avatar sizes="large" sx={{ width: 184, height: 184 }}>
                             a
                         </Avatar>
                     </Grid>
