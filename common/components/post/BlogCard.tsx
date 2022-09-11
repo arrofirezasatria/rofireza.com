@@ -47,9 +47,7 @@ export default function BlogCard({
                             },
                         }}
                     >
-                        <Typography variant="h6" sx={{ lineHeight: 1 }}>
-                            {title}
-                        </Typography>
+                        <Typography variant="h6">{title}</Typography>
                         <Stack
                             direction="row"
                             spacing={1}

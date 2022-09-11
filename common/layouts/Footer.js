@@ -36,7 +36,7 @@ const StyledLink = ({ title, url }) => {
 
 export default function Footer() {
     const { data, error } = useSWR('/api/status', fetcher, {
-        refreshInterval: 5000,
+        refreshInterval: 60000,
     })
 
     return (
@@ -44,14 +44,14 @@ export default function Footer() {
             <Divider sx={{ my: '40px' }} />
             <Grid
                 container
-                spacing={2}
+                spacing={4}
                 direction={{
                     xs: 'column',
                     md: 'row',
                 }}
-                sx={{ px: 6 }}
+                sx={{ px: { xs: 0, md: 6 } }}
             >
-                <Grid item xs={7}>
+                <Grid item xs={12} md={7}>
                     <Stack direction={'row'} spacing={1}>
                         <Box
                             sx={{
@@ -155,7 +155,7 @@ export default function Footer() {
                         </Stack>
                     </Stack>
                 </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={12} md={5}>
                     <Grid container>
                         <Grid item xs={6}>
                             <Stack
@@ -163,7 +163,7 @@ export default function Footer() {
                                 sx={{
                                     fontSize: '16px',
                                     textDecoration: 'none',
-                                    marginLeft: 3,
+                                    marginLeft: { xs: 0, md: 3 },
                                 }}
                             >
                                 {page.map((page) => {
@@ -182,7 +182,7 @@ export default function Footer() {
                                 sx={{
                                     fontSize: '16px',
                                     textDecoration: 'none',
-                                    marginLeft: 6,
+                                    marginLeft: { xs: 0, md: 6 },
                                 }}
                             >
                                 {social.map((social) => {
@@ -201,7 +201,10 @@ export default function Footer() {
             <Divider sx={{ mt: '40px' }} />
             <Stack
                 direction="row"
-                sx={{ justifyContent: 'space-between', px: '60px' }}
+                sx={{
+                    justifyContent: 'space-between',
+                    px: { xs: 0, md: '60px' },
+                }}
             >
                 <Box sx={{ py: 2 }}>
                     <Typography variant="subtitle2" sx={{ color: 'inherit' }}>

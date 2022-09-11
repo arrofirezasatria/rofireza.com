@@ -20,7 +20,7 @@ export default function RecentTech() {
                 Recent Tech.
             </Typography>
             <Grid container spacing={2}>
-                {TECHs.slice(3)
+                {TECHs.slice(TECHs.length - 4, TECHs.length)
                     .reverse()
                     .map((data, index) => {
                         return (

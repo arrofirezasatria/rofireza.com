@@ -105,7 +105,7 @@ const PostLayout = ({ post }: { post: Post }) => {
                         variant="h3"
                         sx={{
                             fontWeight: 'bold',
-                            fontSize: '40px',
+                            fontSize: { xs: '28px', md: '40px' },
                             color:
                                 theme.palette.mode === 'dark'
                                     ? theme.palette.grey[200]

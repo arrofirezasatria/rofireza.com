@@ -236,13 +236,13 @@ export default function Home({ data_showcase, data_posts }: data) {
                     variant="h5"
                     sx={{
                         fontWeight: 'bold',
-                        marginBottom: 1,
+                        marginBottom: { xs: 2, md: 0 },
                         marginTop: '40px',
                     }}
                 >
                     Recent Blog Post.
                 </Typography>
-                <Stack spacing={1}>
+                <Stack spacing={{ xs: 2, md: 1 }}>
                     {data_posts.map((post, index) => {
                         return (
                             <BlogCard

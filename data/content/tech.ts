@@ -52,7 +52,7 @@ export const TECHs = [
         src: '/tech/framer-motion.png',
         srcSet: '/tech/framer-motion.png',
         name: 'Framer Motion',
-        description: 'Production declarative animations.',
+        description: 'Production declarative animations',
         category: ['Content'],
         href: 'https://www.framer.com/motion/',
     },
@@ -63,5 +63,13 @@ export const TECHs = [
         description: 'Intuitive React UI tools',
         category: ['Front End'],
         href: 'https://mui.com/',
+    },
+    {
+        src: '/tech/mdx.svg',
+        srcSet: '',
+        name: 'MDX',
+        description: 'Markdown for the Component era',
+        category: ['Content'],
+        href: 'https://mdxjs.com/',
     },
 ]

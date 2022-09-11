@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             <ThemeContext>
                 <GoogleAnalytics
                     trackPageViews
-                    gaMeasurementId="G-9K08PKVE5S"
+                    gaMeasurementId={process.env.GOOGLE_ANAYLTICS_ID}
                 />
                 <CssBaseline />
                 <Component {...pageProps} />
