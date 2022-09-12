@@ -120,7 +120,7 @@ const PostLayout = ({ post }: { post: Post }) => {
                                 xs: 1,
                                 md: 1,
                             },
-                            alignItems: 'center',
+                            alignItems: 'flex-end',
                             pb: 1,
                             color:
                                 theme.palette.mode === 'dark'
@@ -160,19 +160,26 @@ const PostLayout = ({ post }: { post: Post }) => {
                                 </Typography>
                             </Stack>
                         </Stack>
-                        <Stack
-                            direction={'row'}
-                            spacing={0.6}
-                            alignItems="center"
-                        >
+                        <Stack direction={'row'} spacing={0.6}>
                             <Typography
                                 variant="subtitle2"
-                                sx={{ fontWeight: 400 }}
+                                sx={{
+                                    display: { xs: 'none', md: 'initial' },
+                                    fontWeight: 500,
+                                    lineHeight: 1,
+                                }}
                             >
                                 {/*// @ts-ignore */}
                                 {post.reading_time.text}
                             </Typography>
-                            <Typography>&#8226;</Typography>
+                            <Typography
+                                sx={{
+                                    lineHeight: 1,
+                                    display: { xs: 'none', md: 'initial' },
+                                }}
+                            >
+                                &#8226;
+                            </Typography>
                             <ViewCounter slug={post.slug} />
                         </Stack>
                     </Stack>
