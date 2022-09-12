@@ -23,7 +23,7 @@ export default function ViewCounter({ slug }) {
             <Typography
                 component="span"
                 variant="subtitle2"
-                sx={{ fontWeight: 400 }}
+                sx={{ fontWeight: 500, lineHeight: 1 }}
             >
                 {`${views > 0 ? views.toLocaleString() : '–––'} views`}
             </Typography>

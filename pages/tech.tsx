@@ -35,10 +35,8 @@ export default function Tech() {
                 Tech.
             </Typography>
             <Typography variant="body1">
-                I have been Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Molestias nostrum quaerat eligendi aperiam consequatur
-                asperiores aliquam officiis est assumenda modi sit libero
-                architecto, dolor quidem tempora eius minima quo unde?
+                This is a list of technologies that I have used and this is also
+                a bookmark for my future technology projects.
             </Typography>
             <TextField
                 fullWidth

@@ -20,11 +20,11 @@ export default function RecentTech() {
                 Recent Tech.
             </Typography>
             <Grid container spacing={2}>
-                {TECHs.slice(3)
+                {TECHs.slice(TECHs.length - 4, TECHs.length)
                     .reverse()
                     .map((data, index) => {
                         return (
-                            <Grid item md={6} key={index}>
+                            <Grid item xs={12} md={6} key={index}>
                                 <TechCard item={data} />
                             </Grid>
                         )

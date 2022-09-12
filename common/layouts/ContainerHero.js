@@ -60,7 +60,7 @@ export default function ContainerHero(props) {
                 component="main"
                 maxWidth="md"
                 sx={{
-                    paddingTop: 8,
+                    paddingTop: { xs: 4, md: 8 },
                     px: {
                         md: '90px !important',
                     },

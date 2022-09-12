@@ -101,7 +101,14 @@ export default function TechCard({
                     <>{item.name.charAt(0)}</>
                 )}
             </Avatar>
-            <Box sx={{ ml: 2 }}>
+            <Box
+                sx={{
+                    ml: 2,
+                    whiteSpace: 'noWrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                }}
+            >
                 <Typography
                     variant="body2"
                     sx={{ textDecoration: 'none', fontWeight: 500 }}
@@ -116,7 +123,7 @@ export default function TechCard({
                         }}
                     />
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="text.secondary" noWrap>
                     {item.description}
                 </Typography>
             </Box>

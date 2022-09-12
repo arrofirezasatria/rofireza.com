@@ -214,16 +214,15 @@ export default function Home({ data_showcase, data_posts }: data) {
                         xs={12}
                         md={4}
                         sx={{
-                            display: 'flex',
+                            display: { xs: 'none', md: 'flex' },
                             visibility: 'hidden',
                             justifyContent: 'center',
                             alignItems: 'center',
                         }}
                     >
                         <Avatar
-                            src="/showcase/original/sidebar-mui.jpg"
                             sizes="large"
-                            sx={{ width: 184, height: 184 }}
+                            sx={{ width: 184, height: { xs: 0, md: 184 } }}
                         >
                             a
                         </Avatar>
@@ -237,13 +236,13 @@ export default function Home({ data_showcase, data_posts }: data) {
                     variant="h5"
                     sx={{
                         fontWeight: 'bold',
-                        marginBottom: 1,
+                        marginBottom: { xs: 2, md: 0 },
                         marginTop: '40px',
                     }}
                 >
                     Recent Blog Post.
                 </Typography>
-                <Stack spacing={1}>
+                <Stack spacing={{ xs: 2, md: 1 }}>
                     {data_posts.map((post, index) => {
                         return (
                             <BlogCard
