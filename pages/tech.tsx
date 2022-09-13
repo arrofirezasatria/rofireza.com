@@ -1,13 +1,6 @@
 import React from 'react'
 import ContainerHero from '@layouts/ContainerHero'
-import {
-    Box,
-    Button,
-    Divider,
-    Grid,
-    TextField,
-    Typography,
-} from '@mui/material'
+import { Divider, Grid, TextField, Typography } from '@mui/material'
 import TechCard from '@components/hero/TechCard'
 import { TECHs, techCategory } from 'data/content/tech'
 
