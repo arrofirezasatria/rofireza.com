@@ -64,9 +64,7 @@ const mdxComponents = {
     h3: (props) => <TypographyH3 {...props} />,
     h4: (props) => <TypographyH4 {...props} />,
     p: (props) => <ParagraphMDX {...props} />,
-    ImageMDX: (props) => (
-        <ImageMDX layout={'intrinsic'} width={720} height={405} {...props} />
-    ),
+    ImageMDX: (props) => <ImageMDX layout={'intrinsic'} {...props} />,
     blockquote: (props) => <BlockquoteMDXX {...props} />,
     li: (props) => <LiMDX {...props} />,
     pre: (props) => <PreMDX {...props} />,
