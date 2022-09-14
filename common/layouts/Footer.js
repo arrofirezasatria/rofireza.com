@@ -156,8 +156,8 @@ export default function Footer() {
                     </Stack>
                 </Grid>
                 <Grid item xs={12} md={5}>
-                    <Grid container>
-                        <Grid item xs={6}>
+                    <Grid container spacing={1}>
+                        <Grid item xs={12} md={6}>
                             <Stack
                                 spacing={1}
                                 sx={{
@@ -176,7 +176,7 @@ export default function Footer() {
                                 })}
                             </Stack>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={12} md={6}>
                             <Stack
                                 spacing={1}
                                 sx={{
