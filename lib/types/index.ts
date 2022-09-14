@@ -5,3 +5,6 @@ export type DiscordStatus = {
     status: string
     activities: string
 }
+export type Views = {
+    total: number
+}
