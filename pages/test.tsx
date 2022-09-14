@@ -6,5 +6,9 @@ import Image from 'next/image'
 import { Box } from '@mui/material'
 
 export default function test() {
-    return <Box sx={{ position: 'relative' }}>ad</Box>
+    return (
+        <Box sx={{ position: 'relative', width: '1080px', height: '720px' }}>
+            asd
+        </Box>
+    )
 }

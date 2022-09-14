@@ -12,7 +12,7 @@ export default function ContainerHero(props) {
 
     const meta = {
         title: 'Arrofi Reza S. - SEO and Front End Developer ',
-        description: `SEO and Front End, New Tech entusiast, Like Japan music`,
+        description: `SEO and Front End Developer`,
         image: '',
         type: 'website',
         ...customMeta,

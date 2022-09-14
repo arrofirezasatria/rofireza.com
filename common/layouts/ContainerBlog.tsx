@@ -11,6 +11,7 @@ export default function ContainerBlog({
         <ContainerHero
             title={`${post.title} – Arrofi Reza S.`}
             description={post.summary}
+            image={post.image}
             date={new Date(post.date).toISOString()}
             type="article"
         >

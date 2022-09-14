@@ -1,6 +1,6 @@
 ---
 title: '4 Tips Improving Large Contentful Paint in NextJS'
-slug: '4 Tips improving-large-contentful-paint-in-NextJS'
+slug: '4-tips-improving-large-contentful-paint-in-nextjs'
 date: '2022-07-17'
 summary: 'Fastest your LCP webpage with this strategy'
 image: '/showcase/original/sidebar-mui.png'
@@ -14,14 +14,40 @@ and
 [First Input Delay](https://web.dev/fid/).
 
 <ImageMDX
+    height={324}
+    width={745}
     src="https://ik.imagekit.io/rofireza/Blog/lCP_rofireza_ExtOAUpvR.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1662420126178"
     alt="LCP Image Simulation"
 />
 
-### 1. Preload LCP Images
+### 1. Use Image Component
+
+[Next JS Image Component](https://nextjs.org/docs/basic-features/image-optimization) is powerful image optimization which able
+to improve the core web vitals and SEO performance. Some technique usually is hard to manually setting like scrset and blur placeholder
+which is easy to setup in Next JS.
+
+Some of the optimizations from the based on [Doc](https://nextjs.org/docs/basic-features/image-optimization) is :
+
+-   **Improved Performance:** Always serve correctly sized image for each device, using modern image formats
+
+    <ImageMDX
+        height={200}
+        width={460}
+        src="https://ik.imagekit.io/rofireza/Blog/scrset_nextjs_devmode_wisxCALbq.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1663095529596"
+        alt="LCP Image Simulation"
+    />
+
+    As you can see Next JS generate image of each screen size and generate when build time, make sure url image source available
+    through `getStaticProps` or `getServerSideProps`.
+
+-   **Visual Stability:** Prevent [Cumulative Layout Shift](https://nextjs.org/learn/seo/web-performance/cls) automatically
+-   **Faster Page Loads:** Images are only loaded when they enter the viewport, with optional blur-up placeholders
+-   **Asset Flexibility:** On-demand image resizing, even for images stored on remote servers
+
+### 2. Preload LCP Images
 
 Preload the LCP image helps it load faster because the browser will just process it normally as it's encountered in the markup.
-To achive this in Next js you can set Image component [priority='true'](https://nextjs.org/docs/api-reference/next/image#priority) more see the [docs](https://nextjs.org/docs/api-reference/next/image#priority)
+To achive this in Next js you can set Image component [priority='true'](https://nextjs.org/docs/api-reference/next/image#priority).
 
 ```javascript
 <Image
@@ -35,44 +61,14 @@ To achive this in Next js you can set Image component [priority='true'](https://
 
 When true, the image will be considered high priority and preload. Lazy loading is automatically disabled for images using priority. Its also posible to priority more than one image
 
-### 2. Use modern image formats (WebP, AVIF).
+### 2. Use CDN
 
-Out of the box NextJS Image component support
-Webp Image format, but if you want to use AVIF format You can enable AVIF support with the following configuration.
+If you are using hosting platfrom like vercel its include in build in CDN, But if you re hosting from vps you need to setup for yourself
 
-    ```javascript
-    module.exports = {
-        images: {
-            formats: ['image/avif', 'image/webp'],
-        },
-    }
-    ```
+### 3. Avoid using Video
 
-> Note: AVIF generally takes 20% longer to encode but it compresses 20% smaller compared to WebP. This means that the first time an image is requested, it will typically be slower and then subsequent requests that are cached will be faster.
-
-### 3. Serve correctly sized images using srcset.
-
-Serve correctly sized images using srcset.
-w stand for width
-
-```javascript
-<Image
-    src="me.png"
-    alt="Picture of the author"
-    width={500}
-    height={500}
-    scrset={
-
-    }
-/>
-```
-
-    The srcset attribute doesn't replace the src attribute. Instead the srcset attribute complements the src attribute. You still need to have a valid src attribute, but now the browser can replace its value with one of the options listed in the srcset attribute.
-
-    The browser won't download the larger images unless they're needed. That saves bandwidth.
-
-    using Imagekit don worry about scrset 5. Provide blur-up placeholders.
-    Using blur placeholder give full know that the image is fully loaded. meanwhit the original image is still downloaded
+    If you put a video on above fold it will download the resource until its done,  usually the file size is large. to overcome this you need to make
+    image video placeholder and then prevent video to load before some condition.
 
 ### 4. Use Image Blur Placeholder
 
@@ -92,3 +88,5 @@ w stand for width
     ```
 
     any blurry preview, e.g. a blurhash or a 1:32 resolution image, or a WebP2 triangular preview, etc. This phase is useful to make it clear that an image is going to appear here, to avoid layout jank, and to prevent flash.
+
+sizing
