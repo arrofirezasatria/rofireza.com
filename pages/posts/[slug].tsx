@@ -70,6 +70,13 @@ const mdxComponents = {
     pre: (props) => <PreMDX {...props} />,
     a: (props) => <AlinkMDX {...props} />,
     BlockquoteWarning: (props) => <BlockquoteWarning {...props} />,
+    code: (props) => (
+        <Typography
+            component="code"
+            sx={{ backgroundColor: 'lightGray', px: 0.5, borderRadius: '2px' }}
+            {...props}
+        />
+    ),
     // table: (props) => <TableMDX />,
     // td: (props) => <TdMDX />,
     // th: (props) => <ThMDX />,
