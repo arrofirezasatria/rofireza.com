@@ -114,10 +114,18 @@ export default function Home({ data_showcase, data_posts }: data) {
                                     sx={{
                                         px: 1.2,
                                         py: 0.5,
-                                        border: '1px solid lightGray',
-                                        borderRadius: '8px',
-                                        backgroundColor: '#d3d3d342',
+                                        border: `1px solid ${
+                                            theme.palette.mode === 'dark'
+                                                ? '#508fd3'
+                                                : 'lightGray'
+                                        }`,
+                                        backgroundColor:
+                                            theme.palette.mode === 'dark'
+                                                ? 'rgb(19,47,76)'
+                                                : '#d3d3d342',
                                         boxShadow: 'none',
+
+                                        borderRadius: '8px',
                                         transition: 'all .3s ease',
                                         '&:hover': {
                                             boxShadow: theme.shadows[2],
@@ -132,7 +140,11 @@ export default function Home({ data_showcase, data_posts }: data) {
                                         <Typography
                                             variant="subtitle2"
                                             sx={{
-                                                color: '#1A2027',
+                                                color:
+                                                    theme.palette.mode ===
+                                                    'dark'
+                                                        ? 'white'
+                                                        : '#1A2027',
                                                 fontSize: '16px',
                                             }}
                                         >
@@ -146,9 +158,18 @@ export default function Home({ data_showcase, data_posts }: data) {
                                     sx={{
                                         px: 1.2,
                                         py: 0.5,
-                                        border: '1px solid lightGray',
+
+                                        border: `1px solid ${
+                                            theme.palette.mode === 'dark'
+                                                ? '#508fd3'
+                                                : 'lightGray'
+                                        }`,
+                                        backgroundColor:
+                                            theme.palette.mode === 'dark'
+                                                ? 'rgb(19,47,76)'
+                                                : '#d3d3d342',
+
                                         borderRadius: '8px',
-                                        backgroundColor: '#d3d3d342',
                                         boxShadow: 'none',
                                         transition: 'all .3s ease',
                                         '&:hover': {
@@ -164,7 +185,11 @@ export default function Home({ data_showcase, data_posts }: data) {
                                         <Typography
                                             variant="subtitle2"
                                             sx={{
-                                                color: '#1A2027',
+                                                color:
+                                                    theme.palette.mode ===
+                                                    'dark'
+                                                        ? 'white'
+                                                        : '#1A2027',
                                                 fontSize: '16px',
                                             }}
                                         >
@@ -182,9 +207,18 @@ export default function Home({ data_showcase, data_posts }: data) {
                                             sx={{
                                                 display: 'flex',
                                                 px: 1,
-                                                border: '1px solid lightGray',
+                                                border: `1px solid ${
+                                                    theme.palette.mode ===
+                                                    'dark'
+                                                        ? '#508fd3'
+                                                        : 'lightGray'
+                                                }`,
+                                                backgroundColor:
+                                                    theme.palette.mode ===
+                                                    'dark'
+                                                        ? '#d3d3d342'
+                                                        : '#d3d3d342',
                                                 borderRadius: '8px',
-                                                backgroundColor: '#d3d3d342',
                                                 boxShadow: 'none',
                                                 transition: 'all .3s ease',
                                                 justifyContent: 'center',

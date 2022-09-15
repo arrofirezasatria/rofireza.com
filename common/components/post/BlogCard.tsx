@@ -60,7 +60,10 @@ export default function BlogCard({
                         <Typography
                             component="p"
                             sx={{
-                                color: theme.palette.text.secondary,
+                                color:
+                                    theme.palette.mode === 'dark'
+                                        ? 'white'
+                                        : theme.palette.text.secondary,
                             }}
                         >
                             {summary}
