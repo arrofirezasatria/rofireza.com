@@ -91,12 +91,7 @@ export default function TechCard({
                 }}
             >
                 {item.src ? (
-                    <Image
-                        layout="fill"
-                        src={item.src}
-                        alt={item.name}
-                        priority={true}
-                    />
+                    <Image layout="fill" src={item.src} alt={item.name} />
                 ) : (
                     <>{item.name.charAt(0)}</>
                 )}
