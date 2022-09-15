@@ -66,12 +66,13 @@ export default function TechCard({
                 height: '100%',
                 textDecoration: 'none !important',
                 cursor: 'pointer',
+                backgroundColor: '#132f4c',
+                color: theme.palette.mode === 'dark' ? 'white' : '#508fd3',
                 '& svg': {
                     transition: '0.2s',
                 },
                 '&:hover': {
                     boxShadow: theme.shadows[10],
-
                     '& svg': {
                         // transform: "translateY(-2px)",
                     },
