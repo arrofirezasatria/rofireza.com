@@ -53,9 +53,9 @@ export default function Tech() {
             <Divider sx={{ mt: 2, mb: '40px' }} />
             <React.Suspense fallback={null}>
                 <Grid container spacing={2}>
-                    {filteredTech.map((data, index) => {
+                    {filteredTech.reverse().map((data, index) => {
                         return (
-                            <Grid item md={6} key={index}>
+                            <Grid item xs={12} md={6} key={index}>
                                 <TechCard item={data} />
                             </Grid>
                         )

@@ -66,7 +66,8 @@ export default function TechCard({
                 height: '100%',
                 textDecoration: 'none !important',
                 cursor: 'pointer',
-                backgroundColor: '#132f4c',
+                backgroundColor:
+                    theme.palette.mode === 'dark' ? '#132f4c' : 'white',
                 color: theme.palette.mode === 'dark' ? 'white' : '#508fd3',
                 '& svg': {
                     transition: '0.2s',

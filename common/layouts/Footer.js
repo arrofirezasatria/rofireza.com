@@ -14,13 +14,16 @@ import { social, page, hobby } from 'data/content/footer'
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 import Image from 'next/image'
 import { FaDragon, GiDoubleDragon } from 'react-icons/fa'
+import { useTheme } from '@mui/material'
 
 const StyledLink = ({ title, url }) => {
     return (
         <Link href={url} underline="none">
             <Typography
                 variant="body1"
-                color={'gray'}
+                color={
+                    useTheme().palette.mode === 'dark' ? '#B2BAC2' : '#3E5060'
+                }
                 sx={{
                     transition: 'all 0.25s ease-in-out',
                     '&:hover': {
@@ -38,6 +41,8 @@ export default function Footer() {
     const { data, error } = useSWR('/api/status', fetcher, {
         refreshInterval: 60000,
     })
+
+    const theme = useTheme()
 
     return (
         <Container component="footer" maxWidth="md" sx={{ pb: 0, pt: 0 }}>
@@ -216,6 +221,9 @@ export default function Footer() {
                     sx={{
                         my: 2,
                         px: 1,
+                        backgroundColor:
+                            theme.palette.mode === 'dark' ? 'white' : 'none',
+                        borderRadius: '8px',
                     }}
                 >
                     <Link
