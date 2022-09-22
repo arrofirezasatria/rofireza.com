@@ -15,6 +15,7 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 import Image from 'next/image'
 import { FaDragon, GiDoubleDragon } from 'react-icons/fa'
 import { useTheme } from '@mui/material'
+import { GiSpikedDragonHead } from 'react-icons/fa/'
 
 const StyledLink = ({ title, url }) => {
     return (

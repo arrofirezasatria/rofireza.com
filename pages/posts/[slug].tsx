@@ -73,7 +73,12 @@ const mdxComponents = {
     code: (props) => (
         <Typography
             component="code"
-            sx={{ backgroundColor: 'lightGray', px: 0.5, borderRadius: '2px' }}
+            sx={{
+                color: '',
+                colorbackgroundColor: 'lightGray',
+                px: 0.5,
+                borderRadius: '2px',
+            }}
             {...props}
         />
     ),
