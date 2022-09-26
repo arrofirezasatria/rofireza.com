@@ -3,9 +3,7 @@ import axios from 'axios'
 import sendgrid from '@sendgrid/mail'
 import NextCors from 'nextjs-cors'
 
-sendgrid.setApiKey(
-    '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'
-)
+sendgrid.setApiKey(process.env.SENGRID_API_KEY)
 
 export default async function handler(
     req: NextApiRequest,
