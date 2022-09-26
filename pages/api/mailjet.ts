@@ -27,12 +27,12 @@ export default async function handler(
                 {
                     From: {
                         Email: 'cs@sunpower.id',
-                        Name: 'Mailjet Pilot',
+                        Name: `${req.body.name}`,
                     },
                     To: [
                         {
                             Email: 'cs@sunpower.id',
-                            Name: 'passenger 1',
+                            Name: 'sun power ceramics',
                         },
                     ],
                     Subject: `${req.body.subject}`,
