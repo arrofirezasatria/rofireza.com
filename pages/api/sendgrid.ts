@@ -27,13 +27,11 @@ export default async function handler(
         await sendgrid.send({
             to: 'sunpowerindonesia@gmail.com', // Your email where you'll receive emails
             from: 'sunpowerindonesia@gmail.com', // your website email address here
-            subject: `${req.body.subject}`,
+            subject: `${req.body.category}`,
             text: 'and easy to do anywhere, even with Node.js',
             html: `<div>
-            
             dari ${req.body.name} dengan email ${req.body.email}, isi : 
-
-            ${req.body.message}</div>`,
+            ${req.body.comment}</div>`,
         })
     } catch (error) {
         // console.log(error);

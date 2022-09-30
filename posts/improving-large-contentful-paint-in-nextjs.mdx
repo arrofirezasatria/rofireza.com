@@ -44,6 +44,8 @@ Some of the optimizations from the based on [Doc](https://nextjs.org/docs/basic-
 -   **Faster Page Loads:** Images are only loaded when they enter the viewport, with optional blur-up placeholders
 -   **Asset Flexibility:** On-demand image resizing, even for images stored on remote servers
 
+> Next JS Images component can not be optimized at build time using next export, To use next/image with next export, you will need to use a different loader than the default. I Suggest going production with next build and deploying on Vercel
+
 ### 2. Preload LCP Images
 
 Preload the LCP image helps it load faster because the browser will just process it normally as it's encountered in the markup.
@@ -63,7 +65,7 @@ When true, the image will be considered high priority and preload. Lazy loading 
 
 ### 2. Use CDN
 
-If you are using hosting platfrom like vercel its include in build in CDN, But if you re hosting from vps you need to setup for yourself
+If you are using hosting platfrom like vercel its include in build in Global Edge CDN, But if you re hosting from vps or custom server you need to setup for yourself with Custom Asset Prefix
 
 ### 3. Avoid using Video
 
@@ -86,7 +88,3 @@ If you are using hosting platfrom like vercel its include in build in CDN, But i
         blurDataURL={base64BlurImage}
     />
     ```
-
-    any blurry preview, e.g. a blurhash or a 1:32 resolution image, or a WebP2 triangular preview, etc. This phase is useful to make it clear that an image is going to appear here, to avoid layout jank, and to prevent flash.
-
-sizing

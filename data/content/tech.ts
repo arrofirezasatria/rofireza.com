@@ -72,4 +72,22 @@ export const TECHs = [
         category: ['Content'],
         href: 'https://mdxjs.com/',
     },
+    {
+        src: '/tech/tailwind-css-icon.svg',
+        srcSet: '',
+        name: 'Tailwind CSS',
+        description:
+            'Rapidly build modern websites without ever leaving your HTML.',
+        category: ['Content'],
+        href: 'https://tailwindcss.com/',
+    },
+    {
+        src: '/tech/react-hook-form.png',
+        srcSet: '',
+        name: 'React Hook Form',
+        description:
+            'Performant, flexible and extensible forms with easy-to-use validation.',
+        category: ['Content'],
+        href: 'https://react-hook-form.com/',
+    },
 ]
