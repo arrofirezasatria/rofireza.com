@@ -14,7 +14,7 @@ export default function Document() {
                     name="google-site-verification"
                     content="fv1AWO_U0wxEVTabsVDk5RKpITRx5L9TY879fIFJrDg"
                 />
-            </Head>
+            </Head> 
             <Box component="body">
                 <Main />
                 <NextScript />

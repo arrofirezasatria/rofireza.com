@@ -17,8 +17,8 @@ export const TECHs = [
         href: 'https://www.npmjs.com/package/next-sitemap',
     },
     {
-        src: '/tech/contentlayer.jpg',
-        srcSet: '/tech/contentlayer.jpg',
+        src: '/tech/contentlayer.png',
+        srcSet: '',
         name: 'Contentlayer',
         description: 'Content made easy for developers',
         category: ['Content'],

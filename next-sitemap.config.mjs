@@ -1,7 +1,7 @@
 const config = {
-    siteUrl: "https://rofireza.com",
+    siteUrl: 'https://rofireza.com',
     generateRobotsTxt: true, // (optional)
     // ...other options
-};
+}
 
-export default config;
+export default config
