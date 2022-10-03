@@ -17,6 +17,14 @@ export const TECHs = [
         href: 'https://www.npmjs.com/package/next-sitemap',
     },
     {
+        src: '/tech/mailjet.png',
+        srcSet: '',
+        name: 'Mailjet',
+        description: 'Web email API',
+        category: ['Content'],
+        href: 'https://www.mailjet.com/products/email-api/',
+    },
+    {
         src: '/tech/contentlayer.png',
         srcSet: '',
         name: 'Contentlayer',
@@ -89,5 +97,14 @@ export const TECHs = [
             'Performant, flexible and extensible forms with easy-to-use validation.',
         category: ['Content'],
         href: 'https://react-hook-form.com/',
+    },
+    {
+        src: '/tech/beautiful-react-hooks.png',
+        srcSet: '',
+        name: 'Beautiful React Hooks',
+        description:
+            'A collection of beautiful React hooks to speed-up your components and hooks development',
+        category: ['Content'],
+        href: 'https://www.npmjs.com/package/beautiful-react-hooks',
     },
 ]
