@@ -107,4 +107,20 @@ export const TECHs = [
         category: ['Content'],
         href: 'https://www.npmjs.com/package/beautiful-react-hooks',
     },
+    {
+        src: '/tech/prisma.png',
+        srcSet: '',
+        name: 'Prisma',
+        description: 'Next-generation Node.js and TypeScript ORM',
+        category: ['Content'],
+        href: 'https://www.prisma.io/',
+    },
+    {
+        src: '/tech/next-auth.png',
+        srcSet: '',
+        name: 'Next Auth',
+        description: 'Authentication for Next.js',
+        category: ['Content'],
+        href: 'https://next-auth.js.org/',
+    },
 ]
