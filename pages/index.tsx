@@ -451,6 +451,6 @@ export async function getStaticProps() {
             data_showcase,
             data_posts,
         },
-        revalidate: 180,
+        revalidate: 360,
     }
 }

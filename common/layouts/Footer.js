@@ -15,7 +15,7 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord'
 import Image from 'next/image'
 import { FaDragon, GiDoubleDragon } from 'react-icons/fa'
 import { useTheme } from '@mui/material'
-import { GiSpikedDragonHead } from 'react-icons/fa/'
+import { GiSpikedDragonHead } from 'react-icons/gi'
 
 const StyledLink = ({ title, url }) => {
     return (
@@ -68,7 +68,7 @@ export default function Footer() {
                             }}
                         >
                             {data?.status === 'offline' ? (
-                                <></>
+                                <GiSpikedDragonHead size={26} />
                             ) : (
                                 <Image
                                     src={'/logo/visual-studio-code-icon.png'}
