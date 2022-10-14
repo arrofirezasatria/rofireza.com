@@ -123,4 +123,12 @@ export const TECHs = [
         category: ['Content'],
         href: 'https://next-auth.js.org/',
     },
+    {
+        src: '/tech/planetscale.svg',
+        srcSet: '',
+        name: 'Planetscale',
+        description: 'The MySQL-compatible serverless database platform',
+        category: ['Content'],
+        href: 'https://planetscale.com/',
+    },
 ]
