@@ -29,6 +29,35 @@
     "time_ago": "3 months ago"
   },
   {
+    "title": "Scalabel Architecture Next JS",
+    "slug": "email-marketing-with-maizzle-and-tailwind-css",
+    "date": "2022-07-17",
+    "summary": "Create powerful email marketing with Maizzle",
+    "image": "",
+    "link": "https://github.com/arrofirezasatria/rofireza.com/blob/main/posts/email-marketing-with-maizzle-and-tailwindcss.mdx",
+    "body": {
+      "raw": "\r\nEmail marketing is a powerful marketing channel that uses email to promote your business products or services. Email marketing is a form of marketing that can make the customers on your email list aware of new products, discounts, and other services.\r\n\r\nHere I will teach you how to create an HTML email with Maizzle and TailwindCSS.\r\n\r\n## 1. Eslint\r\n\r\n## 2. Prettier\r\n\r\n## 3. Husky\r\n\r\n## 4. Engine Locking\r\n\r\n## 5. Git Hooks (Husky)\r\n\r\n## 6. Edit your Email using Tailwind CSS\r\n\r\n## 7. Edit your Email using Tailwind CSS\r\n",
+      "code": "var Component=(()=>{var m=Object.create;var t=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,k=Object.prototype.hasOwnProperty;var p=(e,i)=>()=>(i||e((i={exports:{}}).exports,i),i.exports),w=(e,i)=>{for(var a in i)t(e,a,{get:i[a],enumerable:!0})},c=(e,i,a,r)=>{if(i&&typeof i==\"object\"||typeof i==\"function\")for(let s of u(i))!k.call(e,s)&&s!==a&&t(e,s,{get:()=>i[s],enumerable:!(r=d(i,s))||r.enumerable});return e};var f=(e,i,a)=>(a=e!=null?m(g(e)):{},c(i||!e||!e.__esModule?t(a,\"default\",{value:e,enumerable:!0}):a,e)),y=e=>c(t({},\"__esModule\",{value:!0}),e);var o=p((b,l)=>{l.exports=_jsx_runtime});var E={};w(E,{default:()=>z,frontmatter:()=>N});var n=f(o()),N={title:\"Scalabel Architecture Next JS\",slug:\"email-marketing-with-maizzle-and-tailwind-css\",date:\"2022-07-17\",summary:\"Create powerful email marketing with Maizzle\",image:\"\",link:\"https://github.com/arrofirezasatria/rofireza.com/blob/main/posts/email-marketing-with-maizzle-and-tailwindcss.mdx\"};function h(e){let i=Object.assign({p:\"p\",h2:\"h2\",a:\"a\",span:\"span\"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(i.p,{children:\"Email marketing is a powerful marketing channel that uses email to promote your business products or services. Email marketing is a form of marketing that can make the customers on your email list aware of new products, discounts, and other services.\"}),`\n`,(0,n.jsx)(i.p,{children:\"Here I will teach you how to create an HTML email with Maizzle and TailwindCSS.\"}),`\n`,(0,n.jsxs)(i.h2,{id:\"1-eslint\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#1-eslint\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"1. Eslint\"]}),`\n`,(0,n.jsxs)(i.h2,{id:\"2-prettier\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#2-prettier\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"2. Prettier\"]}),`\n`,(0,n.jsxs)(i.h2,{id:\"3-husky\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#3-husky\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"3. Husky\"]}),`\n`,(0,n.jsxs)(i.h2,{id:\"4-engine-locking\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#4-engine-locking\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"4. Engine Locking\"]}),`\n`,(0,n.jsxs)(i.h2,{id:\"5-git-hooks-husky\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#5-git-hooks-husky\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"5. Git Hooks (Husky)\"]}),`\n`,(0,n.jsxs)(i.h2,{id:\"6-edit-your-email-using-tailwind-css\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#6-edit-your-email-using-tailwind-css\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"6. Edit your Email using Tailwind CSS\"]}),`\n`,(0,n.jsxs)(i.h2,{id:\"7-edit-your-email-using-tailwind-css\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#7-edit-your-email-using-tailwind-css\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"7. Edit your Email using Tailwind CSS\"]})]})}function x(e={}){let{wrapper:i}=e.components||{};return i?(0,n.jsx)(i,Object.assign({},e,{children:(0,n.jsx)(h,e)})):h(e)}var z=x;return y(E);})();\n;return Component;"
+    },
+    "_id": "email-marketing-with-maizzle-and-tailwindcss copy.mdx",
+    "_raw": {
+      "sourceFilePath": "email-marketing-with-maizzle-and-tailwindcss copy.mdx",
+      "sourceFileName": "email-marketing-with-maizzle-and-tailwindcss copy.mdx",
+      "sourceFileDir": ".",
+      "contentType": "mdx",
+      "flattenedPath": "email-marketing-with-maizzle-and-tailwindcss copy"
+    },
+    "type": "Post",
+    "url": "/posts/email-marketing-with-maizzle-and-tailwindcss copy",
+    "reading_time": {
+      "text": "1 min read",
+      "minutes": 0.45,
+      "time": 27000,
+      "words": 90
+    },
+    "time_ago": "2 months ago"
+  },
+  {
     "title": "Email Marketing with Maizzle and Tailwind CSS",
     "slug": "email-marketing-with-maizzle-and-tailwind-css",
     "date": "2022-07-17",
@@ -83,35 +112,6 @@
       "minutes": 2.395,
       "time": 143700,
       "words": 479
-    },
-    "time_ago": "2 months ago"
-  },
-  {
-    "title": "Scalabel Architecture Next JS",
-    "slug": "email-marketing-with-maizzle-and-tailwind-css",
-    "date": "2022-07-17",
-    "summary": "Create powerful email marketing with Maizzle",
-    "image": "",
-    "link": "https://github.com/arrofirezasatria/rofireza.com/blob/main/posts/email-marketing-with-maizzle-and-tailwindcss.mdx",
-    "body": {
-      "raw": "\r\nEmail marketing is a powerful marketing channel that uses email to promote your business products or services. Email marketing is a form of marketing that can make the customers on your email list aware of new products, discounts, and other services.\r\n\r\nHere I will teach you how to create an HTML email with Maizzle and TailwindCSS.\r\n\r\n## 1. Eslint\r\n\r\n## 2. Prettier\r\n\r\n## 3. Husky\r\n\r\n## 4. Engine Locking\r\n\r\n## 5. Git Hooks (Husky)\r\n\r\n## 6. Edit your Email using Tailwind CSS\r\n\r\n## 7. Edit your Email using Tailwind CSS\r\n",
-      "code": "var Component=(()=>{var m=Object.create;var t=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,k=Object.prototype.hasOwnProperty;var p=(e,i)=>()=>(i||e((i={exports:{}}).exports,i),i.exports),w=(e,i)=>{for(var a in i)t(e,a,{get:i[a],enumerable:!0})},c=(e,i,a,r)=>{if(i&&typeof i==\"object\"||typeof i==\"function\")for(let s of u(i))!k.call(e,s)&&s!==a&&t(e,s,{get:()=>i[s],enumerable:!(r=d(i,s))||r.enumerable});return e};var f=(e,i,a)=>(a=e!=null?m(g(e)):{},c(i||!e||!e.__esModule?t(a,\"default\",{value:e,enumerable:!0}):a,e)),y=e=>c(t({},\"__esModule\",{value:!0}),e);var o=p((b,l)=>{l.exports=_jsx_runtime});var E={};w(E,{default:()=>z,frontmatter:()=>N});var n=f(o()),N={title:\"Scalabel Architecture Next JS\",slug:\"email-marketing-with-maizzle-and-tailwind-css\",date:\"2022-07-17\",summary:\"Create powerful email marketing with Maizzle\",image:\"\",link:\"https://github.com/arrofirezasatria/rofireza.com/blob/main/posts/email-marketing-with-maizzle-and-tailwindcss.mdx\"};function h(e){let i=Object.assign({p:\"p\",h2:\"h2\",a:\"a\",span:\"span\"},e.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(i.p,{children:\"Email marketing is a powerful marketing channel that uses email to promote your business products or services. Email marketing is a form of marketing that can make the customers on your email list aware of new products, discounts, and other services.\"}),`\n`,(0,n.jsx)(i.p,{children:\"Here I will teach you how to create an HTML email with Maizzle and TailwindCSS.\"}),`\n`,(0,n.jsxs)(i.h2,{id:\"1-eslint\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#1-eslint\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"1. Eslint\"]}),`\n`,(0,n.jsxs)(i.h2,{id:\"2-prettier\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#2-prettier\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"2. Prettier\"]}),`\n`,(0,n.jsxs)(i.h2,{id:\"3-husky\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#3-husky\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"3. Husky\"]}),`\n`,(0,n.jsxs)(i.h2,{id:\"4-engine-locking\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#4-engine-locking\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"4. Engine Locking\"]}),`\n`,(0,n.jsxs)(i.h2,{id:\"5-git-hooks-husky\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#5-git-hooks-husky\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"5. Git Hooks (Husky)\"]}),`\n`,(0,n.jsxs)(i.h2,{id:\"6-edit-your-email-using-tailwind-css\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#6-edit-your-email-using-tailwind-css\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"6. Edit your Email using Tailwind CSS\"]}),`\n`,(0,n.jsxs)(i.h2,{id:\"7-edit-your-email-using-tailwind-css\",children:[(0,n.jsx)(i.a,{className:\"anchor\",href:\"#7-edit-your-email-using-tailwind-css\",children:(0,n.jsx)(i.span,{className:\"icon icon-link\"})}),\"7. Edit your Email using Tailwind CSS\"]})]})}function x(e={}){let{wrapper:i}=e.components||{};return i?(0,n.jsx)(i,Object.assign({},e,{children:(0,n.jsx)(h,e)})):h(e)}var z=x;return y(E);})();\n;return Component;"
-    },
-    "_id": "email-marketing-with-maizzle-and-tailwindcss copy.mdx",
-    "_raw": {
-      "sourceFilePath": "email-marketing-with-maizzle-and-tailwindcss copy.mdx",
-      "sourceFileName": "email-marketing-with-maizzle-and-tailwindcss copy.mdx",
-      "sourceFileDir": ".",
-      "contentType": "mdx",
-      "flattenedPath": "email-marketing-with-maizzle-and-tailwindcss copy"
-    },
-    "type": "Post",
-    "url": "/posts/email-marketing-with-maizzle-and-tailwindcss copy",
-    "reading_time": {
-      "text": "1 min read",
-      "minutes": 0.45,
-      "time": 27000,
-      "words": 90
     },
     "time_ago": "2 months ago"
   }
