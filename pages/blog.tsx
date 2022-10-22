@@ -72,10 +72,8 @@ export default function Blog({ data_posts }) {
                 Blog
             </Typography>
             <Typography variant="body1">
-                I have been Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Molestias nostrum quaerat eligendi aperiam consequatur
-                asperiores aliquam officiis est assumenda modi sit libero
-                architecto, dolor quidem tempora eius minima quo unde?
+                I have been actively blogging since 2020 for sharing my
+                knowldege and also to taking my notes.
             </Typography>
 
             {/* <Search>

@@ -282,7 +282,7 @@ export default function Home({ data_showcase, data_posts }: data) {
                     variant="h5"
                     sx={{
                         fontWeight: 'bold',
-                        marginBottom: { xs: 2, md: 0 },
+                        marginBottom: { xs: 2, md: 1 },
                         marginTop: '40px',
                     }}
                 >
@@ -302,6 +302,31 @@ export default function Home({ data_showcase, data_posts }: data) {
                         )
                     })}
                 </Stack>
+                <Links href="/blog" passHref>
+                    <Typography
+                        sx={{
+                            my: 1.5,
+                            fontSize: '13px',
+                            lineHeight: 1.2,
+                            fontWeight: 600,
+                            cursor: 'pointer',
+                            textAlign: 'end',
+                            alignItems: 'center',
+                            alignContent: 'center',
+                            '&:hover': {
+                                textDecoration: 'underline',
+                            },
+                        }}
+                    >
+                        {1} &#8226; More Article{' '}
+                        <ArrowRightAltIcon
+                            sx={{
+                                fontSize: '18px',
+                                marginBottom: '-5px !important',
+                            }}
+                        />
+                    </Typography>
+                </Links>
 
                 <Typography
                     component="h3"

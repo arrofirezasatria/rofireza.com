@@ -34,7 +34,7 @@ export default function RecentTech() {
                 <Typography
                     sx={{
                         my: 1.5,
-                        fontSize: '12px',
+                        fontSize: '13px',
                         lineHeight: 1.2,
                         fontWeight: 600,
                         cursor: 'pointer',

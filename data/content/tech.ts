@@ -131,4 +131,13 @@ export const TECHs = [
         category: ['Content'],
         href: 'https://planetscale.com/',
     },
+    {
+        src: '/tech/tailwind-css-icon.svg',
+        srcSet: '',
+        name: 'Tailwind CSS',
+        description:
+            'Rapidly build modern websites without ever leaving your HTML',
+        category: ['Content'],
+        href: 'https://tailwindcss.com/',
+    },
 ]
