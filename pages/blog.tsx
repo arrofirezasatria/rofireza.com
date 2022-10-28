@@ -108,7 +108,7 @@ export default function Blog({ data_posts }) {
                                 reading_time={post.reading_time.text}
                             />
                         )
-                    })}
+                    })} 
                 </Stack>
             </Suspense>
             {/* <>

@@ -289,7 +289,7 @@ export default function Home({ data_showcase, data_posts }: data) {
                     Recent Blog Post.
                 </Typography>
                 <Stack spacing={{ xs: 2, md: 1 }}>
-                    {data_posts.map((post, index) => {
+                    {data_posts.slice(0, 3).map((post, index) => {
                         return (
                             <BlogCard
                                 key={index}

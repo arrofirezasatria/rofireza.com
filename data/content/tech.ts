@@ -41,6 +41,14 @@ export const TECHs = [
         href: 'https://maizzle.com/',
     },
     {
+        src: '/tech/vim.png',
+        srcSet: '',
+        name: 'Vim',
+        description: 'Edit code Instantly on server :)',
+        category: ['Content'],
+        href: 'https://www.vim.org/',
+    },
+    {
         src: '/tech/plaiceholder-logo.jpg',
         srcSet: '/tech/plaiceholder-logo.jpg',
         name: 'Plaiceholder',
@@ -139,5 +147,13 @@ export const TECHs = [
             'Rapidly build modern websites without ever leaving your HTML',
         category: ['Content'],
         href: 'https://tailwindcss.com/',
+    },
+    {
+        src: '/tech/nginx.svg',
+        srcSet: '',
+        name: 'Nginx',
+        description: 'Advanced Load Balancer, Web Server, & Reverse Proxy',
+        category: ['Content'],
+        href: 'https://www.nginx.com/',
     },
 ]
