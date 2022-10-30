@@ -6,7 +6,6 @@ import rehypeSlug from 'rehype-slug'
 import rehypeCodeTitles from 'rehype-code-titles'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypePrism from 'rehype-prism-plus'
-import rehypeHighlight from 'rehype-highlight'
 import { format } from 'timeago.js'
 
 const Post = defineDocumentType(() => ({

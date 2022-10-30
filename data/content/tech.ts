@@ -41,6 +41,14 @@ export const TECHs = [
         href: 'https://maizzle.com/',
     },
     {
+        src: '/tech/vim.png',
+        srcSet: '',
+        name: 'Vim',
+        description: 'Edit code Instantly on server :)',
+        category: ['Content'],
+        href: 'https://www.vim.org/',
+    },
+    {
         src: '/tech/plaiceholder-logo.jpg',
         srcSet: '/tech/plaiceholder-logo.jpg',
         name: 'Plaiceholder',
@@ -122,5 +130,30 @@ export const TECHs = [
         description: 'Authentication for Next.js',
         category: ['Content'],
         href: 'https://next-auth.js.org/',
+    },
+    {
+        src: '/tech/planetscale.svg',
+        srcSet: '',
+        name: 'Planetscale',
+        description: 'The MySQL-compatible serverless database platform',
+        category: ['Content'],
+        href: 'https://planetscale.com/',
+    },
+    {
+        src: '/tech/tailwind-css-icon.svg',
+        srcSet: '',
+        name: 'Tailwind CSS',
+        description:
+            'Rapidly build modern websites without ever leaving your HTML',
+        category: ['Content'],
+        href: 'https://tailwindcss.com/',
+    },
+    {
+        src: '/tech/nginx.svg',
+        srcSet: '',
+        name: 'Nginx',
+        description: 'Advanced Load Balancer, Web Server, & Reverse Proxy',
+        category: ['Content'],
+        href: 'https://www.nginx.com/',
     },
 ]

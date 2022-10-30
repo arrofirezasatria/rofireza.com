@@ -151,7 +151,12 @@ export default function AppBar() {
                                 <Brightness4Icon />
                             )}
                         </IconButton>
-                        {/* <IconButton>
+                        {/* <IconButton
+                            sx={{
+                                border: '1px solid lightGray',
+                                borderRadius: '8px !important',
+                            }}
+                        >
                             <GitHubIcon />
                         </IconButton> */}
                     </Stack>
