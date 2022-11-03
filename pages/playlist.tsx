@@ -1,9 +1,61 @@
 import React from 'react'
 import ContainerHero from '@layouts/ContainerHero'
 import axios from 'axios'
+import {
+    TextField,
+    Typography,
+    Paper,
+    Box,
+    Stack,
+    Grid,
+    Divider,
+} from '@mui/material'
+import SongCard from '@components/hero/SongCard'
 
 export default function playlist() {
-    return <ContainerHero>asd</ContainerHero>
+    const a = ['', '', '', '']
+
+    return (
+        <ContainerHero>
+            <Typography
+                variant="h3"
+                component={'h1'}
+                sx={{ fontWeight: 600, mb: 2, fontFamily: 'rubik' }}
+            >
+                Playlist.
+            </Typography>
+            <Typography variant="body1">
+                Most of the songs I like are from the JPOP genre, and many are
+                from Japanese singers like TUYU, Yorushika, Higedan, Yoasobi,
+                and many more singers.
+            </Typography>
+            <TextField
+                fullWidth
+                size="small"
+                label="Search"
+                id="Search"
+                sx={{ mt: 2 }}
+            />
+            <Divider sx={{ mt: 2, mb: '40px' }} />
+            <Grid container spacing={2}>
+                {a.map((item, index) => {
+                    return (
+                        <Grid item xs={12} md={6} key={index}>
+                            <SongCard
+                                item={{
+                                    src: '',
+                                    srcSet: '',
+                                    name: '',
+                                    description: '',
+                                    href: '',
+                                }}
+                            />
+                        </Grid>
+                    )
+                })}
+            </Grid>
+        </ContainerHero>
+    )
 }
 
 export async function getStaticProps() {
@@ -15,9 +67,13 @@ export async function getStaticProps() {
         )
         .then((res) => res)
 
-    console.log(response.data)
+    const arraySong: any = response.data.items
+
+    console.log(arraySong)
     return {
-        props: {},
+        props: {
+            arraySong,
+        },
         revalidate: 360,
     }
 }
