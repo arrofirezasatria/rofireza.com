@@ -38,21 +38,21 @@ export default function playlist() {
             />
             <Divider sx={{ mt: 2, mb: '40px' }} />
             <Grid container spacing={2}>
-                {a.map((item, index) => {
+                {/* {playlist.map((item, index) => {
                     return (
                         <Grid item xs={12} md={6} key={index}>
                             <SongCard
                                 item={{
                                     src: '',
                                     srcSet: '',
-                                    name: '',
-                                    description: '',
-                                    href: '',
+                                    name: item.title,
+                                    description: 'TUYU',
+                                    href: 'www.google.com',
                                 }}
                             />
                         </Grid>
                     )
-                })}
+                })} */}
             </Grid>
         </ContainerHero>
     )
@@ -63,16 +63,34 @@ export async function getStaticProps() {
 
     const response = await axios
         .get(
-            `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2C%20contentDetails%2C%20status%2C%20id&maxResults=10&playlistId=PLN8AHML34obuWGhlzCszGKG2_9gScbn0Z&key=${youtube_api}`
+            `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2C%20contentDetails%2C%20status%2C%20id&maxResults=2&playlistId=PLN8AHML34obuWGhlzCszGKG2_9gScbn0Z&key=${youtube_api}`
         )
-        .then((res) => res)
+        .then((res) => {
+            const ress = res.data.items.map((item, index) => {
+                const spesificDataSong: {
+                    title: string
+                    singer: string
+                    thumbnail: string
+                } = {
+                    title: item.snippet.title,
+                    singer: item.snippet.videoOwnerChannelTitle,
+                    thumbnail: item.snippet.thumbnails.medium,
+                }
+                return spesificDataSong
+            })
+            return ress
+        })
 
-    const arraySong: any = response.data.items
+    const playlist = {
+        message: 'success',
+        hits: response,
+    }
 
-    console.log(arraySong)
+    console.log(playlist)
+
     return {
         props: {
-            arraySong,
+            data: { b: 'ads' },
         },
         revalidate: 360,
     }

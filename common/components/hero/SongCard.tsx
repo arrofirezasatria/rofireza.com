@@ -4,6 +4,7 @@ import React from 'react'
 import Link from '@mui/material/Link'
 import { useTheme } from '@mui/material/styles'
 import Image from 'next/image'
+import { width } from '@mui/system'
 
 function stringToColor(string: string) {
     let hash = 0
@@ -61,7 +62,8 @@ export default function SongCard({
             // variant="outlined"
             elevation={3}
             sx={{
-                p: 2,
+                // p: 2,
+                position: 'relative',
                 display: 'flex',
                 height: '100%',
                 textDecoration: 'none !important',
@@ -80,6 +82,17 @@ export default function SongCard({
                 },
             }}
         >
+            <Box
+                sx={{
+                    position: 'absolute',
+                    left: 0,
+                    backgroundColor: 'black',
+                    width: '70%',
+                    height: '100%',
+                }}
+            >
+                <Image src="" />
+            </Box>
             <Avatar
                 sizes={'40px'}
                 sx={{
@@ -98,6 +111,8 @@ export default function SongCard({
                     <>{item.name.charAt(0)}</>
                 )}
             </Avatar>
+            {/* <Image src={''} />
+            {/* <Box sx={{ backgroundColor: 'black', width: '72px' }}>asd</Box> */}
             <Box
                 sx={{
                     ml: 2,
