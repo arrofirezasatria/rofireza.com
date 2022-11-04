@@ -5,6 +5,7 @@ import Link from '@mui/material/Link'
 import { useTheme } from '@mui/material/styles'
 import Image from 'next/image'
 import { width } from '@mui/system'
+import playlist from 'pages/playlist'
 
 function stringToColor(string: string) {
     let hash = 0
@@ -65,7 +66,9 @@ export default function SongCard({
                 // p: 2,
                 position: 'relative',
                 display: 'flex',
-                height: '100%',
+                // height: '100%',
+                overflow: 'clip',
+                height: '82px',
                 textDecoration: 'none !important',
                 cursor: 'pointer',
                 backgroundColor:
@@ -82,20 +85,9 @@ export default function SongCard({
                 },
             }}
         >
-            <Box
-                sx={{
-                    position: 'absolute',
-                    left: 0,
-                    backgroundColor: 'black',
-                    width: '70%',
-                    height: '100%',
-                }}
-            >
-                <Image src="" />
-            </Box>
-            <Avatar
+            {/* <Avatar
                 sizes={'40px'}
-                sx={{
+                sx={{as
                     borderRadius: '4px',
                     backgroundColor: 'transparent',
                     color: 'gray',
@@ -105,12 +97,12 @@ export default function SongCard({
                     },
                 }}
             >
-                {item.src ? (
+                {item.src ? (   
                     <Image layout="fill" src={item.src} alt={item.name} />
                 ) : (
                     <>{item.name.charAt(0)}</>
                 )}
-            </Avatar>
+            </Avatar> */}
             {/* <Image src={''} />
             {/* <Box sx={{ backgroundColor: 'black', width: '72px' }}>asd</Box> */}
             <Box
@@ -119,6 +111,8 @@ export default function SongCard({
                     whiteSpace: 'noWrap',
                     overflow: 'hidden',
                     textOverflow: 'ellipsis',
+                    alignItems: 'center',
+                    zIndex: 1,
                 }}
             >
                 <Typography
@@ -136,8 +130,20 @@ export default function SongCard({
                     />
                 </Typography>
                 <Typography variant="body2" color="text.secondary" noWrap>
-                    {item.description}
+                    {/* item.description */}
                 </Typography>
+            </Box>
+            <Box
+                sx={{
+                    position: 'absolute',
+                    left: 0,
+                    backgroundColor: 'lightgray',
+                    width: '70%',
+                    height: '100%',
+                    overflow: 'clip',
+                }}
+            >
+                <Image src={item.description} layout="fill" objectFit="cover" />
             </Box>
         </Paper>
     )

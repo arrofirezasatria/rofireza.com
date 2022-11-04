@@ -11,10 +11,12 @@ import {
     Divider,
 } from '@mui/material'
 import SongCard from '@components/hero/SongCard'
+import Image from 'next/image'
 
-export default function playlist() {
+export default function playlist({ playlist }) {
     const a = ['', '', '', '']
 
+    console.log(playlist)
     return (
         <ContainerHero>
             <Typography
@@ -27,7 +29,8 @@ export default function playlist() {
             <Typography variant="body1">
                 Most of the songs I like are from the JPOP genre, and many are
                 from Japanese singers like TUYU, Yorushika, Higedan, Yoasobi,
-                and many more singers.
+                and many more singers. I Prefer YouTube over spotify because i
+                can enjoy cover song
             </Typography>
             <TextField
                 fullWidth
@@ -38,21 +41,50 @@ export default function playlist() {
             />
             <Divider sx={{ mt: 2, mb: '40px' }} />
             <Grid container spacing={2}>
-                {/* {playlist.map((item, index) => {
+                {playlist.map((item, index) => {
                     return (
-                        <Grid item xs={12} md={6} key={index}>
-                            <SongCard
+                        <Grid item xs={12} md={12} key={index}>
+                            {/* <SongCard
                                 item={{
                                     src: '',
                                     srcSet: '',
                                     name: item.title,
-                                    description: 'TUYU',
+                                    description: item.thumbnail.url,
                                     href: 'www.google.com',
                                 }}
-                            />
+                            /> */}
+                            <Stack direction={'row'} spacing={1}>
+                                <Box
+                                    sx={{
+                                        position: 'relative',
+                                        minWidth: '120px',
+                                        height: '67.14px',
+                                        borderRadius: '8px',
+                                        overflow: 'clip',
+                                    }}
+                                >
+                                    <Image
+                                        src={item.thumbnail.url}
+                                        layout="fill"
+                                    />
+                                </Box>
+                                <Stack
+                                    direction={'column'}
+                                    spacing={0.5}
+                                    sx={{
+                                        flexGrow: 1,
+                                        whiteSpace: 'noWrap',
+                                        overflow: 'hidden',
+                                        textOverflow: 'ellipsis',
+                                    }}
+                                >
+                                    <Typography noWrap>{item.title}</Typography>
+                                    <Typography>{item.singer}</Typography>
+                                </Stack>
+                            </Stack>
                         </Grid>
                     )
-                })} */}
+                })}
             </Grid>
         </ContainerHero>
     )
@@ -61,9 +93,9 @@ export default function playlist() {
 export async function getStaticProps() {
     const youtube_api = process.env.YOUTUBE_API
 
-    const response = await axios
+    const playlist = await axios
         .get(
-            `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2C%20contentDetails%2C%20status%2C%20id&maxResults=2&playlistId=PLN8AHML34obuWGhlzCszGKG2_9gScbn0Z&key=${youtube_api}`
+            `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2C%20contentDetails%2C%20status%2C%20id&maxResults=6&playlistId=PLN8AHML34obuWGhlzCszGKG2_9gScbn0Z&key=${youtube_api}`
         )
         .then((res) => {
             const ress = res.data.items.map((item, index) => {
@@ -73,24 +105,23 @@ export async function getStaticProps() {
                     thumbnail: string
                 } = {
                     title: item.snippet.title,
-                    singer: item.snippet.videoOwnerChannelTitle,
-                    thumbnail: item.snippet.thumbnails.medium,
+                    singer:
+                        item.snippet.videoOwnerChannelTitle === undefined
+                            ? ''
+                            : item.snippet.videoOwnerChannelTitle,
+                    thumbnail:
+                        item.snippet.thumbnails.medium === undefined
+                            ? ''
+                            : item.snippet.thumbnails.medium,
                 }
                 return spesificDataSong
             })
             return ress
         })
 
-    const playlist = {
-        message: 'success',
-        hits: response,
-    }
-
-    console.log(playlist)
-
     return {
         props: {
-            data: { b: 'ads' },
+            playlist,
         },
         revalidate: 360,
     }
