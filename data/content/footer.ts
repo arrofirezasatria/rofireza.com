@@ -13,7 +13,7 @@ export const page = [
     { name: 'Home', link: '/' },
     { name: 'Tech', link: '/tech' },
     { name: 'Blog', link: '/blog' },
-    // { name: 'Video', link: '/video' },
+    { name: 'Snippets', link: '/snippet' },
 ]
 
 export const hobby = [
