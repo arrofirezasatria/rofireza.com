@@ -69,7 +69,7 @@ export default function Blog({ data_posts }) {
                 component={'h1'}
                 sx={{ fontWeight: 600, mb: 2, fontFamily: 'rubik' }}
             >
-                Blog
+                Blog.
             </Typography>
             <Typography variant="body1">
                 I have been actively blogging since 2020 for sharing my
@@ -108,7 +108,7 @@ export default function Blog({ data_posts }) {
                                 reading_time={post.reading_time.text}
                             />
                         )
-                    })} 
+                    })}
                 </Stack>
             </Suspense>
             {/* <>
@@ -127,18 +127,20 @@ export default function Blog({ data_posts }) {
 }
 
 export async function getStaticProps() {
-    const data_posts = allPosts.map((post) =>
-        pick(post, [
-            'title',
-            'slug',
-            'date',
-            'summary',
-            'url',
-            'reading_time',
-            'time_ago',
-            'image',
-        ])
-    )
+    const data_posts = allPosts
+        .filter((post) => post.category === 'article')
+        .map((post) =>
+            pick(post, [
+                'title',
+                'slug',
+                'date',
+                'summary',
+                'url',
+                'reading_time',
+                'time_ago',
+                'image',
+            ])
+        )
 
     return {
         props: { data_posts },
