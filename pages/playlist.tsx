@@ -12,6 +12,8 @@ import {
 } from '@mui/material'
 import SongCard from '@components/hero/SongCard'
 import Image from 'next/image'
+import Link from 'next/link'
+import { fontWeight } from '@mui/system'
 
 export default function playlist({ playlist }) {
     const a = ['', '', '', '']
@@ -30,29 +32,25 @@ export default function playlist({ playlist }) {
                 Most of the songs I like are from the JPOP genre, and many are
                 from Japanese singers like TUYU, Yorushika, Higedan, Yoasobi,
                 and many more singers. I Prefer YouTube over spotify because i
-                can enjoy cover song
+                can enjoy cover song.
             </Typography>
-            <TextField
-                fullWidth
-                size="small"
-                label="Search"
-                id="Search"
-                sx={{ mt: 2 }}
-            />
-            <Divider sx={{ mt: 2, mb: '40px' }} />
+            <Divider sx={{ mt: 2, mb: 2 }} />
+            <Typography
+                variant="h5"
+                component={'h2'}
+                sx={{
+                    fontWeight: 600,
+                    mb: 2,
+                    fontFamily: 'rubik',
+                    color: 'inherit',
+                }}
+            >
+                Recently Added.
+            </Typography>
             <Grid container spacing={2}>
-                {playlist.map((item, index) => {
+                {playlist.slice(0, 5).map((item, index) => {
                     return (
                         <Grid item xs={12} md={12} key={index}>
-                            {/* <SongCard
-                                item={{
-                                    src: '',
-                                    srcSet: '',
-                                    name: item.title,
-                                    description: item.thumbnail.url,
-                                    href: 'www.google.com',
-                                }}
-                            /> */}
                             <Stack direction={'row'} spacing={1}>
                                 <Box
                                     sx={{
@@ -78,7 +76,81 @@ export default function playlist({ playlist }) {
                                         textOverflow: 'ellipsis',
                                     }}
                                 >
-                                    <Typography noWrap>{item.title}</Typography>
+                                    <Link
+                                        href={`https://www.youtube.com/watch?v=${item.videoId}`}
+                                    >
+                                        <Typography
+                                            noWrap
+                                            sx={{
+                                                cursor: 'pointer',
+                                                fontWeight: 500,
+                                            }}
+                                        >
+                                            {item.title}
+                                        </Typography>
+                                    </Link>
+                                    <Typography>{item.singer}</Typography>
+                                </Stack>
+                            </Stack>
+                        </Grid>
+                    )
+                })}
+            </Grid>
+            <Divider sx={{ mt: 3, mb: 2 }} />
+            <Typography
+                variant="h5"
+                component={'h2'}
+                sx={{
+                    fontWeight: 600,
+                    mb: 2,
+                    fontFamily: 'rubik',
+                    color: 'inherit',
+                }}
+            >
+                Random.
+            </Typography>
+            <Grid container spacing={2}>
+                {playlist.slice(5, 10).map((item, index) => {
+                    return (
+                        <Grid item xs={12} md={12} key={index}>
+                            <Stack direction={'row'} spacing={1}>
+                                <Box
+                                    sx={{
+                                        position: 'relative',
+                                        minWidth: '120px',
+                                        height: '67.14px',
+                                        borderRadius: '8px',
+                                        overflow: 'clip',
+                                    }}
+                                >
+                                    <Image
+                                        src={item.thumbnail.url}
+                                        layout="fill"
+                                    />
+                                </Box>
+                                <Stack
+                                    direction={'column'}
+                                    spacing={0.5}
+                                    sx={{
+                                        flexGrow: 1,
+                                        whiteSpace: 'noWrap',
+                                        overflow: 'hidden',
+                                        textOverflow: 'ellipsis',
+                                    }}
+                                >
+                                    <Link
+                                        href={`https://www.youtube.com/watch?v=${item.videoId}`}
+                                    >
+                                        <Typography
+                                            noWrap
+                                            sx={{
+                                                cursor: 'pointer',
+                                                fontWeight: 500,
+                                            }}
+                                        >
+                                            {item.title}
+                                        </Typography>
+                                    </Link>
                                     <Typography>{item.singer}</Typography>
                                 </Stack>
                             </Stack>
@@ -95,7 +167,7 @@ export async function getStaticProps() {
 
     const playlist = await axios
         .get(
-            `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2C%20contentDetails%2C%20status%2C%20id&maxResults=6&playlistId=PLN8AHML34obuWGhlzCszGKG2_9gScbn0Z&key=${youtube_api}`
+            `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2C%20contentDetails%2C%20status%2C%20id&maxResults=20&playlistId=PLN8AHML34obuWGhlzCszGKG2_9gScbn0Z&key=${youtube_api}`
         )
         .then((res) => {
             const ress = res.data.items.map((item, index) => {
@@ -103,6 +175,7 @@ export async function getStaticProps() {
                     title: string
                     singer: string
                     thumbnail: string
+                    videoId
                 } = {
                     title: item.snippet.title,
                     singer:
@@ -113,6 +186,7 @@ export async function getStaticProps() {
                         item.snippet.thumbnails.medium === undefined
                             ? ''
                             : item.snippet.thumbnails.medium,
+                    videoId: item.snippet.resourceId.videoId,
                 }
                 return spesificDataSong
             })

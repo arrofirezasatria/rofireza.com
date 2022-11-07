@@ -1,8 +1,16 @@
+import React, { Suspense } from 'react'
 import ContainerHero from '@layouts/ContainerHero'
-import { Typography } from '@mui/material'
-import React from 'react'
+import { Divider, Stack, TextField, Typography } from '@mui/material'
+import SnippetCard from '@components/post/SnippetCard'
+import { allPosts } from '.contentlayer/generated'
+import { pick } from '@contentlayer/utils'
 
-export default function snippet() {
+export default function snippet({ data_posts }) {
+    const [searchValue, setSearchValue] = React.useState<string>('')
+
+    const filteredBlogPosts = data_posts.filter((post) =>
+        post.title.toLowerCase().includes(searchValue.toLowerCase())
+    )
     return (
         <ContainerHero>
             <Typography
@@ -10,15 +18,74 @@ export default function snippet() {
                 component={'h1'}
                 sx={{ fontWeight: 600, mb: 2, fontFamily: 'rubik' }}
             >
-                Playlist.
+                Snippet.
             </Typography>
             <Typography variant="body1">
-                Most of the songs I like are from the JPOP genre, and many are
-                from Japanese singers like TUYU, Yorushika, Higedan, Yoasobi,
-                and many more singers. I Prefer YouTube over spotify because i
-                can enjoy cover song
+                This is a list of technologies that I have used and this is also
+                a bookmark for my future technology projects.
             </Typography>
-            asd
+            <TextField
+                fullWidth
+                onChange={() => {}}
+                size="small"
+                label="Search"
+                id="Search"
+                sx={{ mt: 2 }}
+            />
+
+            {/* 
+            
+            <Box
+                sx={{ display: 'flex', mt: 2, justifyContent: 'space-around' }}
+            >
+                {techCategory.map((tech, index) => {
+                    return (
+                        <Button key={index} onClick={() => setValue(tech)}>
+                            <Typography variant="subtitle2">{tech}</Typography>
+                        </Button>
+                    )
+                })}
+            </Box> 
+            
+            */}
+            <Divider sx={{ mt: 2, mb: '40px' }} />
+
+            <Suspense fallback={null}>
+                <Stack spacing={2} sx={{ pb: 2, pt: 2 }}>
+                    {filteredBlogPosts.map((post, index) => {
+                        return (
+                            <SnippetCard
+                                key={index}
+                                title={post.title}
+                                url={post.url}
+                                summary={post.summary}
+                                index={index}
+                            />
+                        )
+                    })}
+                </Stack>
+            </Suspense>
         </ContainerHero>
     )
+}
+
+export async function getStaticProps() {
+    const data_posts = allPosts
+        .filter((post) => post.category === 'snippet')
+        .map((post) =>
+            pick(post, [
+                'title',
+                'slug',
+                'date',
+                'summary',
+                'url',
+                'reading_time',
+                'time_ago',
+                'image',
+            ])
+        )
+
+    return {
+        props: { data_posts },
+    }
 }
