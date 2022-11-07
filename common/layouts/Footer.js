@@ -201,6 +201,25 @@ export default function Footer() {
                                 })}
                             </Stack>
                         </Grid>
+                        <Grid item xs={12} md={6}>
+                            <Stack
+                                spacing={1}
+                                sx={{
+                                    fontSize: '16px',
+                                    textDecoration: 'none',
+                                    marginLeft: { xs: 0, md: 6 },
+                                }}
+                            >
+                                {social.map((social) => {
+                                    return (
+                                        <StyledLink
+                                            title={social.name}
+                                            url={social.link}
+                                        />
+                                    )
+                                })}
+                            </Stack>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
