@@ -6,33 +6,3 @@ on:
     pull_request:
         branches: ['**']
 
-jobs:
-    lint:
-        strategy:
-            matrix:
-                node-version: [16]
-                os: [ubuntu-latest]
-        runs-on: ${{ matrix.os }}
-        steps:
-            - uses: appleboy/ssh-action@master
-            - run: npm run lint
-
-    build:
-        strategy:
-            matrix:
-                node-version: [14, 16, 18]
-                os: [ubuntu-latest]
-        runs-on: ${{ matrix.os }}
-        steps:
-            - uses: appleboy/ssh-action@master
-            - run: npm run build
-
-    start:
-        strategy:
-            matrix:
-                node-version: [14, 16, 18]
-                os: [ubuntu-latest]
-        runs-on: ${{ matrix.os }}
-        steps:
-            - uses: appleboy/ssh-action@master
-            - run: npm run build
