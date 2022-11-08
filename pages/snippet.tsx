@@ -1,12 +1,12 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useState } from 'react'
 import ContainerHero from '@layouts/ContainerHero'
 import { Divider, Stack, TextField, Typography } from '@mui/material'
 import SnippetCard from '@components/post/SnippetCard'
 import { allPosts } from '.contentlayer/generated'
 import { pick } from '@contentlayer/utils'
 
-export default function snippet({ data_posts }) {
-    const [searchValue, setSearchValue] = React.useState<string>('')
+export default function Snippet({ data_posts }) {
+    const [searchValue, setSearchValue] = useState<string>('')
 
     const filteredBlogPosts = data_posts.filter((post) =>
         post.title.toLowerCase().includes(searchValue.toLowerCase())
