@@ -68,11 +68,5 @@
         "rehype-slug": "5.0.1",
         "remark-gfm": "^3.0.1",
         "typescript": "^4.8.4"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "",
-            "pre-push": ""
-        }
     }
 }
