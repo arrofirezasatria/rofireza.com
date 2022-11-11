@@ -318,7 +318,7 @@ export default function Home({ data_showcase, data_posts }: data) {
                             },
                         }}
                     >
-                        {1} &#8226; More Article{' '}
+                        {0} &#8226; More Article{' '}
                         <ArrowRightAltIcon
                             sx={{
                                 fontSize: '18px',

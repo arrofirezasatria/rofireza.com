@@ -48,7 +48,7 @@ export default function Snippet({ data_posts }) {
             </Box> 
             
             */}
-            <Divider sx={{ mt: 2, mb: '40px' }} />
+            <Divider sx={{ mt: 2, mb: '16px' }} />
 
             <Suspense fallback={null}>
                 <Stack spacing={2} sx={{ pb: 2, pt: 2 }}>

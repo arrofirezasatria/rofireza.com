@@ -48,53 +48,58 @@ export default function playlist({ playlist }) {
                 Recently Added.
             </Typography>
             <Grid container spacing={2}>
-                {playlist.slice(0, 5).map((item, index) => {
-                    return (
-                        <Grid item xs={12} md={12} key={index}>
-                            <Stack direction={'row'} spacing={1}>
-                                <Box
-                                    sx={{
-                                        position: 'relative',
-                                        minWidth: '120px',
-                                        height: '67.14px',
-                                        borderRadius: '8px',
-                                        overflow: 'clip',
-                                    }}
-                                >
-                                    <Image
-                                        src={item.thumbnail.url}
-                                        layout="fill"
-                                    />
-                                </Box>
-                                <Stack
-                                    direction={'column'}
-                                    spacing={0.5}
-                                    sx={{
-                                        flexGrow: 1,
-                                        whiteSpace: 'noWrap',
-                                        overflow: 'hidden',
-                                        textOverflow: 'ellipsis',
-                                    }}
-                                >
-                                    <Link
-                                        href={`https://www.youtube.com/watch?v=${item.videoId}`}
+                {playlist
+                    // .reverse()
+
+                    .map((item, index) => {
+                        return (
+                            <Grid item xs={12} md={12} key={index}>
+                                <Stack direction={'row'} spacing={1}>
+                                    <Box
+                                        sx={{
+                                            position: 'relative',
+                                            minWidth: '120px',
+                                            height: '67.14px',
+                                            borderRadius: '8px',
+                                            overflow: 'clip',
+                                        }}
                                     >
-                                        <Typography
-                                            noWrap
-                                            sx={{
-                                                cursor: 'pointer',
-                                                fontWeight: 500,
-                                            }}
+                                        <Image
+                                            src={item.thumbnail.url}
+                                            layout="fill"
+                                        />
+                                    </Box>
+                                    <Stack
+                                        direction={'column'}
+                                        spacing={0.5}
+                                        sx={{
+                                            flexGrow: 1,
+                                            whiteSpace: 'noWrap',
+                                            overflow: 'hidden',
+                                            textOverflow: 'ellipsis',
+                                        }}
+                                    >
+                                        <Link
+                                            href={`https://www.youtube.com/watch?v=${item.videoId}`}
                                         >
-                                            {item.title}
-                                        </Typography>
-                                    </Link>
-                                    <Typography>{item.singer}</Typography>
+                                            <Typography
+                                                noWrap
+                                                sx={{
+                                                    cursor: 'pointer',
+                                                    fontWeight: 500,
+                                                }}
+                                            >
+                                                {item.title}
+                                            </Typography>
+                                        </Link>
+                                        <Typography>{item.singer}</Typography>
+                                    </Stack>
                                 </Stack>
-                            </Stack>
-                        </Grid>
-                    )
-                })}
+                            </Grid>
+                        )
+                    })
+                    .reverse()
+                    .slice(0, 5)}
             </Grid>
             <Divider sx={{ mt: 3, mb: 2 }} />
             <Typography
@@ -110,53 +115,56 @@ export default function playlist({ playlist }) {
                 Random.
             </Typography>
             <Grid container spacing={2}>
-                {playlist.slice(5, 10).map((item, index) => {
-                    return (
-                        <Grid item xs={12} md={12} key={index}>
-                            <Stack direction={'row'} spacing={1}>
-                                <Box
-                                    sx={{
-                                        position: 'relative',
-                                        minWidth: '120px',
-                                        height: '67.14px',
-                                        borderRadius: '8px',
-                                        overflow: 'clip',
-                                    }}
-                                >
-                                    <Image
-                                        src={item.thumbnail.url}
-                                        layout="fill"
-                                    />
-                                </Box>
-                                <Stack
-                                    direction={'column'}
-                                    spacing={0.5}
-                                    sx={{
-                                        flexGrow: 1,
-                                        whiteSpace: 'noWrap',
-                                        overflow: 'hidden',
-                                        textOverflow: 'ellipsis',
-                                    }}
-                                >
-                                    <Link
-                                        href={`https://www.youtube.com/watch?v=${item.videoId}`}
+                {playlist
+                    .map((item, index) => {
+                        return (
+                            <Grid item xs={12} md={12} key={index}>
+                                <Stack direction={'row'} spacing={1}>
+                                    <Box
+                                        sx={{
+                                            position: 'relative',
+                                            minWidth: '120px',
+                                            height: '67.14px',
+                                            borderRadius: '8px',
+                                            overflow: 'clip',
+                                        }}
                                     >
-                                        <Typography
-                                            noWrap
-                                            sx={{
-                                                cursor: 'pointer',
-                                                fontWeight: 500,
-                                            }}
+                                        <Image
+                                            src={item.thumbnail.url}
+                                            layout="fill"
+                                        />
+                                    </Box>
+                                    <Stack
+                                        direction={'column'}
+                                        spacing={0.5}
+                                        sx={{
+                                            flexGrow: 1,
+                                            whiteSpace: 'noWrap',
+                                            overflow: 'hidden',
+                                            textOverflow: 'ellipsis',
+                                        }}
+                                    >
+                                        <Link
+                                            href={`https://www.youtube.com/watch?v=${item.videoId}`}
                                         >
-                                            {item.title}
-                                        </Typography>
-                                    </Link>
-                                    <Typography>{item.singer}</Typography>
+                                            <Typography
+                                                noWrap
+                                                sx={{
+                                                    cursor: 'pointer',
+                                                    fontWeight: 500,
+                                                }}
+                                            >
+                                                {item.title}
+                                            </Typography>
+                                        </Link>
+                                        <Typography>{item.singer}</Typography>
+                                    </Stack>
                                 </Stack>
-                            </Stack>
-                        </Grid>
-                    )
-                })}
+                            </Grid>
+                        )
+                    })
+                    .reverse()
+                    .slice(5, 10)}
             </Grid>
         </ContainerHero>
     )
